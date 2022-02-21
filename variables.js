@@ -11,8 +11,8 @@ let isYellow = false;  // boolean 0
                             // }
 let user = {};  // object
 let myArray = [];  // object / array
-let isBlue = null;
-let notHere = undefined;
+let isBlue = null;  // kai isvalom kintamojo reiksme buna null
+let notHere = undefined;  // kai sukuriam kintamaji jis buna undefined
 let blur;
 // blur = 'labas';    
 console.log(blur);  // undefined bus
@@ -24,4 +24,4 @@ var z = 25;
 // y = 100; // viskas ok
 
 // string tipo duomens pavertimas i skaiciu
-w = Number(y);  // parseInt() irgi ok   -----jei be sito ismeta 3050 - automatiskai pavers i stringa ir 30
+w = Number(w);  // parseInt() irgi ok   -----jei be sito ismeta 3050 - automatiskai pavers i stringa ir 30
