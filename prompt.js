@@ -58,12 +58,14 @@ const daugybaDvieju = sk1 * sk2;
 console.log(sk1 + ' * ' + sk2 + ' = ' + daugybaDvieju);
 
 // paimti 2 skaicius ir juos sudeti
-let sk1 = prompt('Iveskite pirmaji skaiciu:');
-let sk2 = prompt('Iveskite antraji skaiciu:');
-let sudetis = Number(sk1) + Number(sk2);  // hmm man nemete situo budu kad reikia butinai let daryti vietoj const viska
+const sk1 = prompt('Iveskite pirmaji skaiciu:');
+const sk2 = prompt('Iveskite antraji skaiciu:');
+const sudetis = Number(sk1) + Number(sk2);  // hmm man nemete situo budu kad reikia butinai let daryti vietoj const viska
 console.log(sk1 + ' + ' + sk2 + ' = ' + sudetis);
     // arba
-    sk1 = Number(sk1);  //let o ne const
+    let sk1 = prompt('Iveskite pirmaji skaiciu:');
+    let sk2 = prompt('Iveskite antraji skaiciu:');
+    sk1 = Number(sk1);  //let, o ne const
     sk2 = Number(sk2);
     console.log(sk1 + sk2);
 
