@@ -17,8 +17,11 @@ let blur;
 // blur = 'labas';    
 console.log(blur);  // undefined bus
 
-// var - senesio tipo globalus kintamasis
+// var - senesio tipo globalus kintamasis, gyvena visam kode, o anie veikia tik to pvz 'if' viduje
 var z = 25;
 
 // x = 50; // jeigu dabar perrasysim, tai ismes klaida, nes x yra contanta, nekeiciamas
 // y = 100; // viskas ok
+
+// string tipo duomens pavertimas i skaiciu
+w = Number(y);  // parseInt() irgi ok   -----jei be sito ismeta 3050 - automatiskai pavers i stringa ir 30
