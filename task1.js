@@ -1,7 +1,7 @@
 'use strict';
 
 let name = "Iveta";
-let country = "kosmosa";
+let country = "LT";
 let bestNumber = 13;
 let bestWeekDay = 6;
 
@@ -33,6 +33,5 @@ console.log(sen1 + sen2 + sen3);
 // x element render i HTML
 const x = document.getElementById('tekstas');
 console.log(x);
-// pakeiciam teksta jo
-x.textContent = sentence;
-// x.innerHTML = daugyba;  //panasiai atspausdina
+x.textContent = sentence;  // pakeiciam teksta jo
+// x.innerHTML = daugyba;  // panasiai veikia
