@@ -21,14 +21,13 @@ if (name.length > 6) {
 
 const age = 101;
 
-const age = 101;
-
 if (0 <= age && age <= 18) {
     console.log('Child');
 } else if (19 <= age && age <= 100) {
     console.log('Adult');
 } else {
     console.log('Invalid age');
+}
 
 /* 
 if (age < 0 || 100 < age) {
@@ -43,3 +42,12 @@ if (age < 0 || 100 < age) {
 VW group priklauso: VW, Audi, Bentley, Bugatti, Lamborghini, Porsche.
 BMW group priklauso: BMW, Mini, Rolls-Royce. */
 
+const car = 'Mini';
+
+if (car === 'VW' || car === 'Audi' || car === 'Bentley' || car === 'Bugatti' || car === 'Lamborghini' || car === 'Porsche') {
+    console.log('VW Group');
+} else if (car === 'BMW' || car === 'Mini' || car === 'Rolls-Royce') {
+    console.log('BMW Group');
+} else {
+    console.log('Nepriklauso nei vienam');
+}
