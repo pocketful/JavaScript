@@ -14,7 +14,7 @@ const password = 'Iveta11';
 
 if (login === 'admin' && password === 'master') {
     console.log(`Sveiki, admin`);
-} else if (login && password === login+11) {
+} else if (login && password === login + 11) {
     console.log(`Sveiki, ${login}`);
 } else if (!login && !password) {
     console.log(`Viso gero!`);
