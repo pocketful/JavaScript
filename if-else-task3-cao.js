@@ -17,10 +17,29 @@ if (name.length > 6) {
     console.log('Ilgas vardas')
 }
 
-/* 3. Sukurt kintamąjį su savo amžiumi. Patikrink: jei amžius didesnis nei 100, arba mažesnis nei 0 - tegul išmeta "Invalid age"; jei tarp 1 ir 18 - "Child"; jei tarp 19 ir 99 - "Adult". */
+/* 3. Sukurt kintamąjį su savo amžiumi. Patikrink: jei amžius didesnis nei 100, arba mažesnis nei 0 - tegul išmeta "Invalid age"; jei tarp 1 ir 18 - "Child"; jei tarp 19 ir 99 - "Adult". */   // Nulis, simtas?? 
 
+const age = 101;
 
+const age = 101;
+
+if (0 <= age && age <= 18) {
+    console.log('Child');
+} else if (19 <= age && age <= 100) {
+    console.log('Adult');
+} else {
+    console.log('Invalid age');
+
+/* 
+if (age < 0 || 100 < age) {
+    console.log('Invalid age');
+} else if (0 <= age && age <= 18) {
+    console.log('Child');
+} else if (19 <= age && age <= 100) {
+    console.log('Adult');
+} */
 
 /* 4. Sukurk variable 'car', kuris bus lygus kažkokiam automobilio prekės ženklui. Sukurk if-else, kuris pasakys ar tas brand'as priklauso VW Group, ar BMW Group, ar nei vienam.
 VW group priklauso: VW, Audi, Bentley, Bugatti, Lamborghini, Porsche.
 BMW group priklauso: BMW, Mini, Rolls-Royce. */
+
