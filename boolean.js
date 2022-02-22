@@ -63,3 +63,11 @@ false || false                          // false
 
 true || false  // true
 true && false  // false
+
+/*
+https://www.sitepoint.com/javascript-truthy-falsy/
+Unexpected situations can occur when comparing truthy and falsy values using the == loose equality
+* Avoid direct comparisons. use 'if (!x)' instead 'if (x == false)'
+* Use '===' strict equality or '!==' strict inequality) comparisons to compare values and avoid type conversion issues with '==' or '!='
+* Convert to real Boolean values where necessary 'if (Boolean(x) === Boolean(y))' or 'if (!!x === !!y)' instead of 'if (x === y)'
+*/
