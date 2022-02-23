@@ -9,14 +9,14 @@
 // const login = prompt('Įveskite prisijungimo vardą:');
 // const password = prompt('Įveskite slaptažodį:');
 
-const login = 'admin';
-const password = 'admin11';
+const login = 'iveta';
+const password = 'iveta11';
 
 if (login === 'admin' && password === 'master') {
     console.log('Sveiki, admin');
 } else if (login !== 'admin' && password === login + '11') {
     console.log(`Sveiki, ${login}`);
-} else if (!login && !password) {
+} else if (!login || !password) {
     console.log('Viso gero!');
 } else {
     console.log('Neteisingas slaptažodis'); // arba prisijungimo vardas
