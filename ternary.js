@@ -46,9 +46,9 @@ answer = isItRaining ? 'lyja' : 'giedra'
 console.log(`Siandien ${answer}`);
 
 // arba tiesiog
-const isItRaining2 = false;
-isItRaining2 ? console.log(`Siandien lyjaa`) : console.log(`Siandien giedraa`)
-// isItRaining2 == true ? console.log(`Siandien lyjaa`) : console.log(`Siandien giedraa`) // tas pats
+const isItRainingg = false;
+isItRainingg ? console.log(`Siandien lyjaa`) : console.log(`Siandien giedraa`)
+// isItRainingg == true ? console.log(`Siandien lyjaa`) : console.log(`Siandien giedraa`) // tas pats
 
 /* ------------------------------------------------------------- */
 // susikurti buildingArea kintamaji
@@ -84,10 +84,60 @@ const weatherr = isRainny === true ? 'lyja' : isSunny === true ? 'sauleta' : 'de
 console.log(`Siandienn ${weatherr}`);
 
 // formatted
-const weatherr = 
+const weatherrr = 
 isRainny === true 
 ? 'lyja' 
 : isSunny === true 
 ? 'sauleta' 
 : 'debesuota';
-console.log(`Siandienn ${weatherr}`);
+console.log(`Siandiennn ${weatherrr}`);
+
+
+/* CAO */ /* ----------------------------------------------------------- */
+/* Parašykite variable su jūsų vardu. Pasiklauskite, jei vardo ilgis trumpesnis nei 5 simboliai - tegul išmeta konsolėje "Short Name", kitaip - "Long Name". */
+
+const name = 'iveta';
+
+if (name.length < 5) {
+    console.log('Short name');
+} else {
+    console.log('Long name');
+}
+
+name.length < 5 ? console.log('Short name') : console.log('Long name')
+
+/* CAO */ /* ----------------------------------------------------------- */
+/* Sukurkite du kintamuosius: 'clientAge' ir 'legalAge'. Patikriname ar vartotojas gali vairuoti automobilį - t.y. clientAge didesnis arba lygus legalAge. Jei taip - išmeta 'Can Drive', kitaip 'Can't drive'. */
+
+const clientAge = 1;
+const legalAge = 18;
+
+if (clientAge > legalAge) {
+    console.log('Can drive');
+} else {
+    console.log('Can\'t drive');
+}
+
+clientAge > legalAge ? console.log("Can drive") : console.log("Can't drive")
+
+/* CAO */ /* ----------------------------------------------------------- */
+/* Ahh, o jeigu antrame pratime įvesti -1 kaip amžių? Darom double ternary operator - t.y. operatorius operatoriuje. Pirma paklausiame - jei amžius mažesnis nei 0; arba didesnis nei 120 - išmetame "Invalid Age". Jei vis tik ne - tada false statement'e bus dar vienas operatorius su antru pratimo klausimu. */
+
+if (clientAge < 0 || clientAge > 120) {
+    console.log('Invalid Agee');
+} else if (clientAge > legalAge) {
+    console.log('Can drivee');
+} else {
+    console.log('Can\'t drivee');
+}
+
+clientAge < 0 || clientAge > 120 ? console.log("Invalid Agee") : clientAge > legalAge ? console.log("Can drivee") : console.log("Can't drivee")
+
+/* CAO */ /* ----------------------------------------------------------- */
+/* Sukurkite variable 'phone', kuris būtų lygus 'iPhone'. Taip pat sukurkite variable isIphoneUser, kuris turėtų būti prilygintas Boolean reikšmei (t.y. true arba false) priklausomai ar phone yra 'iPhone' ar bet koks kitas. 
+Padarei? O naudojai ternary operator? O kam? Ne visada reikia conditional statementų, kad pasiektume rezultatą - jie dažniausiai skirti, kai norime paleisti skirtingas kodo eilutes. O jei tik norime sužinoti ar true, ar false - galime tiesiog paprasčiausiai paklausti. */
+
+const phone = 'iPhone';
+const isIphoneUser = phone === 'iPhone';
+console.log(isIphoneUser);
+
