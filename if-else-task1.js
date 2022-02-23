@@ -56,8 +56,7 @@ if (typeof x1 === 'string' || typeof x2 === 'string') {
 18-60 - suauges
 61-100 - saulelydis
 daugiau nei 100 - nezinau ar tiesa kad naudojiesi kompiuteriu...
-
-extra: paduota neigiama reiksme paverciama teigiama
+paduota neigiama reiksme paverciama teigiama
 */
 
 let age = -60;
