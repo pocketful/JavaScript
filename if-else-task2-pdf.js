@@ -13,11 +13,11 @@ const login = 'Iveta';
 const password = 'Iveta11';
 
 if (login === 'admin' && password === 'master') {
-    console.log(`Sveiki, admin`);
-} else if (login && password === login + 11) {
+    console.log('Sveiki, admin');
+} else if (login && password === login + '11') {
     console.log(`Sveiki, ${login}`);
 } else if (!login && !password) {
-    console.log(`Viso gero!`);
+    console.log('Viso gero!');
 } else {
-    console.log(`Neteisingas slaptažodis`); // arba prisijungimo vardas
+    console.log('Neteisingas slaptažodis'); // arba prisijungimo vardas
 }
