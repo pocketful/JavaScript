@@ -9,12 +9,12 @@
 // const login = prompt('Įveskite prisijungimo vardą:');
 // const password = prompt('Įveskite slaptažodį:');
 
-const login = 'Iveta';
-const password = 'Iveta11';
+const login = 'admin';
+const password = 'admin11';
 
 if (login === 'admin' && password === 'master') {
     console.log('Sveiki, admin');
-} else if (login && password === login + '11') {
+} else if (login !== 'admin' && password === login + '11') {
     console.log(`Sveiki, ${login}`);
 } else if (!login && !password) {
     console.log('Viso gero!');
