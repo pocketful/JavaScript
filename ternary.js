@@ -124,14 +124,14 @@ clientAge > legalAge ? console.log("Can drive") : console.log("Can't drive")
 /* Ahh, o jeigu antrame pratime įvesti -1 kaip amžių? Darom double ternary operator - t.y. operatorius operatoriuje. Pirma paklausiame - jei amžius mažesnis nei 0; arba didesnis nei 120 - išmetame "Invalid Age". Jei vis tik ne - tada false statement'e bus dar vienas operatorius su antru pratimo klausimu. */
 
 if (clientAge < 0 || clientAge > 120) {
-    console.log('Invalid Agee');
+    console.log('Invalid agee');
 } else if (clientAge > legalAge) {
     console.log('Can drivee');
 } else {
     console.log('Can\'t drivee');
 }
 
-clientAge < 0 || clientAge > 120 ? console.log("Invalid Agee") : clientAge > legalAge ? console.log("Can drivee") : console.log("Can't drivee")
+clientAge < 0 || clientAge > 120 ? console.log("Invalid agee") : clientAge > legalAge ? console.log("Can drivee") : console.log("Can't drivee")
 
 /* CAO */ /* ----------------------------------------------------------- */
 /* Sukurkite variable 'phone', kuris būtų lygus 'iPhone'. Taip pat sukurkite variable isIphoneUser, kuris turėtų būti prilygintas Boolean reikšmei (t.y. true arba false) priklausomai ar phone yra 'iPhone' ar bet koks kitas. 

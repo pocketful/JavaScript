@@ -97,3 +97,26 @@ for (let i = 11; i <= 22; i++) {
     // console.log(y);
     console.log(`${i} * 2 + 7 = ${i * 2 + 7}`);
 }
+
+
+/* CAO */ /* ----------------------------------------------------------- */
+/* Padaryk, kad kompiuteris 10 kartų paconsole'intų tavo vardą (atsimink, konsolė tas pačias eilutes grupuoja ir šalia parašo skaičiuką dažniausiai, vietoj to, kad išmestų kiekvienoje eilutėje). */
+for (let i = 0; i < 10; i++) {
+    console.log('Iveta');
+}
+
+/* Pakoreguok pirmą pratimą, kad tiek vardas, tiek kiek kartų kartos - būtų kintamieji. */ 
+const vardas = 'Iveta';
+let counter;
+for (counter = 0; counter < 10; counter++) {
+    console.log(vardas);
+}
+/* Prie savo vardo atspaudink ir 'i' raidę, t.y. kelintas ciklas yra (pvz.: "0. Petras", "1. Petras", "2. Petras")... */
+for (counter = 0; counter < 10; counter++) {
+    console.log(`${counter}. ${vardas}`);
+}
+
+/* Parašyk for loopą, kuris atspaudins nuo 10 iki 1 countdown konsolėje. */
+for (let sk = 10; sk > 0; sk--) {
+    console.log(sk);
+}
