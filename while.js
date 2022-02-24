@@ -5,8 +5,8 @@ while (w < 10) {
     w++;
 }
 
-
-/* do while 0-9 */
+/* do while skiriasi nuo while, nes pasileidzia bent viena karta butinai
+/* do while 0-9 */ 
 i = 0;
 do {
     console.log('do while loop', i);
@@ -44,3 +44,35 @@ while (skk < 5) {
   skk++;
 }
 document.getElementById("whileText").innerHTML = textt;
+
+
+/* CAO */ /* ----------------------------------------------------------- */
+/* ------------------ WHILE LOOP ------------------- */
+/* Su while ciklu pasirašykite, kad jūsų vardą alertintų 3 kartus. */
+
+let i = 0;
+
+while (i < 3) {
+    // alert('Iveta'); 
+    console.log('Iveta');
+    i++;
+}
+
+/* ------------------ DO LOOP ------------------- */
+/* Sukurkite kintamąjį (let combo = ""). Kiekvieną kartą paleidus loopą į combo prisirašo jūsų vardas (t.y. combo += "Petras" viduje while loop). Sukurkite programą, kur bus kintamasis (const times = 5), kuris nurodys kiek kartų combo atsiras jūsų vardas. Jei skaičius 0 ar neigiamas - vis tiek bent vieną kartą atsiras jūsų vardas.
+Pvz:
+times = 0; combo = "Petras"
+times = 1; combo = "Petras"
+times = 2; combo = "PetrasPetras"
+times = 3; combo = "PetrasPetrasPetras" */
+
+let combo = "";
+const times = 5;
+let j = 0;
+
+do {
+    combo += "Iveta";
+    j++;
+    console.log(`times = ${j}; combo = "${combo}"`);
+} while (j < times);
+
