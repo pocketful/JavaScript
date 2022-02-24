@@ -43,13 +43,13 @@ console.log('Gaulutine sum ===', sum);
 
 
 /* sudauginti skaicius nuo 60 iki 70 */   /* (60 * 61 * 62 * 63 * 64 * 65 * 66 * 67 * 68 * 69 * 70) */
-let sum = 60;
-for (let i = 61; i <= 70; i++) {
-    console.log('i ===', i);
-    sum = sum * i;  // sum *= i;
-    console.log('sum ===', sum);
+let daugyba = 60;  // arba 1, bet tada papildomas pradzioj veiksmas vienas
+for (let i = 61; i <= 70; i++) {   // arba nuo 60, bet tada papildomas pradzioj veiksmas vienas
+    console.log(`${daugyba} * ${i}`);
+    daugyba *= i;
+    console.log('daugyba ===', daugyba);
 }
-console.log('Galutine sum ===', sum);
+console.log('Galutine daugyba ===', daugyba);
 
 
     /* 60 * 61, 60 * 62, 60 * 63.. */
@@ -85,17 +85,17 @@ console.log(`Skaiciu nuo 2 iki 10 suma yra ${sum}, o juos padalinus is ${counter
 
 /* paimti skaicius nuo 11 iki 22 ir atspausdinti kiekviena skaiciu padauginta is 2 */
 for (let i = 11; i <= 22; i++) {
-    // let y = i * 2;
-    // console.log(y);
-    console.log(`${i} * 2 = ${i * 2}`);
+    let y = i * 2;
+    console.log(y);
+    // console.log(`${i} * 2 = ${i * 2}`);
 }
 
 
 /* paimti skaicius nuo 11 iki 22 ir atspausdinti kiekviena skaiciu padauginta is 2 ir prideta 7 */
 for (let i = 11; i <= 22; i++) {
-    // let y = i * 2 + 7;
-    // console.log(y);
-    console.log(`${i} * 2 + 7 = ${i * 2 + 7}`);
+    let y = i * 2 + 7;
+    console.log(y);
+    // console.log(`${i} * 2 + 7 = ${i * 2 + 7}`);
 }
 
 
@@ -107,13 +107,13 @@ for (let i = 0; i < 10; i++) {
 
 /* Pakoreguok pirmą pratimą, kad tiek vardas, tiek kiek kartų kartos - būtų kintamieji. */ 
 const vardas = 'Iveta';
-let counter;
-for (counter = 0; counter < 10; counter++) {
+const n = 10;
+for (let j = 0; j < n; j++) {
     console.log(vardas);
 }
 /* Prie savo vardo atspaudink ir 'i' raidę, t.y. kelintas ciklas yra (pvz.: "0. Petras", "1. Petras", "2. Petras")... */
-for (counter = 0; counter < 10; counter++) {
-    console.log(`${counter}. ${vardas}`);
+for (let j = 0; j < n; j++) {
+    console.log(`${j}. ${vardas}`);
 }
 
 /* Parašyk for loopą, kuris atspaudins nuo 10 iki 1 countdown konsolėje. */
