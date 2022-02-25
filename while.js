@@ -46,7 +46,7 @@ while (skk < 5) {
 document.getElementById("whileText").innerHTML = textt;
 
 
-/* CAO */ /* ----------------------------------------------------------- */
+/* CAO */ /* ============================== */
 /* ------------------ WHILE LOOP ------------------- */
 /* Su while ciklu pasirašykite, kad jūsų vardą alertintų 3 kartus. */
 

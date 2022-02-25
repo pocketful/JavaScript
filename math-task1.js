@@ -53,7 +53,7 @@ console.log(`Kambario sienu plotas be 2 langu ir duru: ${sienuPlotasBe}`);
 
 // console.log(`Kambario sienu plotas be 2 langu ir duru: ${aukstis * (ilgis * 2 + plotis * 2) - 1.5 * 1.5 * 2 - 0.8 * 2}`);
 
-/* CAO */ /* ----------------------------------------------------------- */
+/* CAO */ /* ============================================================== */
 
 /* Suskaičiuok su JS koks bus cos(0) (t.y. cos, kai kampas 0 radians). Hint, atsakymas: 1. */
 const x = 0; // angle in radians

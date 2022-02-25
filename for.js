@@ -99,7 +99,7 @@ for (let i = 11; i <= 22; i++) {
 }
 
 
-/* CAO */ /* ----------------------------------------------------------- */
+/* CAO */ /* ======================================= */
 /* Padaryk, kad kompiuteris 10 kartų paconsole'intų tavo vardą (atsimink, konsolė tas pačias eilutes grupuoja ir šalia parašo skaičiuką dažniausiai, vietoj to, kad išmestų kiekvienoje eilutėje). */
 for (let i = 0; i < 10; i++) {
     console.log('Iveta');

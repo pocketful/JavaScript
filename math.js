@@ -10,6 +10,7 @@ console.log('Math.floor(number) ===', Math.floor(number)); // rounded down to it
 // console.log(Math.floor(5.95)); - expected output: 5
 // console.log(Math.floor(-5.05)); - expected output: -6
 console.log('Math.trunc(number) ===', Math.trunc(number)); // returns the integer part of x
+console.log(`Du sk po kablelio ${number.toFixed(2)}`); // suapvalina du skaiciai po kablelio
 
 // min max
 console.log('Math.min(0, 150, 30, 20, -8, -200) ===', Math.min(0, 150, 30, 20, -8, -200));
@@ -24,3 +25,4 @@ points = Math.random(); // Nuo 0 - 1  console.log(points)
 points = Math.random() * 10; // 0 - 10 reikia padauginti is 10
 
 points = Math.floor(Math.random() * 11) + 2; // returns a random integer between 2 and 11 (both included)
+

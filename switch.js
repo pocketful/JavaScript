@@ -89,7 +89,7 @@ if (age < 18) {
 }
 
 
-/* CAO */ /* ----------------------------------------------------------- */
+/* CAO */ /* ============================================== */
 /* Sukurk variable 'car', kuris bus lygus kažkokiam automobilio prekės ženklui. Sukurk if-else, kuris pasakys ar tas brand'as priklauso VW Group, ar BMW Group, ar nei vienam.
 VW group priklauso: VW, Audi, Bentley, Bugatti, Lamborghini, Porsche.
 BMW group priklauso: BMW, Mini, Rolls-Royce. */
@@ -124,7 +124,7 @@ if (car === 'VW' || car === 'Audi' || car === 'Bentley' || car === 'Bugatti' || 
   console.log('if else: Nepriklauso nei vienam');
 }
 
-/* CAO */ /* ----------------------------------------------------------- */
+
 /* Sukurkite variable 'userInput' ir pradžioje prilyginkite 'Obuolys'. Su Switch statement apsirašyk, kad pasakytų ar vartotojo įvestas laukelis - vaisius ar daržovė. Pridėkite bent 5 kiekvienos kategorijos. */
 
 const userInput = 'Obuolys';
@@ -148,7 +148,7 @@ switch(userInput) {
     console.log('Nei vaisius, nei darzove');
 }
 
-/* CAO */ /* ----------------------------------------------------------- */
+
 /* Kokia šiandien diena? Sukurkite variable 'weekDay', kuris būtų lygus skaičiui - savaitės dienai, skaičiuojant nuo 0 (t.y. pirmadienis - 0; antradienis - 1; trečiadienis - 2 ir t.t.). Parašykite Switch statement, kuris paimtų skaičių ir jį pakeistų (ne sukurtų naują kintamąjį, o pakeistų 'weekDay' reikšmę) į savaitės dieną žodžiu. Vėliau, atspausdink kintamąjį. */
 
 let weekDay = 1;
