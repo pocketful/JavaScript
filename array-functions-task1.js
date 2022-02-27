@@ -1,3 +1,5 @@
+'use strict';
+
 // 1. Susikurkite skaičių masyva 'numbersArray' su siais nariais: 2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20
 const numbersArray = [2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20];
 console.log('numbersArray ===', numbersArray);                               
@@ -15,7 +17,6 @@ for (let i = 0; i < length3; i++) {
     daugyba = numbersArray3[i] * 2;
     console.log(`${numbersArray3[i]} * 2 = ${daugyba}`);
 }
-console.log('numbersArray3 ===', numbersArray3); 
 
 
 // 4. Pakelti masyvo narius kvadratu
@@ -43,7 +44,20 @@ for (let k = 0; k < length5; k++) {
     console.log(`${numbersArray5[k]} * ${numbersArray5[0]}(index[0]) = ${daugyba0}`);
 }
 
+
 // 6. Atrinkti tiktai teigiamų elementų masyvą
+const numbersArray6 = numbersArray.slice();
+console.log('numbersArray6 ===', numbersArray6);
+const positiveArray = [];
+
+const length = numbersArray.length;
+
+for (let l = 0; l < length; l++) {
+    if (numbersArray6[l] > 0) {  // (Math.sign(numbersArray[l]) === 1)
+        positiveArray.push(numbersArray6[l]);
+    }
+}
+console.log('positiveArray ===', positiveArray);
 
 
 // 7. Atrinkti tiktai neigiamų elementų masyvą
