@@ -36,12 +36,12 @@ for (let i = 0; i < length4; i++) {
 const numbersArray5 = numbersArray.slice();
 console.log('numbersArray5 ===', numbersArray5);
 
-let daugyba0 = 0;
+let daugybaIndex = 0;
 const length5 = numbersArray5.length;
 
 for (let i = 0; i < length5; i++) {
-    daugyba0 = numbersArray5[i] * numbersArray5[0];
-    console.log(`${numbersArray5[i]} * ${numbersArray5[0]}(index[0]) = ${daugyba0}`);
+    daugybaIndex = numbersArray5[i] * i; // numbersArray5[i] * numbersArray5[0] ?    
+    console.log(`${numbersArray5[i]} * ${i} = ${daugybaIndex}`);
 }
 
 
@@ -118,6 +118,19 @@ console.log('numbersArray11 absolute value ===', numbersArray11);
 
 
 // 12. Pakelti visas masyvo reikšmes laipsniu 'index'
+const numbersArray12 = numbersArray.slice();
+console.log('numbersArray12 ===', numbersArray12);
+
+let laipsniuIndex = 0;
+const length12 = numbersArray12.length;
+
+for (let i = 0; i < length12; i++) {
+    let number = numbersArray12[i];
+    laipsniuIndex = numbersArray12[i] ** i;
+    // laipsniuIndex = Math.pow(numbersArray12[i], i); 
+    console.log(`${number} pakelta ${i} laipsniu = ${laipsniuIndex}`);
+}
+console.log('numbersArray12 ===', numbersArray12);
 
 
 // 13. Atrinkti tik natūralių skaičių masyvą
