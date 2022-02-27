@@ -163,6 +163,15 @@ console.log('numbersArray14 (integers) ===', numbersArray14);
 
 
 // 15. Atrinkti kas antrą elementą
+const numbersArray15 = numbersArray.slice();
+console.log('numbersArray15 ===', numbersArray15);   
+const everySecondArray15 = [];
+const length15 = numbersArray15.length;
+
+for (let i = 0; i < length15; i+=2) {  // if (i%2 === 0)      
+    everySecondArray15.push(numbersArray15[i]);
+    }
+console.log('everySecondArray15 (every second) ===', everySecondArray15);
 
 
 // 16. Atrinkti kas penktą elementą
