@@ -4,7 +4,7 @@
 
 const numbersArray = [2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20];
 // const numbersArray = [2, '12', 'aaa', Infinity, 28.55, 49, -17.56, 19, 42, -14, -10, 20];
-console.log('numbersArray ===', numbersArray);                               
+console.log('numbersArray ===', numbersArray);
 
 
 // 2. Sekančias užduotis atlikti su naujais masyvais(kopijomis)
@@ -15,15 +15,15 @@ const length3 = numbersArray3.length;
 for (let i = 0; i < length3; i++) {
     numbersArray3[i] = numbersArray3[i] * 2;
 }
-console.log('numbersArray3 (* 2)===', numbersArray3); 
+console.log('numbersArray3 (* 2)===', numbersArray3);
 
-    // This example multiplies each array value by 2:
-    const numbersArray3F = numbersArray.map(myFunction);
+// This example multiplies each array value by 2:
+const numbersArray3F = numbersArray.map(myFunction);
 
-    function myFunction(value) {
-        return value * 2;
-    }
-    console.log('numbersArray3F (* 2) ===', numbersArray3F);
+function myFunction(value) {
+    return value * 2;
+}
+console.log('numbersArray3F (* 2) ===', numbersArray3F);
 
 
 // 4. Pakelti masyvo narius kvadratu
@@ -34,7 +34,7 @@ const length4 = numbersArray4.length;
 for (let i = 0; i < length4; i++) {
     numbersArray4[i] = numbersArray4[i] ** 2;
 }
-console.log('numbersArray4 (kvadratu) ===', numbersArray4); 
+console.log('numbersArray4 (kvadratu) ===', numbersArray4);
 
 
 // 5. Padauginti masyvo narius iš jų index'0 (vietos masyve)
@@ -44,9 +44,9 @@ const numbersArray5 = numbersArray.slice();
 const length5 = numbersArray5.length;
 
 for (let i = 0; i < length5; i++) {
-    numbersArray5[i] = numbersArray5[i] * i;  
+    numbersArray5[i] = numbersArray5[i] * i;
 }
-console.log('numbersArray5 (* index) ===', numbersArray5); 
+console.log('numbersArray5 (* index) ===', numbersArray5);
 
 // 6. Atrinkti tiktai teigiamų elementų masyvą
 
@@ -141,7 +141,7 @@ const naturalArray13 = [];
 const length13 = numbersArray13.length;
 
 for (let i = 0; i < length13; i++) {
-    if (Number.isInteger(numbersArray13[i]) && numbersArray13[i] > 0 ) {
+    if (Number.isInteger(numbersArray13[i]) && numbersArray13[i] > 0) {
         naturalArray13.push(numbersArray13[i]);
     }
 }
@@ -168,9 +168,9 @@ const numbersArray15 = numbersArray.slice();
 const everySecondArray15 = [];
 const length15 = numbersArray15.length;
 
-for (let i = 0; i < length15; i+=2) {  // if (i%2 === 0)      
+for (let i = 0; i < length15; i += 2) {  // if (i%2 === 0)      
     everySecondArray15.push(numbersArray15[i]);
-    }
+}
 console.log('everySecondArray15 (every second) ===', everySecondArray15);
 
 
@@ -180,7 +180,7 @@ const numbersArray16 = numbersArray.slice();
 const everyFifthArray16 = [];
 const length16 = numbersArray16.length;
 
-for (let i = 0; i < length16; i+=5) {     // if i%5 === 0
+for (let i = 0; i < length16; i += 5) {     // if i%5 === 0
     everyFifthArray16.push(numbersArray16[i]);
 }
 console.log('everyFifthArray16 (every fifth) ===', everyFifthArray16);
@@ -231,7 +231,7 @@ function average(array) {
     }
     const average = sum / length;
 
-    return average;    
+    return average;
 }
 average(numbersArray);
 console.log('average === ', average(numbersArray));
@@ -264,7 +264,7 @@ console.log('min number === ', minNumber(numbersArray));
 // 22. Sukurti funkciją, kuri ima masyvą ir išrikiuja jo elementus nuo mažiausio iki didžiausio ir grąžina tą masyvą.
 
 function sort(array) {
-    const sorted = array.sort(function(a, b) {
+    const sorted = array.sort(function (a, b) {
         return a - b;
     });
 
