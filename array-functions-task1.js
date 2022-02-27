@@ -153,7 +153,13 @@ console.log('naturalArray13 (natural) ===', naturalArray13);
 
 
 // 14. Suapvalinti visas masyvo reikšmes iki sveikų skaičių
+const numbersArray14 = numbersArray.slice();
+const length14 = numbersArray14.length;
 
+for (let i = 0; i < length14; i++) {
+    numbersArray14[i] = Math.round(numbersArray14[i]);
+}
+console.log('numbersArray14 (integers) ===', numbersArray14);
 
 
 // 15. Atrinkti kas antrą elementą
