@@ -1,6 +1,7 @@
 'use strict';
 
 // 1. Susikurkite skaičių masyva 'numbersArray' su siais nariais: 2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20
+
 const numbersArray = [2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20];
 // const numbersArray = [2, '12', 'aaa', Infinity, 28.55, 49, -17.56, 19, 42, -14, -10, 20];
 console.log('numbersArray ===', numbersArray);                               
@@ -9,48 +10,48 @@ console.log('numbersArray ===', numbersArray);
 // 2. Sekančias užduotis atlikti su naujais masyvais(kopijomis)
 // 3. Padauginti masyvo narius iš 2
 const numbersArray3 = numbersArray.slice();
-console.log('numbersArray3 ===', numbersArray3); 
-
-let daugyba = 0;
 const length3 = numbersArray3.length;
 
 for (let i = 0; i < length3; i++) {
-    daugyba = numbersArray3[i] * 2;
-    console.log(`${numbersArray3[i]} * 2 = ${daugyba}`);
+    numbersArray3[i] = numbersArray3[i] * 2;
 }
+console.log('numbersArray3 (* 2)===', numbersArray3); 
+
+    // This example multiplies each array value by 2:
+    const numbersArray3F = numbersArray.map(myFunction);
+
+    function myFunction(value) {
+        return value * 2;
+    }
+    console.log('numbersArray3F (* 2) ===', numbersArray3F);
 
 
 // 4. Pakelti masyvo narius kvadratu
-const numbersArray4 = numbersArray.slice();
-console.log('numbersArray4 ===', numbersArray4); 
 
-let kvadratu = 0;
+const numbersArray4 = numbersArray.slice();
 const length4 = numbersArray4.length;
 
 for (let i = 0; i < length4; i++) {
-    kvadratu = numbersArray4[i] ** 2;
-    console.log(`${numbersArray4[i]} kvadratu = ${kvadratu}`);
+    numbersArray4[i] = numbersArray4[i] ** 2;
 }
+console.log('numbersArray4 (kvadratu) ===', numbersArray4); 
 
 
 // 5. Padauginti masyvo narius iš jų index'0 (vietos masyve)
-const numbersArray5 = numbersArray.slice();
-console.log('numbersArray5 ===', numbersArray5);
 
-let daugybaIndex = 0;
+const numbersArray5 = numbersArray.slice();
+// let daugybaIndex = 0;
 const length5 = numbersArray5.length;
 
 for (let i = 0; i < length5; i++) {
-    daugybaIndex = numbersArray5[i] * i; // numbersArray5[i] * numbersArray5[0] ?    
-    console.log(`${numbersArray5[i]} * ${i} = ${daugybaIndex}`);
+    numbersArray5[i] = numbersArray5[i] * i;  
 }
-
+console.log('numbersArray5 (* index) ===', numbersArray5); 
 
 // 6. Atrinkti tiktai teigiamų elementų masyvą
-const numbersArray6 = numbersArray.slice();
-console.log('numbersArray6 ===', numbersArray6);
-const positiveArray6 = [];
 
+const numbersArray6 = numbersArray.slice();
+const positiveArray6 = [];
 const length6 = numbersArray6.length;
 
 for (let i = 0; i < length6; i++) {
@@ -58,14 +59,13 @@ for (let i = 0; i < length6; i++) {
         positiveArray6.push(numbersArray6[i]);
     }
 }
-console.log('positiveArray6 ===', positiveArray6);
+console.log('positiveArray6 (positive) ===', positiveArray6);
 
 
 // 7. Atrinkti tiktai neigiamų elementų masyvą
-const numbersArray7 = numbersArray.slice();
-console.log('numbersArray7 ===', numbersArray7);
-const negativeArray7 = [];
 
+const numbersArray7 = numbersArray.slice();
+const negativeArray7 = [];
 const length7 = numbersArray7.length;
 
 for (let i = 0; i < length7; i++) {
@@ -73,14 +73,13 @@ for (let i = 0; i < length7; i++) {
         negativeArray7.push(numbersArray7[i]);
     }
 }
-console.log('negativeArray7 ===', negativeArray7);
+console.log('negativeArray7 (negative) ===', negativeArray7);
 
 
 // 8. Atrinkti tiktai lyginių skaičių masyvą
-const numbersArray8 = numbersArray.slice();
-console.log('numbersArray8 ===', numbersArray8);
-const evenArray8 = [];
 
+const numbersArray8 = numbersArray.slice();
+const evenArray8 = [];
 const length8 = numbersArray8.length;
 
 for (let i = 0; i < length8; i++) {
@@ -88,14 +87,13 @@ for (let i = 0; i < length8; i++) {
         evenArray8.push(numbersArray8[i]);
     }
 }
-console.log('evenArray ===', evenArray8);
+console.log('evenArray8 (even) ===', evenArray8);
 
 
 // 9. Atrinkti tiktai nelyginių skaičių masyvą
-const numbersArray9 = numbersArray.slice();
-console.log('numbersArray9 ===', numbersArray8);
-const oddArray9 = [];
 
+const numbersArray9 = numbersArray.slice();
+const oddArray9 = [];
 const length9 = numbersArray9.length;
 
 for (let i = 0; i < length9; i++) {
@@ -103,45 +101,42 @@ for (let i = 0; i < length9; i++) {
         oddArray9.push(numbersArray9[i]);
     }
 }
-console.log('oddArray ===', oddArray9);
+console.log('oddArray9 (odd) ===', oddArray9);
 
 
 // 11. Visas neigiamas vertes masyve padaryti teigiamomis
-const numbersArray11 = numbersArray.slice();
-console.log('numbersArray11 ===', numbersArray11);
 
+const numbersArray11 = numbersArray.slice();
 const length11 = numbersArray11.length;
 
 for (let i = 0; i < length11; i++) {
     numbersArray11[i] = Math.abs(numbersArray11[i]);
 }
-console.log('numbersArray11 absolute value ===', numbersArray11);
+console.log('numbersArray11 (absolute) ===', numbersArray11);
 
 
 // 12. Pakelti visas masyvo reikšmes laipsniu 'index'
-const numbersArray12 = numbersArray.slice();
-console.log('numbersArray12 ===', numbersArray12);
 
-let laipsniuIndex = 0;
+const numbersArray12 = numbersArray.slice();
+// let laipsniuIndex = 0;
 const length12 = numbersArray12.length;
 
 for (let i = 0; i < length12; i++) {
-    let number = numbersArray12[i];
-    laipsniuIndex = numbersArray12[i] ** i;
-    // laipsniuIndex = Math.pow(numbersArray12[i], i); 
-    console.log(`${number} pakelta ${i} laipsniu = ${laipsniuIndex}`);
+    numbersArray12[i] = numbersArray12[i] ** i;
+    // numbersArray12[i] = Math.pow(numbersArray12[i], i); 
+
+    // let number = numbersArray12[i];
+    // laipsniuIndex = numbersArray12[i] ** i;
+    // console.log(`${number} pakelta ${i} laipsniu = ${laipsniuIndex}`);
 }
-console.log('numbersArray12 ===', numbersArray12);
+console.log('numbersArray12 (** i) ===', numbersArray12);
 
 
 // 13. Atrinkti tik natūralių skaičių masyvą
-
 /* Natural numbers are whole numbers from 1 upwards : 1, 2, 3, and so on ... or from 0 upwards in some area of mathematics: 0, 1, 2, 3 and so on ...
 No negative numbers and no fractions. */
 
 const numbersArray13 = numbersArray.slice();
-console.log('numbersArray13 ===', numbersArray13);
-
 const naturalArray13 = [];
 const length13 = numbersArray13.length;
 
@@ -150,7 +145,7 @@ for (let i = 0; i < length13; i++) {
         naturalArray13.push(numbersArray13[i]);
     }
 }
-console.log('naturalArray13 ===', naturalArray13);
+console.log('naturalArray13 (natural) ===', naturalArray13);
 
 // const numbersArray = [2, '12', 'aaa', Infinity, 28.55, 49, -17.56, 19, 42, -14, -10, 20];
 // let item = numbersArray13[i];
@@ -158,6 +153,7 @@ console.log('naturalArray13 ===', naturalArray13);
 
 
 // 14. Suapvalinti visas masyvo reikšmes iki sveikų skaičių
+
 
 
 // 15. Atrinkti kas antrą elementą
