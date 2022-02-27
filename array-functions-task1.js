@@ -106,6 +106,15 @@ console.log('oddArray ===', oddArray9);
 
 
 // 11. Visas neigiamas vertes masyve padaryti teigiamomis
+const numbersArray11 = numbersArray.slice();
+console.log('numbersArray11 ===', numbersArray11);
+
+const length11 = numbersArray11.length;
+
+for (let i = 0; i < length11; i++) {
+    numbersArray11[i] = Math.abs(numbersArray11[i]);
+}
+console.log('numbersArray11 absolute value ===', numbersArray11);
 
 
 // 12. Pakelti visas masyvo reikšmes laipsniu 'index'

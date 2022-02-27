@@ -28,3 +28,6 @@ points = Math.floor(Math.random() * 11) + 2; // returns a random integer between
 
 // positive 1. negative -1. zero 0
 console.log(Math.sign('-3')); // expected output: -1
+
+// absolute value of a number (skaičius be skaičių lydinčio ženklo)
+Math.abs(7.25);  /* 7.25 */ Math.abs(-7.25); /* 7.25 */ Math.abs(null); /* 0 */ Math.abs("Hello"); /* NaN */
