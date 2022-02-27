@@ -163,8 +163,8 @@ console.log('numbersArray14 (integers) ===', numbersArray14);
 
 
 // 15. Atrinkti kas antrą elementą
+
 const numbersArray15 = numbersArray.slice();
-console.log('numbersArray15 ===', numbersArray15);   
 const everySecondArray15 = [];
 const length15 = numbersArray15.length;
 
@@ -176,8 +176,33 @@ console.log('everySecondArray15 (every second) ===', everySecondArray15);
 
 // 16. Atrinkti kas penktą elementą
 
+const numbersArray16 = numbersArray.slice();
+const everyFifthArray16 = [];
+const length16 = numbersArray16.length;
 
+for (let i = 0; i < length16; i+=5) {     // if i%5 === 0
+    everyFifthArray16.push(numbersArray16[i]);
+}
+console.log('everyFifthArray16 (every fifth) ===', everyFifthArray16);
+
+
+/* -------------------------- Functions ------------------------------- */
 // 17. Sukurti funkciją, kuri ima masyvą ir atspausdina kiekvieną jo reikšmę atskirai: [0] => 64. (nieko negrąžina)
+/*
+const numbersArray17 = numbersArray.slice();
+const length17 = numbersArray17.length;
+
+for (let i = 0; i < length17; i++) {
+    console.log(`[${[i]}] => ${numbersArray17[i]}`);
+}
+*/
+
+function printEveryItem(array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(`[${[i]}] => ${array[i]}`);
+    }
+}
+printEveryItem(numbersArray);
 
 
 // 18. Sukurti funkciją, kuri ima masyvą ir grąžina visų jo elementų sumą
