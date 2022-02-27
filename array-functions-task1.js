@@ -2,6 +2,7 @@
 
 // 1. Susikurkite skaičių masyva 'numbersArray' su siais nariais: 2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20
 const numbersArray = [2, 12, 33, -7, 28, 49, -17, 19, 42, -14, -10, 20];
+// const numbersArray = [2, '12', 'aaa', Infinity, 28.55, 49, -17.56, 19, 42, -14, -10, 20];
 console.log('numbersArray ===', numbersArray);                               
 
 
@@ -134,6 +135,26 @@ console.log('numbersArray12 ===', numbersArray12);
 
 
 // 13. Atrinkti tik natūralių skaičių masyvą
+
+/* Natural numbers are whole numbers from 1 upwards : 1, 2, 3, and so on ... or from 0 upwards in some area of mathematics: 0, 1, 2, 3 and so on ...
+No negative numbers and no fractions. */
+
+const numbersArray13 = numbersArray.slice();
+console.log('numbersArray13 ===', numbersArray13);
+
+const naturalArray13 = [];
+const length13 = numbersArray13.length;
+
+for (let i = 0; i < length13; i++) {
+    if (Number.isInteger(numbersArray13[i]) && numbersArray13[i] > 0 ) {
+        naturalArray13.push(numbersArray13[i]);
+    }
+}
+console.log('naturalArray13 ===', naturalArray13);
+
+// const numbersArray = [2, '12', 'aaa', Infinity, 28.55, 49, -17.56, 19, 42, -14, -10, 20];
+// let item = numbersArray13[i];
+// if (typeof(item) === 'number' && item > 0 && Math.floor(item) === item && item !== Infinity) {
 
 
 // 14. Suapvalinti visas masyvo reikšmes iki sveikų skaičių

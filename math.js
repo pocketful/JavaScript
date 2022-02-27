@@ -31,3 +31,11 @@ console.log(Math.sign('-3')); // expected output: -1
 
 // absolute value of a number (skaičius be skaičių lydinčio ženklo)
 Math.abs(7.25);  /* 7.25 */ Math.abs(-7.25); /* 7.25 */ Math.abs(null); /* 0 */ Math.abs("Hello"); /* NaN */
+
+// exponentiation. returns the value of x to the power of y (kvadratu, laipsniu pakelti)
+Math.pow(2, 3); // 2 pakelta 3 = 8
+// same as: 
+2 ** 3;  // 2 pakelta 3 = 8
+
+// if its an integer 
+Number.isInteger(1); /* true */ Number.isInteger(-10); /* true */ Number.isInteger(0.1); /* false */
