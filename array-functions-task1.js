@@ -197,25 +197,73 @@ for (let i = 0; i < length17; i++) {
 }
 */
 
-function printEveryItem(array) {
-    for (let i = 0; i < array.length; i++) {
+function print(array) {
+    const length = array.length;
+    for (let i = 0; i < length; i++) {
         console.log(`[${[i]}] => ${array[i]}`);
     }
 }
-printEveryItem(numbersArray);
+print(numbersArray);
 
 
 // 18. Sukurti funkciją, kuri ima masyvą ir grąžina visų jo elementų sumą
 
+function sum(array) {
+    let sum = 0;
+    const length = array.length;
+    for (let i = 0; i < length; i++) {
+        sum += array[i];
+    }
+    // return sum; // CORRECT ONE
+    console.log('sum === ', sum); // TEMPORARY
+}
+sum(numbersArray);
+
 
 // 19. Sukurti funkciją, kuri ima masyvą ir grąžina visų elementų vidurkį
+
+function average(array) {
+    let sum = 0;
+    const length = array.length;
+    for (let i = 0; i < length; i++) {
+        sum += array[i];
+    }
+    const average = sum / length;
+    //return average; // CORRECT ONE
+    console.log('average === ', average); // TEMPORARY
+}
+average(numbersArray);
 
 
 // 20. Sukurti funkciją, kuri ima masyvą ir grąžina didžiausią skaičių masyve.
 
+function maxNumber(array) {
+    const max = Math.max(...array);
+    // const max = Math.max.apply(null, array); // old way
+    // return max; // CORRECT ONE
+    console.log('max number === ', max); // TEMPORARY
+}
+maxNumber(numbersArray);
+
 
 // 21. Sukurti funkciją, kuri ima masyvą ir grąžina mažiausią skaičių masyve.
+
+function minNumber(array) {
+    const min = Math.min(...array);
+    // const min = Math.min.apply(null, array); // old way
+    // return min; // CORRECT ONE
+    console.log('min number === ', min); // TEMPORARY
+}
+minNumber(numbersArray);
 
 
 // 22. Sukurti funkciją, kuri ima masyvą ir išrikiuja jo elementus nuo mažiausio iki didžiausio ir grąžina tą masyvą.
 
+function sort(array) {
+    const sorted = array.sort(function(a, b) {
+        return a - b;
+    });
+    // return sorted; // CORRECT ONE
+    console.log('sorted ===', sorted); // TEMPORARY
+}
+sort(numbersArray);
