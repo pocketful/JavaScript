@@ -26,9 +26,9 @@ console.log('numbersArray4 ===', numbersArray4);
 let kvadratu = 0;
 const length4 = numbersArray4.length;
 
-for (let j = 0; j < length4; j++) {
-    kvadratu = numbersArray4[j] ** 2;
-    console.log(`${numbersArray4[j]} kvadratu = ${kvadratu}`);
+for (let i = 0; i < length4; i++) {
+    kvadratu = numbersArray4[i] ** 2;
+    console.log(`${numbersArray4[i]} kvadratu = ${kvadratu}`);
 }
 
 
@@ -39,46 +39,70 @@ console.log('numbersArray5 ===', numbersArray5);
 let daugyba0 = 0;
 const length5 = numbersArray5.length;
 
-for (let k = 0; k < length5; k++) {
-    daugyba0 = numbersArray5[k] * numbersArray5[0];
-    console.log(`${numbersArray5[k]} * ${numbersArray5[0]}(index[0]) = ${daugyba0}`);
+for (let i = 0; i < length5; i++) {
+    daugyba0 = numbersArray5[i] * numbersArray5[0];
+    console.log(`${numbersArray5[i]} * ${numbersArray5[0]}(index[0]) = ${daugyba0}`);
 }
 
 
 // 6. Atrinkti tiktai teigiamų elementų masyvą
 const numbersArray6 = numbersArray.slice();
 console.log('numbersArray6 ===', numbersArray6);
-const positiveArray = [];
+const positiveArray6 = [];
 
 const length6 = numbersArray6.length;
 
-for (let l = 0; l < length6; l++) {
-    if (numbersArray6[l] > 0) {  // (Math.sign(numbersArray[l]) === 1)
-        positiveArray.push(numbersArray6[l]);
+for (let i = 0; i < length6; i++) {
+    if (numbersArray6[i] > 0) {  // (Math.sign(numbersArray6[l]) === 1)
+        positiveArray6.push(numbersArray6[i]);
     }
 }
-console.log('positiveArray ===', positiveArray);
+console.log('positiveArray6 ===', positiveArray6);
 
 
 // 7. Atrinkti tiktai neigiamų elementų masyvą
 const numbersArray7 = numbersArray.slice();
 console.log('numbersArray7 ===', numbersArray7);
-const negativeArray = [];
+const negativeArray7 = [];
 
 const length7 = numbersArray7.length;
 
-for (let k = 0; k < length7; k++) {
-    if (numbersArray7[k] < 0) {  // (Math.sign(numbersArray[k]) === -1)
-        negativeArray.push(numbersArray7[k]);
+for (let i = 0; i < length7; i++) {
+    if (numbersArray7[i] < 0) {  // (Math.sign(numbersArray7[k]) === -1)
+        negativeArray7.push(numbersArray7[i]);
     }
 }
-console.log('negativeArray ===', negativeArray);
+console.log('negativeArray7 ===', negativeArray7);
 
 
 // 8. Atrinkti tiktai lyginių skaičių masyvą
+const numbersArray8 = numbersArray.slice();
+console.log('numbersArray8 ===', numbersArray8);
+const evenArray8 = [];
+
+const length8 = numbersArray8.length;
+
+for (let i = 0; i < length8; i++) {
+    if (numbersArray8[i] % 2 === 0) {
+        evenArray8.push(numbersArray8[i]);
+    }
+}
+console.log('evenArray ===', evenArray8);
 
 
 // 9. Atrinkti tiktai nelyginių skaičių masyvą
+const numbersArray9 = numbersArray.slice();
+console.log('numbersArray9 ===', numbersArray8);
+const oddArray9 = [];
+
+const length9 = numbersArray9.length;
+
+for (let i = 0; i < length9; i++) {
+    if (numbersArray9[i] % 2 !== 0) {
+        oddArray9.push(numbersArray9[i]);
+    }
+}
+console.log('oddArray ===', oddArray9);
 
 
 // 11. Visas neigiamas vertes masyve padaryti teigiamomis
