@@ -50,9 +50,9 @@ const numbersArray6 = numbersArray.slice();
 console.log('numbersArray6 ===', numbersArray6);
 const positiveArray = [];
 
-const length = numbersArray.length;
+const length6 = numbersArray6.length;
 
-for (let l = 0; l < length; l++) {
+for (let l = 0; l < length6; l++) {
     if (numbersArray6[l] > 0) {  // (Math.sign(numbersArray[l]) === 1)
         positiveArray.push(numbersArray6[l]);
     }
@@ -61,6 +61,18 @@ console.log('positiveArray ===', positiveArray);
 
 
 // 7. Atrinkti tiktai neigiamų elementų masyvą
+const numbersArray7 = numbersArray.slice();
+console.log('numbersArray7 ===', numbersArray7);
+const negativeArray = [];
+
+const length7 = numbersArray7.length;
+
+for (let k = 0; k < length7; k++) {
+    if (numbersArray7[k] < 0) {  // (Math.sign(numbersArray[k]) === -1)
+        negativeArray.push(numbersArray7[k]);
+    }
+}
+console.log('negativeArray ===', negativeArray);
 
 
 // 8. Atrinkti tiktai lyginių skaičių masyvą

@@ -26,3 +26,5 @@ points = Math.random() * 10; // 0 - 10 reikia padauginti is 10
 
 points = Math.floor(Math.random() * 11) + 2; // returns a random integer between 2 and 11 (both included)
 
+// positive 1. negative -1. zero 0
+console.log(Math.sign('-3')); // expected output: -1
