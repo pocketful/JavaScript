@@ -17,13 +17,13 @@ for (let i = 0; i < length3; i++) {
 }
 console.log('numbersArray3 (* 2)===', numbersArray3);
 
-// This example multiplies each array value by 2:
-const numbersArray3F = numbersArray.map(myFunction);
+    // This example multiplies each array value by 2:
+    const numbersArray3F = numbersArray.map(myFunction);
 
-function myFunction(value) {
-    return value * 2;
-}
-console.log('numbersArray3F (* 2) ===', numbersArray3F);
+    function myFunction(value) {
+        return value * 2;
+    }
+    console.log('numbersArray3F (* 2) ===', numbersArray3F);
 
 
 // 4. Pakelti masyvo narius kvadratu
@@ -40,13 +40,13 @@ console.log('numbersArray4 (kvadratu) ===', numbersArray4);
 // 5. Padauginti masyvo narius iš jų index'0 (vietos masyve)
 
 const numbersArray5 = numbersArray.slice();
-// let daugybaIndex = 0;
 const length5 = numbersArray5.length;
 
 for (let i = 0; i < length5; i++) {
     numbersArray5[i] = numbersArray5[i] * i;
 }
 console.log('numbersArray5 (* index) ===', numbersArray5);
+
 
 // 6. Atrinkti tiktai teigiamų elementų masyvą
 
