@@ -31,17 +31,31 @@
     <!-- <script src="objects.js" defer></script> -->
     <!-- <script src="events.js" defer></script> -->
     <!-- <script src="scope.js" defer></script> -->
-    <script src="inputValue.js" defer></script>
+    <!-- <script src="inputValue.js" defer></script> -->
+    <script src="forms.js" defer></script>
   </head>
   <body>
+    <!-- === Forms (forms.js) === -->
+    <form id="userForm">
+      <input type="text" placeholder="Name" name="name" /><br />
+      <input type="text" placeholder="Surname" name="surname" id="surname"/><br />
+      <input type="text" placeholder="Town" name="town" /><br />
+      <input type="number" placeholder="Age" name="age" id="age" /><br />
+      <h3>Favorite color</h3>
+      <input type="radio" value="blue" id="col1" name="color" /><label for="col1">Blue</label><br />
+      <input type="radio" value="green" id="col2" name="color" /><label for="col2">Green</label><br />
+      <input type="radio" value="yellow" id="col3" name="color" /><label for="col3">Yellow</label><br />
+      <button type="submit">Click</button>
+    </form>
+
     <!-- === Events, InputValue (events.js, inputValue) === -->
-    <h1>h1 Title</h1>
+    <!-- <h1>h1 Title</h1>
     <input type="text" id="input1" placeholder="enter some text" value="input1 value">
     <h2 id="result">h2 Title</h2>
     <button id="btn1">Click</button>
     <button id="btn2">Click2</button>
     <button id="btn3">Click3</button>
-    <input type="text" id="input2" placeholder="enter some text" value="input2 value">
+    <input type="text" id="input2" placeholder="enter some text" value="input2 value"> -->
 
     <!-- === DOM 1 (dom.js) === -->
     <!-- Task 1 -->
