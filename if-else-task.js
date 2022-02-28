@@ -51,13 +51,12 @@ if (typeof x1 === 'string' || typeof x2 === 'string') {
     console.log(`Nei ${x1} nei ${x2} nera string`);
 }
 
-/* 7 amziaus grupes paduodam i age 10, 25, 70, 110 reiksmes ir isitikinam kad veikia
+/* 7. amziaus grupes paduodam i age 10, 25, 70, 110 reiksmes ir isitikinam kad veikia
 0-17 - vaikas
 18-60 - suauges
 61-100 - saulelydis
 daugiau nei 100 - nezinau ar tiesa kad naudojiesi kompiuteriu...
-paduota neigiama reiksme paverciama teigiama
-*/
+paduota neigiama reiksme paverciama teigiama */
 
 let age = -60;
 age = Math.abs(age);
@@ -73,4 +72,29 @@ if (age < 18) {
 
 } else {
     console.log(`Jeigu tau ${age}, tai nezinau ar tiesa, kad naudojiesi kompiuteriu`);
+}
+
+/* pdf ------------------------------------------------------------------------------ */
+// Parašykite programą, kuri:
+// » Paprašyti įvesti prisijungimo vardą ir slaptažodį
+// » Jei vardas admin, slaptažodis turi būti “master”
+// » Jei vardas ne admin - tai slaptažodis yra: vardas ir skaičius 11.
+// Pvz.: username: andrius, psw: andrius11
+// » “Sveiki, admin” arba “Neteisingas slaptažodis”
+// » Jei neiįvedė nieko - “Viso gero!”
+
+// const login = prompt('Įveskite prisijungimo vardą:');
+// const password = prompt('Įveskite slaptažodį:');
+
+const login = 'iveta';
+const password = 'iveta11';
+
+if (login === 'admin' && password === 'master') {
+    console.log('Sveiki, admin');
+} else if (login !== 'admin' && password === `${login}11`) {
+    console.log(`Sveiki, ${login}`);
+} else if (!login || !password) {
+    console.log('Viso gero!');
+} else {
+    console.log('Neteisingas slaptažodis'); // arba prisijungimo vardas
 }
