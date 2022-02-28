@@ -1,5 +1,33 @@
 'use strict';
 
+/* CAO -------------------------------------------------------------------- */ 
+/*  <h1>Title</h1>
+    <form id="caoForm">
+      <input type="text" placeholder="Name" name="name" /><br />
+      <button type="submit">Add</button>
+   </form>  */
+
+// B. CAO is karto apraso. i pirma psl forma nusitaiko
+/* Paimam forma, pasakom kai forma submitins, paleidziam funkcija.
+   Vartotojas iraso kazkokius duomenis.
+   Ir kai submitinam funkcija, tuos duomenis nuskaitom ir prilyginam nameValue2. 
+   Tada nameValue2 galim atvaizduoti kazkur textContent */
+
+document.getElementById('caoForm').addEventListener('submit', myFunction);
+
+function myFunction(event) {   // nebutinai evemt, gali but (e) ir bet kas. pagal eiliskuma
+    event.preventDefault(); 
+    // console.log(event);
+    // console.log(event.target); // forma html visas
+    // console.log(event.target.elements.name); // form input visas html (jei name="abc", tada .abc)
+    // console.log(document.querySelector('input[name=name]')); // form input visas html (kitas budas)
+    // console.log(event.target.elements.name.value); // paims i name reiksme ivesta
+    // console.log(document.querySelector('input[name=name]').value); // paims i name reiksme ivesta (kt budas)
+    const nameValue2 = event.target.elements.name.value; // variable. paimti funkcijoj butinai
+    document.querySelector('h1').textContent = nameValue2;
+}
+/* ------------------------------------------------------------------------- */ 
+
 /*  <form id="userForm">
       <input type="text" placeholder="Name" name="name" /><br />
       <input type="text" placeholder="Surname" name="surname" id="surname "/><br />
@@ -12,7 +40,7 @@
       <button type="submit">Click</button>
     </form>  */
 
-// nusitaikom i forma
+// A. nusitaikom i forma
 const formEl = document.forms.userForm;
 
 // 2 way, prastesnis. jeigu id turi galima susirasyti ir taip
@@ -23,6 +51,7 @@ const ageEl = document.getElementById('age');
 
 // formos issiusntimo ivykis yra submit (ar mygtuko paspaudimu, ar enter paspaudimu inpute)
 // kai 'addEventListener' tai function argument bus 'event'
+// A. formai eventListener
 formEl.addEventListener('submit', function (event) {
     console.log(event);
 
