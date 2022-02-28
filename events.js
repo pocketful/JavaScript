@@ -12,11 +12,14 @@ const h1El = document.querySelector('h1');
 // el.function()
 // function(el)
 
+// CAO is karto apraso:
+// document.getElementById('result').addEventListener('click', changeText);
+
 /* click --------------------------------------------------------- */
 // el.addEventListener('event', function)
 // 1 way
 btn1El.addEventListener('click', changeText);  // without () !!!
-    // 2 way onclick, without EventListener
+    // 2 way prastesnis, onclick, without EventListener. bet cia inline budas
     btn1El.onclick = function() {console.log('changedOnClick');};
 
 function changeText() {
