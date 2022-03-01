@@ -33,9 +33,10 @@ Pvz: [16] => "Jūsų bonusas: 100 eurų". */
 /* 1 way - form */
 
 /* <form id="caoForm1">
-       <input type="number" placeholder="How many years" name="years" /><br />
-       <button type="submit">Submit</button>
-   </form> */
+     <input type="number" placeholder="How many years" name="years" /><br />
+     <button type="submit">Submit</button>
+   </form>
+   <p id="caoResult1">Submit and find out your bonus:</p> */
 
 // nusitaikyt i forma
 const caoFormEl1 = document.forms.caoForm1;
@@ -48,11 +49,17 @@ caoFormEl1.addEventListener('submit', function (event) {
    const yearsValue = caoFormEl1.elements.years.value;
    // console.log(yearsValue);
 
+   // nusitaikyt i atsakymo eilute
+   const resultEl1 = document.getElementById('caoResult1');
+
    if (yearsValue > 20) {
+      resultEl1.textContent = 'Submit and find out your bonus: 200e';
       console.log('Jūsų bonusas: 200 eurų');
    } else if (yearsValue > 10) {
+      resultEl1.textContent = 'Submit and find out your bonus: 100e';
       console.log('Jūsų bonusas: 100 eurų');
    } else {
+      resultEl1.textContent = 'Submit and find out your bonus: 50e';
       console.log('Jūsų bonusas: 50 eurų');
    }
 });
@@ -79,7 +86,12 @@ button1El.addEventListener('click', function() {
 });
 
 
-/* 2. Kiek dienų šiais metais? Parašykite programą, kur įvedus metus - pasakys ar jie keliemieji, ar ne (po forma). Kaip apskaičiuoti ar keliemiji metai? Jie turi dalintis iš keturių, bet jei dalinasi iš 100, tai turi dalintis ir iš 400, kad būtų keliamieji (angl. a year is a leap year if it is divisible by four, except that any year divisible by 100 is a leap year only if it is also divisible by 400). Tai - populiari užduotis, tad internete rasite ne vieną versiją, ir daug teorijos kaip skirtingi žmonės skaičiuoja. Tad rekomenduojame padarius - pasitikrinti ir kitų žmonių idėjas. */
+/* 2. Kiek dienų šiais metais? Parašykite programą, kur įvedus metus - pasakys ar jie keliamieji, ar ne (po forma). Kaip apskaičiuoti ar keliemiji metai? Jie turi dalintis iš keturių, bet jei dalinasi iš 100, tai turi dalintis ir iš 400, kad būtų keliamieji (angl. a year is a leap year if it is divisible by four, except that any year divisible by 100 is a leap year only if it is also divisible by 400). Tai - populiari užduotis, tad internete rasite ne vieną versiją, ir daug teorijos kaip skirtingi žmonės skaičiuoja. Tad rekomenduojame padarius - pasitikrinti ir kitų žmonių idėjas. */
+/* <form id="caoForm2">
+       <input type="number" placeholder="Year" name="year" /><br />
+       <button type="submit">Submit</button>
+   </form> */
+
 
 
 /* 3. Parašyk programą, kurioje vartotojas įrašo temperatūra Celsijumi, o programa paskaičiuoja ir atvaizduoja tą pačią temperatūrą Farenheitu. */
