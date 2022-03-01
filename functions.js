@@ -239,6 +239,12 @@ function valueToApp(value) {
 // valueToApp(`5 minutes in sec is ${fiveMin}`);
 valueToApp(`5 minutes in sec is ${minToSec(5)}`);
 
+    // jeigu norint flexible destination, tai pakeisti: 
+    /*  function valueToApp(value, destination) {
+        const appEl = document.querySelector(destination);
+        valueToApp(`5 minutes in sec is ${fiveMin}`, '.app');
+        valueToApp(`15 minutes in sec is ${minToSec(15)}`, 'h1');  */
+
 
 /* sukurti funkcija kuri paima h1 el teksta ir iraso ji i p kurio id='result'
    <h1>Functions</h1> , <p id="result"></p> */
