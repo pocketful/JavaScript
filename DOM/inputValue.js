@@ -37,12 +37,12 @@ input el. pakeisti antraste su reiksme is input el. */
 const h1El = document.querySelector('h1');
 const btn2El = document.getElementById('btn2');
 const btn3El = document.getElementById('btn3');
-const inputEl = document.getElementById('input2');
+const inputEl2 = document.getElementById('input2');
 
 btn2El.addEventListener('click', function() {
     h1El.textContent = 'pakeista su js';    
 });
 
 btn3El.addEventListener('click', function() {
-    h1El.textContent = inputEl.value;
+    h1El.textContent = inputEl2.value;
 });
