@@ -181,12 +181,10 @@ console.log(sumValuesArrow(10, 5));
 // parasyti visai budais funckija kuri paima 3 sk ir grazina visus skaicius sudetus ir atimti 10
 
 // 1. function declaration
-console.log('declaration', math1(10, 12, 13));
-
 function math1(x, y, z) {
     return x + y + z - 10;
 }
-// console.log('declaration ===', math1(10, 12, 13));
+console.log('declaration ===', math1(10, 12, 13)); // okay also before function
 
 
 // 2. function expression
@@ -206,5 +204,49 @@ const math4 = (x, y, z) => {
     return x + y + z - 10;
 }
 console.log('arrow su return', math4(10, 12, 13));
+
+
+/* Tasks ------------------------------------------------------------------- */
+/* parasyti visai budais funckija kuri paima 4 sk ir grazina 2 pirmus sudetus ir atimti likusius 2
+
+
+/* Tasks ------------------------------------------------------------------- */
+
+/* sukurti funkcija kuri pavercia minutes i sekundes */
+
+function minToSec(min) {
+    return min * 60;
+}
+const fiveMin =  minToSec(5);
+console.log('5 minutes to seconds === ', fiveMin);
+
+
+/* sukurti funkcija kuri ideda reiksme i html el kurio class='app' <h2 class="app"></h2> */
+
+function valueToApp(value) {
+    const appEl = document.querySelector('.app');
+    // jei nera html elemento
+    if (appEl === null) {
+        console.log('no element with class app');        
+        return; // stop function execution
+    }
+    appEl.textContent = value;
+
+        // // bad way:
+        // let appEl = document.querySelector('.app').textContent; // jis tampa tik === 'text'!!
+        // appEl = value;
+}
+// valueToApp(`5 minutes in sec is ${fiveMin}`);
+valueToApp(`5 minutes in sec is ${minToSec(5)}`);
+
+
+/* sukurti funkcija kuri paima h1 el teksta ir iraso ji i p kurio id='result'
+   <h1>Functions</h1> , <p id="result"></p> */
+
+function h1ValueToP() {
+    const h1ElText = document.querySelector('h1').textContent;
+    document.getElementById('result').textContent = h1ElText;
+}
+h1ValueToP();
 
 
