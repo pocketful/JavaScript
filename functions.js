@@ -96,3 +96,115 @@ const vidurkiuSuma = avg1 + avg2;
 console.log('vidurkiuSuma ===', vidurkiuSuma);
 
 
+/* ============================ Function types (pagal aprasyma) ================================== */
+
+/* theory - JavaScript Hoisting. JS nuskaitydamas faila visas functions perkelia i virsu */
+
+/* 1. function declaration */
+
+function sayHiDeclaration() {
+  console.log('Hi declaration');
+}
+sayHiDeclaration(); // function invocation (after or before function)
+
+
+/* ---------------- */
+
+/* 2. function expression traditional - an anonymous function in variable (function without a name) */
+
+const sayHiExpression = function () {
+  console.log('Hi expression, anonymous function');
+};
+sayHiExpression(); // invoking before function will result in error. nepersikelia i virsu uz variable esancios function
+console.log('sayHiExpression() ===', sayHiExpression()); // sayHiExpression() === undefined. lygu tam ka grazinam is function, o negrazinam nieko
+console.log('sayHiExpression ===', sayHiExpression); // sayHiExpression === ƒ () { console.log('Hi expression, anonymous function'); }
+ 
+    // function expression - named (irgi gali buti)
+    // const sayHiExpression = function namedFunction () { - 
+
+/* function expression traditional - an anonymous function in object */
+
+const functionObject = {
+  sum: function (a, b) {
+    return a + b;
+  },
+  sub: function (a, b) {
+    return a - b;
+  },
+};
+
+const subResult = functionObject.sub(50, 40);
+console.log('subResul ===', subResult);
+
+
+/* ---------------- */
+
+/* 3. arrow function expression - an anonymous function - without return */
+
+// 2. example
+const anonymousFunction = function () {
+  console.log('function expression traditional - an anonymous');
+};
+anonymousFunction();
+
+// 3. arrow without return
+const arrowFunction = () => console.log('arrow function');
+arrowFunction();
+
+
+/* ---------------- */
+
+/* 4. arrow function expression - an anonymous function - with return */
+
+// 2. example
+const sumValues = function (a, b) {
+  return a + b;
+};
+
+// 3. arrow without return // => - automatiskai grazina reiksme su return jei nera {}
+
+const sumValuesArrow = (a, b) => a + b;
+
+// 4. arrow with return
+
+const sumValuesArrowReturn = (a, b) => {
+  return a + b;
+};
+
+console.log(sumValues(10, 5));
+console.log(sumValuesArrowReturn(10, 5));
+console.log(sumValuesArrow(10, 5));
+
+
+/* Tasks ------------------------------------------------------------------- */
+
+// parasyti visai budais funckija kuri paima 3 sk ir grazina visus skaicius sudetus ir atimti 10
+
+// 1. function declaration
+console.log('declaration', math1(10, 12, 13));
+
+function math1(x, y, z) {
+    return x + y + z - 10;
+}
+// console.log('declaration ===', math1(10, 12, 13));
+
+
+// 2. function expression
+const math2 = function(x, y, z) {
+    return x + y + z - 10;
+}
+console.log('expression', math2(10, 12, 13));
+
+
+// 3. arrow function without return
+const math3 = (x, y, z) => x + y + z - 10;
+console.log('arrow be return', math3(10, 12, 13));
+
+
+// 4. arrow function with return
+const math4 = (x, y, z) => {
+    return x + y + z - 10;
+}
+console.log('arrow su return', math4(10, 12, 13));
+
+
