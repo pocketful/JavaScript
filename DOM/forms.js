@@ -3,7 +3,7 @@
 /* CAO -------------------------------------------------------------------- */ 
 /*  <h1>Title</h1>
     <form id="caoForm">
-      <input type="text" placeholder="Name" name="name" /><br />
+      <input type="text" placeholder="Name" name="nameee" /><br />
       <button type="submit">Add</button>
    </form>  */
 
@@ -15,15 +15,15 @@
 
 document.getElementById('caoForm').addEventListener('submit', myFunction);
 
-function myFunction(event) {   // nebutinai evemt, gali but (e) ir bet kas. pagal eiliskuma
+function myFunction(event) {   // nebutinai event, gali but (e) ir bet kas. pagal eiliskuma
     event.preventDefault(); 
     // console.log(event);
     // console.log(event.target); // forma html visas
-    // console.log(event.target.elements.name); // form input visas html (jei name="abc", tada .abc)
-    // console.log(document.querySelector('input[name=name]')); // form input visas html (kitas budas)
-    // console.log(event.target.elements.name.value); // paims i name reiksme ivesta
-    // console.log(document.querySelector('input[name=name]').value); // paims i name reiksme ivesta (kt budas)
-    const nameValue2 = event.target.elements.name.value; // variable. paimti funkcijoj butinai
+    // console.log(event.target.elements.nameee); // form input visas html (name="nameee")
+    // console.log(document.querySelector('input[name=nameee]')); // form input visas html (kitas budas)
+    console.log(event.target.elements.nameee.value); // paims i nameee reiksme ivesta 'ivestas text'
+    // console.log(document.querySelector('input[name=nameee]').value); // paims i name reiksme ivesta (kt budas)
+    const nameValue2 = event.target.elements.nameee.value; // variable. paimti funkcijoj butinai
     document.querySelector('h1').textContent = nameValue2;
 }
 /* ------------------------------------------------------------------------- */ 
