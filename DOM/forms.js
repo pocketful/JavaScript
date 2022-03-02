@@ -53,7 +53,7 @@ const ageEl = document.getElementById('age');
 // kai 'addEventListener' tai function argument bus 'event'
 // A. formai eventListener
 formEl.addEventListener('submit', function (event) {
-    console.log(event);
+    // console.log(event);
 
     // kai valdom forma su JS tai mes nenorim kad psl persikrautu
     // sustabdyti puslapi nuo perkrovimo paspaudus button, nors forma ir pasubmitina
