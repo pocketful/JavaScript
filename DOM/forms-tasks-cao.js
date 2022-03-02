@@ -107,20 +107,39 @@ Pvz: [16] => "Jūsų bonusas: 100 eurų". */
 /* 5. Sukurk programą, kurioje bus du inputai - vardas (text) ir skaičius (number) ir tuščias <ul>. Įrašius formoje duomenis, po apačia turi susikurti list itemų tiek, kiek tu parašei skaičių. List itemuose turi būti tavo vardas :) */
 
 
-/* 6. Sukurkite formą, kurioje vienas input - skaičius, įvesti stačiakampio dydį. Po forma - tegul būna tusčias div elementas. Jame reikia atvaizduoti trikampį pagal įvestą input. Šis pratimas - klasika programavimo ciklų srityje, tiek atsakymų, tiek teorijų, tiek sąmokslo teorijų internete - daugiau nei reikia; pasibaigus ar pastrigus - būtinai pasinagrinėkite (gal vienas iš paaiškinimų jums atvers duris į ciklų pasaulio aiškumą).
-Pvz:
-Įvesta: 2
-Rezultatas:
+/* 6. Sukurkite formą, kurioje vienas input - skaičius, įvesti stačiakampio dydį. Po forma - tegul būna tusčias div elementas. Jame reikia atvaizduoti trikampį pagal įvestą input.
+Pvz: Įvesta: 2. Rezultatas:
 *
 **
-
-Įvesta: 5
-Rezultatas:
+Įvesta: 5. Rezultatas:
 *
 **
 ***
 ****
-*/ // last line is comment
+*/
+
+const formEl36 = document.getElementById('form36');
+const numberEl36 = document.getElementById('number36');
+const resultEl36 = document.getElementById('result36');
+
+formEl36.addEventListener('submit', (event) => {
+   event.preventDefault();
+
+   const height = parseInt(numberEl36.value);
+   let row = '';
+   let stars = '';
+
+   // Make rows
+   for (let i = 0; i < height; i++) {
+      // Stars
+      for (let j = 0; j <= i; j++) {
+         stars += '*';
+      }
+      row += `<p>${stars}</p>`;
+      stars = '';
+   }
+   resultEl36.innerHTML = row;
+});
 
 
 /* ======================================== Part 4 ====================================== */
