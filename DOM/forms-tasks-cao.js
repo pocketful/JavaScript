@@ -1,3 +1,5 @@
+'use strict';
+
 /* 1. Veiksmų eiliškumas
    2. Susikuriame formą HTML. Neužmirštame mygtukui duoti type="submit".
    3. Su JavaScript pasirenkame formą ir jai pritaikome addEventListener su submit event'u.
@@ -35,58 +37,58 @@ Pvz: [16] => "Jūsų bonusas: 100 eurų". */
 
 /* 1 way - form */
 
-/* <form id="caoForm1">
-     <input type="number" placeholder="How many years" name="years" /><br />
-     <button type="submit">Submit</button>
-   </form>
-   <p id="caoResult1">Submit and find out your bonus:</p> */
+/* <form id="form31">
+      <input type="number" placeholder="How many years" name="years31" /><br />
+      <button type="submit">Submit</button>
+   </form> 
+   <p id="result31">Submit and find out your bonus:</p> */
 
 // nusitaikyt i forma
-const caoFormEl1 = document.forms.caoForm1;
+// const formEl31 = document.forms.form31;
 
-// formos paspaudimui eventListener
-caoFormEl1.addEventListener('submit', function (event) {
-   event.preventDefault();
+// // formos paspaudimui eventListener
+// formEl31.addEventListener('submit', function (event) {
+//    event.preventDefault();
 
-   // inputo reiksme issaugom kintamajame
-   const yearsValue = caoFormEl1.elements.years.value;
-   // console.log(yearsValue);
+//    // inputo reiksme issaugom kintamajame
+//    const yearsValue = formEl31.elements.years31.value;
+//    // console.log(yearsValue);
 
-   // nusitaikyt i atsakymo eilute
-   const resultEl1 = document.getElementById('caoResult1');
+//    // nusitaikyt i atsakymo eilute
+//    const resultEl31 = document.getElementById('caoResult31');
 
-   if (yearsValue > 20) {
-      resultEl1.textContent = 'Submit and find out your bonus: 200e';
-      console.log('Jūsų bonusas: 200 eurų');
-   } else if (yearsValue > 10) {
-      resultEl1.textContent = 'Submit and find out your bonus: 100e';
-      console.log('Jūsų bonusas: 100 eurų');
-   } else {
-      resultEl1.textContent = 'Submit and find out your bonus: 50e';
-      console.log('Jūsų bonusas: 50 eurų');
-   }
-});
+//    if (yearsValue > 20) {
+//       resultEl31.textContent = 'Submit and find out your bonus: 200e';
+//       console.log('Jūsų bonusas: 200 eurų');
+//    } else if (yearsValue > 10) {
+//       resultEl31.textContent = 'Submit and find out your bonus: 100e';
+//       console.log('Jūsų bonusas: 100 eurų');
+//    } else {
+//       resultEl31.textContent = 'Submit and find out your bonus: 50e';
+//       console.log('Jūsų bonusas: 50 eurų');
+//    }
+// });
 
 /*  2 way - without form, only input and button */
 
-/* <input type="text" id="input1" placeholder="How many years 1" name="years1" /><br />
-<button id="button1">Submit 1</button> */
+/* <input type="text" id="input31" placeholder="How many years 1" name="years31" />
+    <button id="button31">Submit 1</button> */
 
-// button paspaudus
-const button1El = document.getElementById('button1');
-const inputEl1 = document.getElementById('input1');
+// // button paspaudus
+// const buttonEl31 = document.getElementById('button31');
+// const inputEl31 = document.getElementById('input31');
 
-button1El.addEventListener('click', function() {
-   const yearsValue1 = parseInt(inputEl1.value);
+// buttonEl31.addEventListener('click', function() {
+//    const yearsValue31 = parseInt(inputEl31.value);
 
-   if (yearsValue1 > 20) {
-      console.log('Jūsų bonusas: 200 eurų');
-   } else if (yearsValue1 > 10) {
-      console.log('Jūsų bonusas: 100 eurų');
-   } else {
-      console.log('Jūsų bonusas: 50 eurų');
-   }
-});
+//    if (yearsValue31 > 20) {
+//       console.log('Jūsų bonusas: 200 eurų');
+//    } else if (yearsValue31 > 10) {
+//       console.log('Jūsų bonusas: 100 eurų');
+//    } else {
+//       console.log('Jūsų bonusas: 50 eurų');
+//    }
+// });
 
 
 /* 2. Kiek dienų šiais metais? Parašykite programą, kur įvedus metus - pasakys ar jie keliamieji, ar ne (po forma). Kaip apskaičiuoti ar keliemiji metai? Jie turi dalintis iš keturių, bet jei dalinasi iš 100, tai turi dalintis ir iš 400, kad būtų keliamieji (angl. a year is a leap year if it is divisible by four, except that any year divisible by 100 is a leap year only if it is also divisible by 400). Tai - populiari užduotis, tad internete rasite ne vieną versiją, ir daug teorijos kaip skirtingi žmonės skaičiuoja. Tad rekomenduojame padarius - pasitikrinti ir kitų žmonių idėjas. */
@@ -105,7 +107,7 @@ button1El.addEventListener('click', function() {
 /* 5. Sukurk programą, kurioje bus du inputai - vardas (text) ir skaičius (number) ir tuščias <ul>. Įrašius formoje duomenis, po apačia turi susikurti list itemų tiek, kiek tu parašei skaičių. List itemuose turi būti tavo vardas :) */
 
 
-/* 6. Sukurkite formą, kurioje vienas input - skaičius, įvesti stačiakampio dydį. Po forma - tegul būna tusčias div elementas. Jame reikia atvaizduoi trikampį pagal įvestą input. Šis pratimas - klasika programavimo ciklų srityje, tiek atsakymų, tiek teorijų, tiek sąmokslo teorijų internete - daugiau nei reikia; pasibaigus ar pastrigus - būtinai pasinagrinėkite (gal vienas iš paaiškinimų jums atvers duris į ciklų pasaulio aiškumą).
+/* 6. Sukurkite formą, kurioje vienas input - skaičius, įvesti stačiakampio dydį. Po forma - tegul būna tusčias div elementas. Jame reikia atvaizduoti trikampį pagal įvestą input. Šis pratimas - klasika programavimo ciklų srityje, tiek atsakymų, tiek teorijų, tiek sąmokslo teorijų internete - daugiau nei reikia; pasibaigus ar pastrigus - būtinai pasinagrinėkite (gal vienas iš paaiškinimų jums atvers duris į ciklų pasaulio aiškumą).
 Pvz:
 Įvesta: 2
 Rezultatas:
@@ -144,13 +146,93 @@ I I I I I
 
 /* 3. Sukurkite input (be mygtuko), į kurį įrašius vardą ir nulipus nuo input (t.y. blur event), vardas atsiras po apačia, tvarkingame sąraše (su kableliais):
 Pvz.: Petras, Jonas, Mantas, Antanas. */
+/*  <input type="text" name="name43" id="name43" placeholder="Name" />
+    <p id="caoResult43"></p> */
+
+const inputEl43 = document.getElementById('name43');
+const outEl43 = document.getElementById('caoResult43');
+
+inputEl43.addEventListener('blur', function () {
+   outEl43.textContent += `${inputEl43.value}, `;
+});
 
 
 /* 4. Sukurkite formą su dviem inputais, kurie paims skaičius. Suvedus duomenis - turi alert'int skaičių, kuris arčiausiai 100.
 Pvz.: fn(101, 81) grąžins 101. */
+/*  <form id="form44">
+        <input type="number" id="number44a" placeholder="Number 1" name="number44a" />
+        <input type="number" id="number44b" placeholder="Number 2" name="number44b" />
+        <button type="submit">Submit</button>
+    </form>
+    <p id="result44"></p>
+*/
+
+const formEl44 = document.getElementById('form44');
+const numberEl44a = document.getElementById('number44a');
+const numberEl44b = document.getElementById('number44b');
+const resultEl44 = document.getElementById('result44');
+
+formEl44.addEventListener('submit', (event) => {
+   event.preventDefault();
+   const num1 = parseInt(numberEl44a.value);
+   const num2 = parseInt(numberEl44b.value);
+
+   const result1 = Math.abs(100 - num1);
+   const result2 = Math.abs(100 - num2);
+
+   if (result1 < result2) {
+      resultEl44.textContent = num1;
+   } else if (result1 > result2) {
+      resultEl44.textContent = num2;
+   } else {
+      resultEl44.textContent = 'Vienodai';
+   }
+});
 
 
-/* 5. Sukurkite programą, kurioje pakrovus puslapį susigeneruoja skaičius tarp 1 ir 5. Vartotojas turi formą su vienu input - gali spėti skaičių. Atspėjus - išmeta alert(atspejai), kitaip alert(neatspejai). */
+/* 5. Sukurkite programą, kurioje pakrovus puslapį susigeneruoja skaičius tarp 1 ir 5. Vartotojas turi formą su vienu input - gali spėti skaičių. Atspėjus - išmeta alert(atspejai), kitaip alert(neatspejai).
+Pakoreguokite penktą pratimą, kad skaičiuotų iš kelinto karto atspėjai ir tai parašytų alert'e. */
+
+/*  <form id="form45">
+      <input type="number" id="number45" placeholder="Gues a number" name="number45" />
+      <button type="submit">Submit</button>
+    </form>
+    <p id="result45"></p> */
+
+const formEl45 = document.getElementById('form45');
+const numberEl45 = document.getElementById('number45');
+const resultEl45 = document.getElementById('result45');
+
+let counter = 0;
+
+formEl45.addEventListener('submit', (event) => {
+   event.preventDefault();
+
+   // counter
+   counter++;
+   console.log('counter ===', counter)
+
+   // your number
+   const number = parseInt(numberEl45.value);
+   console.log('your number ===', number);
+
+   // random number
+   const random = randomNumber();
+   console.log('random number === ', random);
+
+   // lottery
+   if (random === number) {
+      resultEl45.textContent = `You won! It's your ${counter} guess`;
+      counter = 0;
+   } else {
+      resultEl45.textContent = 'You lost';
+   }
+});
+
+function randomNumber() {
+   const num = Math.floor(Math.random() * 5) + 1;
+   return num;
+}
+randomNumber();
 
 
-/* 6. Pakoreguokite penktą pratimą, kad skaičiuotų iš kelinto karto atspėjai ir tai parašytų alert'e. */
