@@ -37,53 +37,47 @@ let toggle = true;
 
 buttonJumpToggleEl.addEventListener('click', () => {
     if (toggle === true) {
-        moveToToggle('auto', 'auto', '0', '0');
+        moveTo(buttonJumpToggleEl, 'auto', 'auto', '0', '0');
         toggle = false;
     } else {
-        moveToToggle('0', '0', 'auto', 'auto');
+        moveTo(buttonJumpToggleEl, '0', '0', 'auto', 'auto');
         toggle = true;
     }
 });
 
-function moveToToggle(top, right, bottom, left) {
-    buttonJumpToggleEl.style.top = `${top}`;
-    buttonJumpToggleEl.style.right = `${right}`;
-    buttonJumpToggleEl.style.bottom = `${bottom}`;
-    buttonJumpToggleEl.style.left = `${left}`;
+function moveTo(button, top, right, bottom, left) {
+    button.style.top = `${top}`;
+    button.style.right = `${right}`;
+    button.style.bottom = `${bottom}`;
+    button.style.left = `${left}`;
 }
-moveToToggle('0', '0', 'auto', 'auto');
+moveTo(buttonJumpToggleEl, '0', '0', 'auto', 'auto');
 
 
 /* 3. Pakoreguokite antrą pratimą, kad mygtukas suktųsi ratu - laikrodžio rodykle. */
 
 const buttonJumpAroundEl = document.getElementById('button-jump-around');
+
 buttonJumpAroundEl.style.position = 'absolute';
+moveTo(buttonJumpAroundEl, '0', 'auto', 'auto', '0');
 
 let position = 'topLeft';
 
 buttonJumpAroundEl.addEventListener('click', () => {
     if (position === 'topLeft') {
-        moveTo('0', '0', 'auto', 'auto');
+        moveTo(buttonJumpAroundEl, '0', '0', 'auto', 'auto');
         position = 'topRight';
     } else if (position === 'topRight') {
-        moveTo('auto', '0', '0', 'auto');
+        moveTo(buttonJumpAroundEl, 'auto', '0', '0', 'auto');
         position = 'bottomRight';
     } else if (position === 'bottomRight') {
-        moveTo('auto', 'auto', '0', '0');
+        moveTo(buttonJumpAroundEl, 'auto', 'auto', '0', '0');
         position = 'bottomLeft';
     } else {
-        moveTo('0', 'auto', 'auto', '0');
+        moveTo(buttonJumpAroundEl, '0', 'auto', 'auto', '0');
         position = 'topLeft';
     }
 });
-
-function moveTo(top, right, bottom, left) {
-    buttonJumpAroundEl.style.top = `${top}`;
-    buttonJumpAroundEl.style.right = `${right}`;
-    buttonJumpAroundEl.style.bottom = `${bottom}`;
-    buttonJumpAroundEl.style.left = `${left}`;
-}
-moveTo('0', 'auto', 'auto', '0');
 
 
 /* 4. Sukurkite input elementą (formos ar mygtuko nereikia), kur vartotojas galės įrašyti savo vardą. Kai rašo - keičiasi puslapio stilius. Jei įrašyti du simboliai arba mažiau - viso puslapio fonas raudonas. Jei daugiau nei du simboliai - puslapio fonas žalias. */
