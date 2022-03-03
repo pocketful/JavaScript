@@ -16,7 +16,30 @@ h1El.addEventListener('click', () => {
 // });
 
 
-/* 2. Išbandome ekraną. Sukurkite mygtuką su HTML. JS pasirašykite, kad mygtukas position: absolute ir jo lokacija - viršus, kairė. Paspaudus ant mygtuko, jis turi peršokti į apačią dešinę pusę. Paspaudus vėl - į viršų, kairę pusę. Ir taip šokinėti įstrižai per ekraną kiekvieno paspaudimo metu.
+/* 2. Išbandome ekraną. Sukurkite mygtuką su HTML. JS pasirašykite, kad mygtukas position: absolute ir jo lokacija - viršus, kairė. Paspaudus ant mygtuko, jis turi peršokti į apačią dešinę pusę. Paspaudus vėl - į viršų, kairę pusę. Ir taip šokinėti įstrižai per ekraną kiekvieno paspaudimo metu. */
+
+const buttonJumpEl = document.getElementById('button-jump');
+buttonJumpEl.style.position = 'absolute';
+
+let toggle = true;
+
+buttonJumpEl.addEventListener('click', () => {
+    if (toggle === true) {
+        moveTo('auto', '0', '0', 'auto');
+        toggle = false;
+    } else {
+        moveTo('0', 'auto', 'auto', '0');
+        toggle = true;
+    }
+});
+
+function moveTo(top, right, bottom, left) {
+    buttonJumpEl.style.top = `${top}`;
+    buttonJumpEl.style.right = `${right}`;
+    buttonJumpEl.style.bottom = `${bottom}`;
+    buttonJumpEl.style.left = `${left}`;
+}
+moveTo('0', 'auto', 'auto', '0');
 
 
 /* 3. Pakoreguokite antrą pratimą, kad mygtukas suktųsi ratu - laikrodžio rodykle. */
