@@ -69,3 +69,120 @@ inputColor.addEventListener('blur', () => {
 // function didina() {
 //     h1El.style.fontSize = '50px';
 // }
+
+/* ====================================== Tasks part 2 ========================================== */
+
+const buttonN = document.getElementById('buttonNight');
+const buttonD = document.getElementById('buttonDay');
+const cardEl1 = document.querySelector('.card1');
+
+// kai paspaudziam ant night mode pakeiciam card el fono spalva i juoda, o spalva i balta
+buttonN.addEventListener('click', () => {
+    cardEl1.style.backgroundColor = 'black';
+    cardEl1.style.color = 'white';
+
+    /* 2 way, classlist method */ 
+    // cardEl1.classList.add('naktis');
+
+    /* 3 way, function */
+    // toggleNight();
+});
+
+// prisideti mygtuka Day ir pakeisti spalvas atgal i dienos
+buttonD.addEventListener('click', () => {
+    cardEl1.style.backgroundColor = 'white';
+    cardEl1.style.color = 'black';
+
+    /* 2 way, classlist method */ 
+    // cardEl1.classList.remove('naktis');
+
+    /* 3 way */
+    // toggleNight();
+});
+
+/* 3 way, function */
+function toggleNight() {
+    cardEl1.classList.toggle('naktis');
+}
+
+// cardEl1.className = 'naktis'; // overwrite visas pries tai klases, lieka viena
+// cardEl1.className += 'naktis'; // prides klase, bet nuimti sunkiau
+
+/* ---------------------------------------------------------------------------------------- */
+// prisideti antra kortele ir padaryti kad ji veiktu nepriklausomai nuo pirmos
+
+const cardEl2 = document.querySelector('.card2');
+const buttonN2 = document.getElementById('buttonNight2');
+const buttonD2 = document.getElementById('buttonDay2');
+
+buttonN2.addEventListener('click', () => {
+    cardEl2.style.backgroundColor = 'black';
+    cardEl2.style.color = 'white';
+});
+
+buttonD2.addEventListener('click', () => {
+    cardEl2.style.backgroundColor = 'white';
+    cardEl2.style.color = 'black';
+});
+
+/* ---------------------------------------------------------------------------------------- */
+// prisideti mygtuka 'edit title' ji paspaudus atsiranda ivesties laukas.         
+// jame keiciant skaitine reiksme keiciasi card title dydis pixeliais
+// wrong way ideti eventa evente. daryt su display: none;
+
+const buttonEdit = document.getElementById('editTitle');
+const newInput = document.getElementById('newInput');
+const title = document.querySelector('.c__title');
+console.log(title);
+
+buttonEdit.addEventListener('click', () => {
+    newInput.innerHTML += '<input type="number" id="numberInput" placeholder="Number" />';
+    const numberInput = document.getElementById('numberInput');
+
+    numberInput.addEventListener('input', () => {
+        let size = numberInput.value;
+        console.log('size', size);
+        title.style.fontSize = size + 'px';
+    });   
+});
+
+/* ---------------------------------------------------------------------------------------- */
+// prisideti cardui checkbox su pavadinimu night mode
+// kai pazymim varnele buna Night spalvos, kai varnele neuzzymeta Day spalvos
+
+const cardEl3 = document.querySelector('.card3');
+const checkbox = document.getElementById('checkNight');
+
+checkbox.addEventListener('change', () => {
+
+    if (checkbox.checked === true) {
+        // cardEl3.style.backgroundColor = 'black';
+        // cardEl3.style.color = 'white';
+        cardEl3.classList.add('naktis');
+        // toggleNight();
+    }
+    else {
+        // cardEl3.style.backgroundColor = 'white';
+        // cardEl3.style.color = 'black';
+        cardEl3.classList.remove('naktis');
+        // toggleNight();
+    }
+});
+
+/* ---------------------------------------------------------------------------------------- */
+// prisideti mygtuka kuris paslepia arba rodo visas korteles
+
+const cardsEl = document.querySelectorAll('.card');
+//const cardsClassEl = document.getElementsByClassName('card'); // same result
+console.log('cards ===', cardsEl);
+
+const buttonH = document.querySelector('.buttonHide');
+
+buttonH.addEventListener('click', () => {
+    const length = cardsEl.length;
+
+    for (let i = 0; i < length; i++) {
+        cardsEl[i].classList.toggle('hide');
+        console.log(cardsEl[i].classList);
+    }
+});
