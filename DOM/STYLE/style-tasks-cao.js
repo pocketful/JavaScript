@@ -18,18 +18,50 @@ h1El.addEventListener('click', () => {
 
 /* 2. Išbandome ekraną. Sukurkite mygtuką su HTML. JS pasirašykite, kad mygtukas position: absolute ir jo lokacija - viršus, kairė. Paspaudus ant mygtuko, jis turi peršokti į apačią dešinę pusę. Paspaudus vėl - į viršų, kairę pusę. Ir taip šokinėti įstrižai per ekraną kiekvieno paspaudimo metu. */
 
+// const buttonJumpEl = document.getElementById('button-jump');
+// buttonJumpEl.style.position = 'absolute';
+
+// let toggle = true;
+
+// buttonJumpEl.addEventListener('click', () => {
+//     if (toggle === true) {
+//         moveTo('auto', '0', '0', 'auto');
+//         toggle = false;
+//     } else {
+//         moveTo('0', 'auto', 'auto', '0');
+//         toggle = true;
+//     }
+// });
+
+// function moveTo(top, right, bottom, left) {
+//     buttonJumpEl.style.top = `${top}`;
+//     buttonJumpEl.style.right = `${right}`;
+//     buttonJumpEl.style.bottom = `${bottom}`;
+//     buttonJumpEl.style.left = `${left}`;
+// }
+// moveTo('0', 'auto', 'auto', '0');
+
+
+/* 3. Pakoreguokite antrą pratimą, kad mygtukas suktųsi ratu - laikrodžio rodykle. */
+
 const buttonJumpEl = document.getElementById('button-jump');
 buttonJumpEl.style.position = 'absolute';
 
-let toggle = true;
+let toggle = 'topLeft';
 
 buttonJumpEl.addEventListener('click', () => {
-    if (toggle === true) {
+    if (toggle === 'topLeft') {
+        moveTo('0', '0', 'auto', 'auto');
+        toggle = 'topRight';
+    } else if (toggle === 'topRight'){
         moveTo('auto', '0', '0', 'auto');
-        toggle = false;
+        toggle = 'bottomRight';
+    } else if (toggle === 'bottomRight'){
+        moveTo('auto', 'auto', '0', '0');
+        toggle = 'bottomLeft';
     } else {
         moveTo('0', 'auto', 'auto', '0');
-        toggle = true;
+        toggle = 'topLeft';
     }
 });
 
@@ -40,9 +72,6 @@ function moveTo(top, right, bottom, left) {
     buttonJumpEl.style.left = `${left}`;
 }
 moveTo('0', 'auto', 'auto', '0');
-
-
-/* 3. Pakoreguokite antrą pratimą, kad mygtukas suktųsi ratu - laikrodžio rodykle. */
 
 
 /* 4. Sukurkite input elementą (formos ar mygtuko nereikia), kur vartotojas galės įrašyti savo vardą. Kai rašo - keičiasi puslapio stilius. Jei įrašyti du simboliai arba mažiau - viso puslapio fonas raudonas. Jei daugiau nei du simboliai - puslapio fonas žalias. */
