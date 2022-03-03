@@ -30,58 +30,58 @@ h1El.addEventListener('click', () => {
 /* 2. Išbandome ekraną. Sukurkite mygtuką su HTML. JS pasirašykite, kad mygtukas position: absolute ir jo lokacija - viršus, kairė. Paspaudus ant mygtuko, jis turi peršokti į apačią dešinę pusę. Paspaudus vėl - į viršų, kairę pusę. Ir taip šokinėti įstrižai per ekraną kiekvieno paspaudimo metu. */
 /* <button id="button-jump" class="button-style">Jump</button> */
 
-// const buttonJumpEl = document.getElementById('button-jump');
-// buttonJumpEl.style.position = 'absolute';
+const buttonJumpToggleEl = document.getElementById('button-jump-toggle');
+buttonJumpToggleEl.style.position = 'absolute';
 
-// const toggle = true;
+let toggle = true;
 
-// buttonJumpEl.addEventListener('click', () => {
-//     if (toggle === true) {
-//         moveTo('auto', '0', '0', 'auto');
-//         toggle = false;
-//     } else {
-//         moveTo('0', 'auto', 'auto', '0');
-//         toggle = true;
-//     }
-// });
+buttonJumpToggleEl.addEventListener('click', () => {
+    if (toggle === true) {
+        moveToToggle('auto', 'auto', '0', '0');
+        toggle = false;
+    } else {
+        moveToToggle('0', '0', 'auto', 'auto');
+        toggle = true;
+    }
+});
 
-// function moveTo(top, right, bottom, left) {
-//     buttonJumpEl.style.top = `${top}`;
-//     buttonJumpEl.style.right = `${right}`;
-//     buttonJumpEl.style.bottom = `${bottom}`;
-//     buttonJumpEl.style.left = `${left}`;
-// }
-// moveTo('0', 'auto', 'auto', '0');
+function moveToToggle(top, right, bottom, left) {
+    buttonJumpToggleEl.style.top = `${top}`;
+    buttonJumpToggleEl.style.right = `${right}`;
+    buttonJumpToggleEl.style.bottom = `${bottom}`;
+    buttonJumpToggleEl.style.left = `${left}`;
+}
+moveToToggle('0', '0', 'auto', 'auto');
 
 
 /* 3. Pakoreguokite antrą pratimą, kad mygtukas suktųsi ratu - laikrodžio rodykle. */
 
-const buttonJumpEl = document.getElementById('button-jump');
-buttonJumpEl.style.position = 'absolute';
+const buttonJumpAroundEl = document.getElementById('button-jump-around');
+buttonJumpAroundEl.style.position = 'absolute';
 
-let toggle = 'topLeft';
+let position = 'topLeft';
 
-buttonJumpEl.addEventListener('click', () => {
-    if (toggle === 'topLeft') {
+buttonJumpAroundEl.addEventListener('click', () => {
+    if (position === 'topLeft') {
         moveTo('0', '0', 'auto', 'auto');
-        toggle = 'topRight';
-    } else if (toggle === 'topRight') {
+        position = 'topRight';
+    } else if (position === 'topRight') {
         moveTo('auto', '0', '0', 'auto');
-        toggle = 'bottomRight';
-    } else if (toggle === 'bottomRight') {
+        position = 'bottomRight';
+    } else if (position === 'bottomRight') {
         moveTo('auto', 'auto', '0', '0');
-        toggle = 'bottomLeft';
+        position = 'bottomLeft';
     } else {
         moveTo('0', 'auto', 'auto', '0');
-        toggle = 'topLeft';
+        position = 'topLeft';
     }
 });
 
 function moveTo(top, right, bottom, left) {
-    buttonJumpEl.style.top = `${top}`;
-    buttonJumpEl.style.right = `${right}`;
-    buttonJumpEl.style.bottom = `${bottom}`;
-    buttonJumpEl.style.left = `${left}`;
+    buttonJumpAroundEl.style.top = `${top}`;
+    buttonJumpAroundEl.style.right = `${right}`;
+    buttonJumpAroundEl.style.bottom = `${bottom}`;
+    buttonJumpAroundEl.style.left = `${left}`;
 }
 moveTo('0', 'auto', 'auto', '0');
 
@@ -117,3 +117,17 @@ buttonColorfulEl.addEventListener('click', () => {
 
 
 /* 6. Pasikoreguokime penktą pratimą - šį kartą array nereikės, keisime RGB spalvas. Paspaudus ant mygtuko, susigeneruoja trys random skaičiai (nuo 0 iki 255, imtinai), šie skaičiai atvaizduoja spalvų paletę (red, green, blue => RGB). Padarykite, kad paspaudus ant mygtuko, jo fono spalva pasikeistų į atsiktinę spalvą pagal RGB paletę.*/
+// rgb(255, 255, 255)
+
+const buttonColorfulRgbEl = document.getElementById('button-colorful-rgb');
+
+buttonColorfulRgbEl.addEventListener('click', () => {
+    const randomNumber1 = Math.floor(Math.random() * 255) + 0;
+    const randomNumber2 = Math.floor(Math.random() * 255) + 0;
+    const randomNumber3 = Math.floor(Math.random() * 255) + 0; 
+    const color = `rgb(${randomNumber1}, ${randomNumber2}, ${randomNumber3})`;
+    buttonColorfulRgbEl.style.backgroundColor = color;
+
+    // buttonColorfulRgbEl.style.backgroundColor = `rgb(${randomNumber1}, ${randomNumber2}, ${randomNumber3})`;
+    // console.log(buttonColorfulRgbEl.style.backgroundColor);
+});
