@@ -17,11 +17,12 @@ h1El.addEventListener('click', () => {
 
 
 /* 2. Išbandome ekraną. Sukurkite mygtuką su HTML. JS pasirašykite, kad mygtukas position: absolute ir jo lokacija - viršus, kairė. Paspaudus ant mygtuko, jis turi peršokti į apačią dešinę pusę. Paspaudus vėl - į viršų, kairę pusę. Ir taip šokinėti įstrižai per ekraną kiekvieno paspaudimo metu. */
+/* <button id="button-jump" class="button-style">Jump</button> */
 
 // const buttonJumpEl = document.getElementById('button-jump');
 // buttonJumpEl.style.position = 'absolute';
 
-// let toggle = true;
+// const toggle = true;
 
 // buttonJumpEl.addEventListener('click', () => {
 //     if (toggle === true) {
@@ -75,6 +76,19 @@ moveTo('0', 'auto', 'auto', '0');
 
 
 /* 4. Sukurkite input elementą (formos ar mygtuko nereikia), kur vartotojas galės įrašyti savo vardą. Kai rašo - keičiasi puslapio stilius. Jei įrašyti du simboliai arba mažiau - viso puslapio fonas raudonas. Jei daugiau nei du simboliai - puslapio fonas žalias. */
+/* <input type="text" id="input4" placeholder="Your name" name="input4" /> */
+
+const nameInputEl = document.getElementById('input4');
+
+nameInputEl.addEventListener('blur', () => {
+    const nameValueLength = nameInputEl.value.length;
+    // console.log('aaa',nameValueLength);
+    if (nameValueLength <= 2) {
+        document.body.style.backgroundColor = 'red';
+    } else {
+        document.body.style.backgroundColor = 'green';
+    }
+});
 
 
 /* 5. Sukurkite mygtuką HTML'e. O su JS pasirašykite array su keturiom spalvom (["red", "green", "blue", "yellow"]). Paspaudus ant mygtuko - tegul jo spalva pasikeičia į atsitiktinę spalvą. */
