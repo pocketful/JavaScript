@@ -40,17 +40,44 @@ buttonSortEl.addEventListener('click', (event) => {
 
 
 /* Show and hide text after clicking on Question */
+// const titlesEl = document.querySelectorAll('.acc__title');
+// length = titlesEl.length;
+
+// for (let i = 0; i < length; i++) {
+//     titlesEl[i].addEventListener('click', (event) => {
+//         // console.log(titlesEl[i]);
+//         // console.log(titlesEl.classList);
+//         titlesEl[i].nextElementSibling.classList.toggle('acc__text');
+//     });
+// }
+
+
+/* Show and hide text on all elements, after clicking on any Question element */
+/* padarom kad paspaudus nat bet kurio Question el butu parodomas po juo esantis el */
+
+// const titlesEl = document.querySelectorAll('.acc__title');
+// length = titlesEl.length;
+
+// for (let i = 0; i < length; i++) {
+//     titlesEl[i].addEventListener('click', (event) => {
+//         for (let i = 0; i < length; i++) {
+//         titlesEl[i].nextElementSibling.classList.toggle('acc__text');
+//         }
+//     });
+// }
+
+
+/* padarom kad kai paspaudziam ant elemento, jei yra atsidares kazkuris kitas, tai uzdarom atsidariusius ir paliekam atidaryta tik ta kuri paspaudem. */
+
 const titlesEl = document.querySelectorAll('.acc__title');
 length = titlesEl.length;
-// const textEl = document.querySelector('p');
 
 for (let i = 0; i < length; i++) {
     titlesEl[i].addEventListener('click', (event) => {
-        // console.log(titlesEl[i]);
-        // console.log(titlesEl.classList);
-        titlesEl[i].nextElementSibling.classList.toggle('acc__text');
+        // debugger
+        for (let i = 0; i < length; i++) {
+            titlesEl[i].nextElementSibling.classList.add('acc__text');
+        }
+        titlesEl[i].nextElementSibling.classList.remove('acc__text');
     });
 }
-
-
-
