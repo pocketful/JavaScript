@@ -55,14 +55,18 @@ console.log(form3El);
 form3El.addEventListener('click', (event) => {
     event.preventDefault();
     const nameValue = form3El.name.value;
-    const ageValue = form3El.age.value;
-    let legalValue = true;
+    // const nameValue = e.target.elements.name.value; // same
+    const ageValue = Number(form3El.age.value);
 
+    let legalValue = true;
     if (ageValue >= 18) {
         legalValue = true;
     } else {
         legalValue = false;
     }
+
+    // vietoj virsutines dalies trumpiau:
+    // const legalValue = ageValue >= 18;
 
     const person = {
         name: nameValue,
