@@ -42,3 +42,31 @@ form2El.addEventListener('click', (event) => {
 
 
 /* 3. Sukurk formą, kurioje vartotojas įrašo vardą ir įveda amžių. Pateikus duomenis, turi susikurti objektas, kuriame du properties - name ir isLegalAge. Name - string, o isLegalAge - boolean. */
+
+/* <form id="userForm3" autocomplete="off">
+     <input type="text" name="name" id="name" placeholder="Name" value="Iveta" />
+     <input type="number" name="age" id="age" placeholder="Age" value="30" />
+     <button type="submit">Submit</button>
+   </form> */
+
+const form3El = document.forms.userForm3;
+console.log(form3El);
+
+form3El.addEventListener('click', (event) => {
+    event.preventDefault();
+    const nameValue = form3El.name.value;
+    const ageValue = form3El.age.value;
+    let legalValue = true;
+
+    if (ageValue >= 18) {
+        legalValue = true;
+    } else {
+        legalValue = false;
+    }
+
+    const person = {
+        name: nameValue,
+        isLegalAge: legalValue,
+    }    
+    console.log(person);
+});
