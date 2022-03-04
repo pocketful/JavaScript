@@ -116,12 +116,17 @@ buttonColorfulEl.addEventListener('click', () => {
 const buttonColorfulRgbEl = document.getElementById('button-colorful-rgb');
 
 buttonColorfulRgbEl.addEventListener('click', () => {
-    const randomNumber1 = Math.floor(Math.random() * 255) + 0;
-    const randomNumber2 = Math.floor(Math.random() * 255) + 0;
-    const randomNumber3 = Math.floor(Math.random() * 255) + 0; 
+    const randomNumber1 = randomNum();
+    const randomNumber2 = randomNum();
+    const randomNumber3 = randomNum(); 
     const color = `rgb(${randomNumber1}, ${randomNumber2}, ${randomNumber3})`;
     buttonColorfulRgbEl.style.backgroundColor = color;
 
     // buttonColorfulRgbEl.style.backgroundColor = `rgb(${randomNumber1}, ${randomNumber2}, ${randomNumber3})`;
     // console.log(buttonColorfulRgbEl.style.backgroundColor);
 });
+
+
+function randomNum() {
+    return Math.floor(Math.random() * 255) + 0;
+}
