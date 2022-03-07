@@ -9,14 +9,27 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" />
     <script src="dom-object.js" defer></script>
     <style>
-        .acc__text {
-            display: none;
-        }
         .acc__title {
             border-bottom: 1px solid #000;
             cursor: pointer;
         }
-    </style>
+        .acc__text {
+            display: none;
+        }
+
+
+        /* Animated accordion */
+        .acc__title-anim {
+            border-bottom: 1px solid #000;
+            cursor: pointer;
+        }
+        .acc__text-anim {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+</style>
 </head>
 
 <body>
@@ -28,7 +41,6 @@
         <li>Two</li>
         <li>Three</li>
     </ul>
-    <hr />
 
     <!-- Button Sort ASC -->
     <button id="button-sort">Sort <span id="button-sort-span">ASC</span></button>
@@ -37,18 +49,29 @@
     <div class="accordion">
         <h3 class="acc__title">Question 1</h3>
         <p class="acc__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cumque, reprehenderit
-            facilis nulla sapiente
-            commodi accusantium officia? Repellendus, nisi est.</p>
+            facilis nulla sapiente commodi accusantium officia? Repellendus, nisi est.</p>
         <h3 class="acc__title">Question 2</h3>
         <p class="acc__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cumque, reprehenderit
-            facilis nulla sapiente
-            commodi accusantium officia? Repellendus, nisi est.</p>
+            facilis nulla sapiente commodi accusantium officia? Repellendus, nisi est.</p>
         <h3 class="acc__title">Question 3</h3>
         <p class="acc__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cumque, reprehenderit
-            facilis nulla sapiente
-            commodi accusantium officia? Repellendus, nisi est.</p>
+            facilis nulla sapiente commodi accusantium officia? Repellendus, nisi est.</p>
     </div>
 
+    
+    <h2 style="color: red; margin-top: 50px;">Animated accordion</h2>
+    <!-- Animated accordion. Show and hide text when clicked on Question -->
+    <div class="accordion">
+        <h3 class="acc__title-anim">Question 1</h3>
+        <p class="acc__text-anim">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cumque, reprehenderit
+            facilis nulla sapiente commodi accusantium officia? Repellendus, nisi est.</p>
+        <h3 class="acc__title-anim">Question 2</h3>
+        <p class="acc__text-anim">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cumque, reprehenderit
+            facilis nulla sapiente commodi accusantium officia? Repellendus, nisi est.</p>
+        <h3 class="acc__title-anim">Question 3</h3>
+        <p class="acc__text-anim">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam cumque, reprehenderit
+            facilis nulla sapiente commodi accusantium officia? Repellendus, nisi est.</p>
+    </div>
 
 </body>
 

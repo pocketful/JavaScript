@@ -69,14 +69,32 @@ buttonSortEl.addEventListener('click', (event) => {
 
 /* padarom kad kai paspaudziam ant elemento, jei yra atsidares kazkuris kitas, tai uzdarom atsidariusius ir paliekam atidaryta tik ta kuri paspaudem. */
 
-const titlesEl = document.querySelectorAll('.acc__title');
-length = titlesEl.length;
+// const titlesEl = document.querySelectorAll('.acc__title');
+// length = titlesEl.length;
+
+// for (let i = 0; i < length; i++) {
+//     titlesEl[i].addEventListener('click', (event) => {
+//         for (let i = 0; i < length; i++) {
+//             titlesEl[i].nextElementSibling.classList.add('acc__text');
+//         }
+//         titlesEl[i].nextElementSibling.classList.remove('acc__text');
+//     });
+// }
+
+
+/* Animated accordion */
+/* Show and hide text after clicking on Question */
+const titlesAnimEl = document.querySelectorAll('.acc__title-anim');
+length = titlesAnimEl.length;
 
 for (let i = 0; i < length; i++) {
-    titlesEl[i].addEventListener('click', (event) => {
-        for (let i = 0; i < length; i++) {
-            titlesEl[i].nextElementSibling.classList.add('acc__text');
+    titlesAnimEl[i].addEventListener('click', (event) => {
+        const text = titlesAnimEl[i].nextElementSibling;
+
+        if (text.style.maxHeight) {
+            text.style.maxHeight = null;
+        } else {
+            text.style.maxHeight = text.scrollHeight + "px";
         }
-        titlesEl[i].nextElementSibling.classList.remove('acc__text');
     });
 }
