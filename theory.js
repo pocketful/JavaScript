@@ -1,3 +1,8 @@
+// su arrow function objekte this eina kiaurai, error
+
+
+
+
 /* ===================== JavaScript Hoisting ======================= */
 
 /* Hoisting is JS default behavior of moving declarations to the top.

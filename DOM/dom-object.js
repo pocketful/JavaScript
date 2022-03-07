@@ -53,7 +53,7 @@ buttonSortEl.addEventListener('click', (event) => {
 
 
 /* Show and hide text on all elements, after clicking on any Question element */
-/* padarom kad paspaudus nat bet kurio Question el butu parodomas po juo esantis el */
+/* padarom kad paspaudus ant bet kurio Question el butu parodomas po juo esantis el */
 
 // const titlesEl = document.querySelectorAll('.acc__title');
 // length = titlesEl.length;
@@ -74,7 +74,6 @@ length = titlesEl.length;
 
 for (let i = 0; i < length; i++) {
     titlesEl[i].addEventListener('click', (event) => {
-        // debugger
         for (let i = 0; i < length; i++) {
             titlesEl[i].nextElementSibling.classList.add('acc__text');
         }
