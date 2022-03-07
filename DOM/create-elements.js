@@ -97,7 +97,8 @@ h4El.classList.add('a__towns-title');
     li3El.classList.add('a__towns');
 buttonEl.id = 'more-btn';
 
-document.body.append(articleEl);
+// document.body.append(articleEl);
+sectionEl.after(articleEl);
 articleEl.append(h3El);
 articleEl.append(p2El);
 articleEl.append(h4El);
@@ -161,3 +162,18 @@ function showMore() {
 }
 
 buttonEl.addEventListener('click', showMore);
+
+
+/* example with object */
+const miestaiObj = [
+  {
+    title: 'kaunas',
+    population: 80000,
+  },
+  {
+    title: 'Vilnius',
+    population: 100000,
+  },
+];
+// get Vilnius
+miestaiObj[1].title;
