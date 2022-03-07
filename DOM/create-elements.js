@@ -108,11 +108,11 @@ articleEl.append(ulEl);
 articleEl.append(buttonEl);
 
 // 2 way for multiple <li>, better with array 
-const miestai = ['Kaunas', 'Vilnius', 'Klaipeda'];
-for (let i = 0; i < miestai.length; i++) {
-    const element = miestai[i];
+const cities = ['Kaunas', 'Vilnius', 'Klaipeda'];
+for (let i = 0; i < cities.length; i++) {
+    const city = cities[i];
     const liEl = document.createElement('li');
-    liEl.textContent = element;
+    liEl.textContent = city;
     liEl.classList.add('a__towns');
 
     // jei su sukurta funkcija
