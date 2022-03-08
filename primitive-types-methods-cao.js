@@ -53,3 +53,44 @@ submit1El.addEventListener('click', function () {
 // const price = Number(document.getElementById('price').value);
 
 
+/* String methods ======================================================================== */
+/*  Tiek boolean, tiek number galime konvertuoti į string'us. Keli, mano galva, populiariausi:
+    * tekstas1.includes(tekstas2) <- tikrina ar tekstas2 yra tekstas1 viduje (grąžina boolean reikšmę);
+    * tekstas.slice() <- apkarpo tekstą pagal paduodamus parametrus (t.y. nukerpa pradžią ar/ir galą);
+    * tekstas.trim() <- ištrina priekyje teksto padėtus tarpelius;
+    * tekstas.toUpperCase(), tekstas.toLowerCase() <- didina/mažina teksto kapitalizaciją (pvz. "a" => "A").
+    * tekstas.repeat(skaičius) <- atkartoja tekstą tiek kartų, kiek nurodo skaičius.
+    * tekstas.split(parametras) <- padalina tekstą į kelias dalis (pagal paduotą parametrą) ir grąžina array (pvz. per tarpelį: "BMW AUDI".split(" ") => ["BMW", "AUDI"]). */
+
+
+/* 1. Sukurk du input'us - vieną, kur vartotojas įves savo vardą; kitą - skaičių. Pirma, patikrink ar skaičius sveikas (jei ne - alert). Jei sveikas, po apačia sukurk h1 elementą kur vardas bus atkartotas tiek kartų, kiek skaičius nurodo. */
+/*
+  <form id="nameForm">
+    <input type="text" id="name" name="name" placeholder="name" value="Iveta" />
+    <input type="number" id="number" name="number" placeholder="number" value="3" />
+    <button type="submit">Repeat</button>
+  </form>
+*/
+
+const formNameEl = document.forms.nameForm;
+
+formNameEl.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const numberValue = Number(formNameEl.elements.number.value);
+    const nameValue = formNameEl.elements.name.value;
+
+    if (Number.isInteger(numberValue) && nameValue) {
+        const resultEl = document.createElement('h1');
+        resultEl.textContent = nameValue.repeat(numberValue);
+        formNameEl.after(resultEl);
+        console.log(nameValue);
+        console.log(numberValue);
+        console.log(resultEl);
+    }
+    else {
+        alert('iveskite sveika skaiciu arba varda');
+        return;
+    }
+});
+
