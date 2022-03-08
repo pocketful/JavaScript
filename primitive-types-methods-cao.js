@@ -94,3 +94,20 @@ formNameEl.addEventListener('submit', function (event) {
     }
 });
 
+
+/* 2. Sukurk input, kur vartotojas įves savo vardą. Įvedus - alert'ink kokio ilgio yra vardas. Tačiau užtikrink, kad priekyje ir gale nebūtų įskaičiuoti tarpeliai. */
+/*  <form id="name2Form">
+      <input type="text" id="name" name="name" placeholder="name" />
+      <button type="submit">Length</button>
+    </form> */
+
+const formName2El = document.forms.name2Form;
+
+formName2El.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const nameValue = formName2El.elements.name.value.trim();
+    const resultEl = document.createElement('h1');
+    resultEl.textContent = `Length: ${nameValue.length}`;
+    formName2El.after(resultEl);
+});
