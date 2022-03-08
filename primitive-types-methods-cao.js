@@ -111,3 +111,44 @@ formName2El.addEventListener('submit', function (event) {
     resultEl.textContent = `Length: ${nameValue.length}`;
     formName2El.after(resultEl);
 });
+
+
+/* 3. Sukurk input, kur vartotojas įves savo pilną vardą (t.y. vardą ir pavardę). Padaryk, kad JS pridėtų du h1 tag'us, viename - vardas, kitame - pavardė. */
+/* 4. Pakoreguok trečią pratimą, kad įskaičiuotų, jei pavardė ilgesnė nei vienas žodis. */
+
+
+/* <form id="name3Form">
+     <input type="text" id="fullname" name="fullname" placeholder="name surname" />
+     <button type="submit">Submit</button>
+   </form> */
+
+const formName3El = document.forms.name3Form;
+
+formName3El.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // get all input value
+    const fullnameValue = formName3El.elements.fullname.value.trim(); // Iveta Jac Kun Ai
+
+    // splits a string into an array
+    const fullnameArray = fullnameValue.split(' '); // ['Iveta', 'Jac', 'Kun', 'Ai']
+
+    // name is array's first element
+    const nameEl = document.createElement('h1');
+    nameEl.textContent = `Name: ${fullnameArray[0]}`; // Name: Iveta
+    console.log('nameEl ===', nameEl.textContent);
+
+    const surnameEl = document.createElement('h1');
+
+    /* if surname is one word */
+    // surnameEl.textContent = `Surname: ${fullnameArray[1]}`;  // Surname: Jac
+
+    /* if surname consists of more than 1 words */
+
+    // new array, sliced beginning from [1]  
+    const surnameArray = fullnameArray.slice(1); // ['Jac', 'Kun', 'Ai']
+    // join new array elements into a string, separate with blank spaces
+    surnameEl.textContent = `Surname: ${surnameArray.join(' ')}`; // Surname: Jac Kun Ai
+
+    formName3El.after(nameEl, surnameEl);
+});
