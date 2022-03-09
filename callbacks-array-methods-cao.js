@@ -90,18 +90,26 @@ cars.forEach((sk, i) => {
 
 /* 3. Sukurk Array su savo draugų vardais, raidžių kapitalizaciją pamiksuok (t.y. "peTras", "Jonas", "aNTanaS" ir t.t.). Naudojant map metodą, padaryk, kad susikurtų naujas array (ir jį atspausdink), kuriame vardai surašyti teisinga kapitalizacija (pvz. "peTras" => "Petras"). */
 const namesArray = ['hErmioNe', 'roN', 'HaRRy', 'PETUNIA', 'dudley'];
+console.log('Task 3. Names ===', namesArray);
 
 const newNamesArray = namesArray.map((name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase());
-console.log('Task 3. newNamesArray ===', newNamesArray);
+console.log('Task 3. Names fixed  ===', newNamesArray);
 
 
 /* 4. Sukurk Array su savo draugų amžiais (nuo 1 iki 99). Naudojant filter - prafiltruok tik tuos skaičius, kurie didesni arba lygūs 18.*/
-const yearsArray = [30, 10, 99, 5, 15, 18];
+const ageArray = [30, 10, 99, 5, 15, 18];
+console.log('Task 4. Ages ===', ageArray);
+
+const legalAgeArray = ageArray.filter((age) => age >= 18);
+console.log('Task 4. Legal ages ===', legalAgeArray);
 
 
 /* 5. Sukurk Array su Lietuvos miestais ("Vilnius", "Kaunas"). Naudojant find - surask bet kokį pirmą miestą, kuris prasideda iš "K" raidės. */
-const citiesArray = ['Kaunas', 'Vilnius', 'Klaipeda', 'siauliai', 'Panevezys', 'Utena'];
+const citiesArray = ['Vilnius', 'Kaunas', 'Klaipeda', 'siauliai', 'Panevezys', 'Utena'];
+console.log('Task 5. Cities ===', citiesArray);
 
+const cityFirstFromK = citiesArray.find((city) => city.charAt(0) === 'K');
+console.log('Task 5. First city from K ===', cityFirstFromK);
 
 /* 6. Penktame pratime esantį sprendimą pakoreguok ir patikrink su some ar bent vienas miestas prasideda iš mažosios. */
 
