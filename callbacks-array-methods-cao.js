@@ -105,14 +105,20 @@ console.log('Task 4. Legal ages ===', legalAgeArray);
 
 
 /* 5. Sukurk Array su Lietuvos miestais ("Vilnius", "Kaunas"). Naudojant find - surask bet kokį pirmą miestą, kuris prasideda iš "K" raidės. */
-const citiesArray = ['Vilnius', 'Kaunas', 'Klaipeda', 'siauliai', 'Panevezys', 'Utena'];
+const citiesArray = ['Vilnius', 'Kaunas', 'Klaipeda', 'Siauliai', 'panevezys', 'Utena'];
 console.log('Task 5. Cities ===', citiesArray);
 
 const cityFirstFromK = citiesArray.find((city) => city.charAt(0) === 'K');
 console.log('Task 5. First city from K ===', cityFirstFromK);
 
-/* 6. Penktame pratime esantį sprendimą pakoreguok ir patikrink su some ar bent vienas miestas prasideda iš mažosios. */
 
+/* 6. Penktame pratime esantį sprendimą pakoreguok ir patikrink su some ar bent vienas miestas prasideda iš mažosios. */
+const ifFirstLow = citiesArray.some((city) => city.charAt(0).toLowerCase() === city.charAt(0));
+console.log('Task 6. If any city starts with lowercase letter ===', ifFirstLow);
+
+ifFirstLow ? console.log('Task 6. Yra miestu is mazosios raides') : console.log('Task 6. Nera miestu is mazosios raides')
 
 /* 7. Pakoreguok šeštą pratimą, kad tikrintų ne ar bent vienas miestas prasideda ir mažosios, bet ar visi iš didžiosios. */
+
+
 
