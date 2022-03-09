@@ -1,6 +1,7 @@
 'use strict';
 
 /* STRING METHODS ========================================================================================= */
+/* https://www.w3schools.com/js/js_string_methods.asp */
 
 const replaceStringEl = document.getElementById('replace');
 

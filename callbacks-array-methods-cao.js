@@ -74,31 +74,37 @@ coreFunction('iveta', alertName);
 /* 1. Nusikopijuok array (const cars = ["BMW", "VW", "Audi"]) ir naudojant forEach, atspausdink kiekvieną elementą (automobilio reikšmę). */
 const cars = ["BMW", "VW", "Audi"];
 
-cars.forEach((sk) => {
-    console.log('Task 1. el ===', sk);
-});
+// cars.forEach((sk) => {
+//     console.log('Task 1. el ===', sk);
+// });
 
-// cars.forEach((sk) => console.log('Task 1, el ===', sk)); // same
+cars.forEach((sk) => console.log('Task 1, el ===', sk)); // same
 
 
 /* 2. Pakoreguok pirmą pratimą, kad atspaudintum index: value (pvz: "0: BMW", "1: VW" ir t.t.). */
 
 cars.forEach((sk, i) => {
-    console.log(`Task 1. ${i}: ${sk}`);
+    console.log(`Task 2. ${i}: ${sk}`);
 });
 
+
 /* 3. Sukurk Array su savo draugų vardais, raidžių kapitalizaciją pamiksuok (t.y. "peTras", "Jonas", "aNTanaS" ir t.t.). Naudojant map metodą, padaryk, kad susikurtų naujas array (ir jį atspausdink), kuriame vardai surašyti teisinga kapitalizacija (pvz. "peTras" => "Petras"). */
+const namesArray = ['hErmioNe', 'roN', 'HaRRy', 'PETUNIA', 'dudley'];
 
-
+const newNamesArray = namesArray.map((name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase());
+console.log('Task 3. newNamesArray ===', newNamesArray);
 
 
 /* 4. Sukurk Array su savo draugų amžiais (nuo 1 iki 99). Naudojant filter - prafiltruok tik tuos skaičius, kurie didesni arba lygūs 18.*/
+const yearsArray = [30, 10, 99, 5, 15, 18];
 
 
 /* 5. Sukurk Array su Lietuvos miestais ("Vilnius", "Kaunas"). Naudojant find - surask bet kokį pirmą miestą, kuris prasideda iš "K" raidės. */
+const citiesArray = ['Kaunas', 'Vilnius', 'Klaipeda', 'siauliai', 'Panevezys', 'Utena'];
 
 
-/* 6. Penktame pratime esantį sprendimą pakoreguot ir patikrink su some ar bent vienas miestas prasideda iš mažosios. */
+/* 6. Penktame pratime esantį sprendimą pakoreguok ir patikrink su some ar bent vienas miestas prasideda iš mažosios. */
 
 
 /* 7. Pakoreguok šeštą pratimą, kad tikrintų ne ar bent vienas miestas prasideda ir mažosios, bet ar visi iš didžiosios. */
+

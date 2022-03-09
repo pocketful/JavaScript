@@ -54,6 +54,7 @@ submit1El.addEventListener('click', function () {
 
 
 /* String methods ======================================================================== */
+/* https://www.w3schools.com/js/js_string_methods.asp */
 /*  Tiek boolean, tiek number galime konvertuoti į string'us. Keli, mano galva, populiariausi:
     * tekstas1.includes(tekstas2) <- tikrina ar tekstas2 yra tekstas1 viduje (grąžina boolean reikšmę);
     * tekstas.slice() <- apkarpo tekstą pagal paduodamus parametrus (t.y. nukerpa pradžią ar/ir galą);
@@ -93,6 +94,31 @@ formNameEl.addEventListener('submit', function (event) {
         return;
     }
 });
+
+/* !nameValue ????????????????????? */
+// const formNameEl = document.forms.nameForm;
+
+// formNameEl.addEventListener('submit', function (event) {
+//     event.preventDefault();
+
+//     const numberValue = Number(formNameEl.elements.number.value);
+//     const nameValue = formNameEl.elements.name.value;
+//     console.log('nameValue ===', nameValue);
+
+//     console.log('nameValue bool ===', Boolean(nameValue));
+//     if (!Number.isInteger(numberValue) && !nameValue) {
+//         alert('iveskite sveika skaiciu arba varda');
+//         return;
+//     }
+
+//     const resultEl = document.createElement('h1');
+//     resultEl.textContent = nameValue.repeat(numberValue);
+//     formNameEl.after(resultEl);
+
+//     console.log(nameValue);
+//     console.log(numberValue);
+//     console.log(resultEl);
+// });
 
 
 /* 2. Sukurk input, kur vartotojas įves savo vardą. Įvedus - alert'ink kokio ilgio yra vardas. Tačiau užtikrink, kad priekyje ir gale nebūtų įskaičiuoti tarpeliai. */
