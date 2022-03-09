@@ -118,7 +118,10 @@ console.log('Task 6. If any city starts with lowercase letter ===', ifFirstLow);
 
 ifFirstLow ? console.log('Task 6. Yra miestu is mazosios raides') : console.log('Task 6. Nera miestu is mazosios raides')
 
+
 /* 7. Pakoreguok šeštą pratimą, kad tikrintų ne ar bent vienas miestas prasideda ir mažosios, bet ar visi iš didžiosios. */
+const ifEveryUppercase = citiesArray.every((city) => city.charAt(0).toUpperCase() === city.charAt(0));
+console.log('Task 7. If every city starts uppercase letter ===', ifEveryUppercase);
 
-
+ifEveryUppercase ? console.log('Task 7. Visi miestai is didziosios raides') : console.log('Task 7. Ne visi miestai is didziosios raides')
 
