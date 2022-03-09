@@ -69,17 +69,17 @@ buttonSortEl.addEventListener('click', (event) => {
 
 /* padarom kad kai paspaudziam ant elemento, jei yra atsidares kazkuris kitas, tai uzdarom atsidariusius ir paliekam atidaryta tik ta kuri paspaudem. */
 
-// const titlesEl = document.querySelectorAll('.acc__title');
-// length = titlesEl.length;
+const titlesEl = document.querySelectorAll('.acc__title');
+length = titlesEl.length;
 
-// for (let i = 0; i < length; i++) {
-//     titlesEl[i].addEventListener('click', (event) => {
-//         for (let i = 0; i < length; i++) {
-//             titlesEl[i].nextElementSibling.classList.add('acc__text');
-//         }
-//         titlesEl[i].nextElementSibling.classList.remove('acc__text');
-//     });
-// }
+for (let i = 0; i < length; i++) {
+    titlesEl[i].addEventListener('click', (event) => {
+        for (let i = 0; i < length; i++) {
+            titlesEl[i].nextElementSibling.classList.add('acc__text');
+        }
+        titlesEl[i].nextElementSibling.classList.remove('acc__text');
+    });
+}
 
 
 /* Animated accordion */
@@ -98,3 +98,36 @@ for (let i = 0; i < length; i++) {
         }
     });
 }
+
+/* -------------------------------------------------------------------------------------- */
+/* Teachers animated accordion */
+/* padarom kad kai paspaudziam ant elemento, jei yra atsidares kazkuris kitas, tai uzdarom atsidariusius ir paliekam atidaryta tik ta kuri paspaudem. */
+
+// vienas accordionas
+const titleElArr = document.querySelectorAll('.acc__title-t');
+console.log('titleElArr ===', titleElArr);
+for (let i = 0; i < titleElArr.length; i++) {
+  const element = titleElArr[i];
+  element.addEventListener('click', toggleText);
+}
+// titleElArr.addEventListener('click', toggleText);
+
+function toggleText(event) {
+  // elementas ant kurio paspaudem
+  const el = event.target;
+  // priekyje esanciam el toglinti klase show-t
+  hideAllAccTexts();
+  // el.nextElementSibling.classList.add('show-t');
+  console.log(el.nextElementSibling.scrollHeight);
+  el.nextElementSibling.style.height = el.nextElementSibling.scrollHeight + 'px';
+}
+const accTextElArr = document.querySelectorAll('.acc__text-t');
+// console.log('accTextElArr ===', accTextElArr);
+function hideAllAccTexts() {
+  for (let i = 0; i < accTextElArr.length; i++) {
+    const element = accTextElArr[i];
+    // element.classList.remove('show-t');
+    element.style.height = 0;
+  }
+}
+console.dir(accTextElArr[1]);
