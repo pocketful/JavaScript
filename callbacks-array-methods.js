@@ -2,9 +2,22 @@
 
 /* callbacks ------------------------------------------------------------------------ */
 
+    // Old way
+    function multiplyOld(sk1, sk2) {
+        const result = sk1 * sk2;
+        return result;
+    }
+
+    displayValue(multiplyOld(5, 6)); // 1 way
+
+    let result = multiplyOld(5, 6); // 2 way:
+    displayValue(result);
+    outHtmlValue(result);
+
+
+// Callbacks
 function multiply(sk1, sk2, callback) {
     const result = sk1 * sk2;
-    // return result;
     callback(result);
 }
 
@@ -18,19 +31,30 @@ function outHtmlValue(val) {
     document.body.append(pEl);
 }
 
-// displayValue(multiply(5,6)); // maziau aisku
-
-// let result = multiply(5,6);
-// displayValue(result);
-// outHtmlValue(result);
-
 multiply(5, 6, displayValue);
+multiply(5, 6, outHtmlValue);
 
+// if function inside
 multiply(5, 6, (val) => {
     console.log(`The value again is ${val}`);
 });
 
-multiply(5, 6, outHtmlValue);
+/* ------------------------------------------------------------------------------- */
+// Asynchronous functions
+// console.log('log1');
+// console.log('log2');
+// console.log('log3');
+
+console.log('log1');
+// setTimeout(fn kuri vyks, po kiek milisekundziu)
+setTimeout(kviesk, 2000);
+function kviesk() {
+  console.log('log2');
+}
+
+document.body.addEventListener('click', () => {});
+
+console.log('log3');
 
 /* ------------------------------------------------------------------------------- */
 /* https://www.w3schools.com/jsref/jsref_obj_array.asp */ 
@@ -258,3 +282,35 @@ const liStringChain = skArray
 .map(sk => `<li> skaicius ${sk} </li>`)
 .join('');
 console.log('liStringChain ===', liStringChain);
+
+
+/* reduce =========================================================================== */
+
+// extra sunkesnis
+// e1. is skArray su reduce grazinti vidurki
+// const skArray = [0, 10, 15, -2, 30, -15, 10, -50];
+// reduce() - 
+
+
+
+// e2. is skArray su reduce grazinti objekta
+{
+    vidurkis: '';
+}
+// e2. is skArray su reduce grazinti objekta
+{
+    vidurkis: '';
+    totalSuma: '';
+}
+// e2. is skArray su reduce grazinti objekta
+// {
+//   teigiami: [...]
+//   neigiami: [...]
+// }
+
+const arr2 = [
+    [0, 15, 25],
+    [15, -5, 30],
+    [-15, 7, 12],
+];
+  // e2. is arr2 su reduce grazinti nauja masyva kuriame yra tik vienas masyvo lygis. is visu vidiniu masyvu istraukiam reiksmes ir sukeliam i viena masyva
