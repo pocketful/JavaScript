@@ -74,11 +74,22 @@ coreFunction('iveta', alertName);
 /* 1. Nusikopijuok array (const cars = ["BMW", "VW", "Audi"]) ir naudojant forEach, atspausdink kiekvieną elementą (automobilio reikšmę). */
 const cars = ["BMW", "VW", "Audi"];
 
+cars.forEach((sk) => {
+    console.log('Task 1. el ===', sk);
+});
+
+// cars.forEach((sk) => console.log('Task 1, el ===', sk)); // same
+
 
 /* 2. Pakoreguok pirmą pratimą, kad atspaudintum index: value (pvz: "0: BMW", "1: VW" ir t.t.). */
 
+cars.forEach((sk, i) => {
+    console.log(`Task 1. ${i}: ${sk}`);
+});
 
 /* 3. Sukurk Array su savo draugų vardais, raidžių kapitalizaciją pamiksuok (t.y. "peTras", "Jonas", "aNTanaS" ir t.t.). Naudojant map metodą, padaryk, kad susikurtų naujas array (ir jį atspausdink), kuriame vardai surašyti teisinga kapitalizacija (pvz. "peTras" => "Petras"). */
+
+
 
 
 /* 4. Sukurk Array su savo draugų amžiais (nuo 1 iki 99). Naudojant filter - prafiltruok tik tuos skaičius, kurie didesni arba lygūs 18.*/
