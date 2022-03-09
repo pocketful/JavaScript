@@ -33,13 +33,13 @@ fn(() => console.log('hi'));
 function fn2(n1) {
     n1(5);
 }
-fn2((num) => console.log(`num ===', num`));
+fn2((num) => console.log('num ===', num));
 
 /* -------------------------------- */
 /* https://www.w3schools.com/js/js_callback.asp */
 
 function myDisplayer(some) {
-    console.log(`some ===', some`);
+    console.log('some ===', some);
 }
 
 function myCalculator(num1, num2, myCallback) {
@@ -49,7 +49,24 @@ function myCalculator(num1, num2, myCallback) {
 myCalculator(5, 5, myDisplayer);
 
 
-/* 1. Sukurk dvi funkcijas: alertName, consoleName. Abi funkcijos turės vieną parametrą - vardą. Jos bus callback funkcijos, pirma tą vardą alertins, kita - console.log'ins. O dabar susikuriame pagrindę funkciją (coreFunction), ši funkcija - paima pirmą raidę, ją padidina ir prijungia kitas raides (t.y. užtikrina, kad vardas prasideda iš didžiosios; pvz: "petras" => "Petras"), tada iškviečia viena iš callback funkcijų (nesvarbu kurią, galima jas kaitalioti). */
+/* 1. Sukurk dvi funkcijas: alertName, consoleName. Abi funkcijos turės vieną parametrą - vardą. Jos bus callback funkcijos, pirma tą vardą alertins, kita - console.log'ins. O dabar susikuriame pagrindę funkciją (coreFunction), ši funkcija - paima pirmą raidę, ją padidina ir prijungia kitas raides (t.y. užtikrina, kad vardas prasideda iš didžiosios; pvz: "petras" => "Petras"), tada iškviečia viena iš callback funkcijų. */
+
+function alertName(text) {
+    console.log('alert name ===', text);
+}
+
+function consoleName(text) {
+    console.log('console name ===', text);
+}
+
+function coreFunction(name, display) {
+    const firstLetterToUpper = name.charAt(0).toUpperCase() + name.slice(1);
+    display(firstLetterToUpper);
+    //console.log(firstLetterToUpper);
+}
+
+coreFunction('iveta', consoleName);
+coreFunction('iveta', alertName);
 
 
 /* array methods =========================================================================== */
@@ -61,7 +78,7 @@ const cars = ["BMW", "VW", "Audi"];
 /* 2. Pakoreguok pirmą pratimą, kad atspaudintum index: value (pvz: "0: BMW", "1: VW" ir t.t.). */
 
 
-/* 3. Sukurk Array su savo draugų vardais, raidžių kapitalizaciją pamiksuok (t.y. "peTras", "Jonas", "aNTanaS" ir t.t.). Naudojant map metodą, padaryk, kad susikurtų naujas array (ir jį atspausdink), kuriame vardai surašyti teisinga kapitalizacija (pvz. "peTras" => "Petras").
+/* 3. Sukurk Array su savo draugų vardais, raidžių kapitalizaciją pamiksuok (t.y. "peTras", "Jonas", "aNTanaS" ir t.t.). Naudojant map metodą, padaryk, kad susikurtų naujas array (ir jį atspausdink), kuriame vardai surašyti teisinga kapitalizacija (pvz. "peTras" => "Petras"). */
 
 
 /* 4. Sukurk Array su savo draugų amžiais (nuo 1 iki 99). Naudojant filter - prafiltruok tik tuos skaičius, kurie didesni arba lygūs 18.*/
