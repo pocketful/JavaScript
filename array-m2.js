@@ -244,8 +244,60 @@ for (let i = 0; i < buttonElArray.length; i++) {
 
 /* sort ================================================================================== */
 /* https://www.w3schools.com/js/js_array_sort.asp */
-/* By default, the sort() function sorts values as strings. */
-/* You can fix this by providing a compare function:
-const points = [40, 100, 1, 5, 25, 10];
-points.sort(function(a, b){return a - b}); */
 
+// string tipo masyvo rikiavimas sort()
+const fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+console.log('fruits ===', fruits);
+// masyvu rikiavimas
+// veikia gerai tik ant string tipo duomenu
+fruits.sort();
+console.log('fruits sort ===', fruits);
+fruits.reverse();
+console.log('fruits reverse ===', fruits);
+
+// numbers tipo masyvo rikiavimas
+const numbersArr = [5, 1, 2, 3, 4, 10, 50, 112];
+console.log('numbersArr ===', numbersArr);
+
+// a-z sort
+numbersArr.sort((a, b) => a - b);
+// z-a sort
+numbersArr.sort((a, b) => b - a);
+
+console.log('numbersArr ===', numbersArr);
+
+
+/* sort students array ------------ */
+// issrikiuoti pagal amziu students
+students.sort((stdObjA, stdObjB) => stdObjA.age - stdObjB.age);
+console.log('students sorted by age ===', students);
+
+// issrikiuoti pagal varda A-Z
+students.sort((stdObjA, stdObjB) => {
+  if (stdObjA.name > stdObjB.name) {
+    return 1;
+  } else {
+    return -1;
+  }
+});
+console.log('students sorted by name ===', students);
+
+// issrikiuoti pagal gender with ternary, shorter A-Z
+students.sort((stdObjA, stdObjB) => (stdObjA.gender > stdObjB.gender ? 1 : -1));
+console.log('students sorted by gender ===', students);
+
+/* Example from w3 https://www.w3schools.com/js/js_array_sort.asp */
+// Comparing string:
+const cars = [
+    {brand:"Volvo", year:2016},
+    {brand:"Saab", year:2001},
+    {brand:"BMW", year:2010}
+];
+cars.sort(function(a, b){
+    let x = a.brand.toLowerCase();
+    let y = b.brand.toLowerCase();
+    if (x < y) {return -1;}
+    if (x > y) {return 1;}
+    return 0;
+});
+console.log('cars sorted ===', cars);  // BMW 2010 , Saab 2001, Volvo 2016
