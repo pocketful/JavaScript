@@ -115,6 +115,7 @@ console.log('Task 5. First city from K ===', cityFirstFromK);
 /* 6. Penktame pratime esantį sprendimą pakoreguok ir patikrink su some ar bent vienas miestas prasideda iš mažosios. */
 const ifFirstLow = citiesArray.some((city) => city.charAt(0).toLowerCase() === city.charAt(0));
 console.log('Task 6. If any city starts with lowercase letter ===', ifFirstLow);
+// console.log ({ifFirstLow});
 
 ifFirstLow ? console.log('Task 6. Yra miestu is mazosios raides') : console.log('Task 6. Nera miestu is mazosios raides')
 

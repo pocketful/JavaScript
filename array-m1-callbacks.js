@@ -56,7 +56,7 @@ document.body.addEventListener('click', () => {});
 
 console.log('log3');
 
-/* ------------------------------------------------------------------------------- */
+/* Array methods ============================================================================== */
 /* https://www.w3schools.com/jsref/jsref_obj_array.asp */ 
 /* map returns new array */
 /* foreach returns nothing. jei reikia atlikti su kiekviena reiksme ir nesigrazina */

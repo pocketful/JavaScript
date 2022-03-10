@@ -68,13 +68,13 @@ for (let i = 0; i < length; i++) {
 
 /* atspausdinti visu masyvo nariu suma */
 
-let numbers = [46, 1, 4, 78, 9, 5, 1, 4, 5, 5];
+let numbers2 = [46, 1, 4, 78, 9, 5, 1, 4, 5, 5];
 
 let sum = 0;
-let length = numbers.length;
+let length2 = numbers2.length;
 
-for (let i = 0; i < length; i++) {
-    sum += numbers[i];
+for (let i = 0; i < length2; i++) {
+    sum += numbers2[i];
     console.log('sum ===', sum);
 }
 console.log('Gaulutine sum ===', sum);
