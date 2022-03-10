@@ -52,7 +52,6 @@ const maxNumber = numbersArrayShort[0];
 
 console.log('Task 4. numbersArray2 MAX number ===', maxNumber);
 
-
     // 2 way
     // numbersArrayShort.sort((a, b) => a - b);
     // const maxNumber = numbersArrayShort[numbersArrayShort.length-1];
@@ -64,11 +63,39 @@ console.log('Task 4. numbersArray2 MAX number ===', maxNumber);
 console.log('2 part. Reduce: ---------------------------------------------------------');
 
 
-/* 1. Parašyk array su penkiais mėgstamiausiais tavo skaičiais. Su reduce visus juos sudėk ir grąžink vieną skaičių. */
+/* 1. Parašyk array su penkiais skaičiais. Su reduce visus juos sudėk ir grąžink vieną skaičių. */
+const FiveNumbersArray = [5, 10, 11, 2, 50];
+console.log('Task 1. FiveNumbersArray ===', FiveNumbersArray);
+
+const totalFiveNumbers = FiveNumbersArray.reduce((total, num) => total + num, 0);
+console.log('Task 1. FiveNumbersArray sum ===', totalFiveNumbers);
 
 
 /* ---------------------------------------------------------------------------------- */
 /* 2. Ne vien skaičius sudėti galime. Nusikopijuok array (["BMW", "MCB", "VWG", "Toyota", "AUDI"]) ir naudojant reduce - grąžink skaičių, kiek šiame array elementų yra su 3 simboliais (p.s. efektyviau turbūt su filter, bet šiuo atveju išbandome reduce). */
+const carsArray = ['BMW', 'MCB', 'VWG', 'Toyota', 'AUDI'];
+console.log('Task 2. carsArray ===', carsArray);
+
+// for
+let total = 0;
+for (let i = 0; i < carsArray.length; i++) {
+    if (carsArray[i].length === 3) {
+        total++;
+    }  
+}
+
+// ternary
+const howManyWith3Symbols = carsArray.reduce((total, item) => item.length === 3 ? total + 1: total, 0);
+console.log('Task 2. carsArray, how many cars with 3 symbols ===', howManyWith3Symbols);
+
+// longer
+const howManyWith3Symbols2 = carsArray.reduce((total, item) => {
+if (item.length === 3) {
+    return total + 1;
+} else {
+    return total;
+}
+}, 0);
 
 
 /* ---------------------------------------------------------------------------------- */
