@@ -52,13 +52,13 @@ const maxNumber = numbersArrayShort[0];
 
 console.log('Task 4. numbersArray2 MAX number ===', maxNumber);
 
-    // 2 way
-    // numbersArrayShort.sort((a, b) => a - b);
-    // const maxNumber = numbersArrayShort[numbersArrayShort.length-1];
+// 2 way
+// numbersArrayShort.sort((a, b) => a - b);
+// const maxNumber = numbersArrayShort[numbersArrayShort.length-1];
 
-    // 3 way
-    //const maxNumber = Math.max.apply(null, numbersArrayShort);
-    
+// 3 way
+//const maxNumber = Math.max.apply(null, numbersArrayShort);
+
 /* Part 2 (reduce) ========================================================================================= */
 console.log('2 part. Reduce: ---------------------------------------------------------');
 
@@ -81,20 +81,20 @@ let total = 0;
 for (let i = 0; i < carsArray.length; i++) {
     if (carsArray[i].length === 3) {
         total++;
-    }  
+    }
 }
 
 // ternary
-const howManyWith3Symbols = carsArray.reduce((total, item) => item.length === 3 ? total + 1: total, 0);
+const howManyWith3Symbols = carsArray.reduce((total, item) => item.length === 3 ? total + 1 : total, 0);
 console.log('Task 2. carsArray, how many cars with 3 symbols ===', howManyWith3Symbols);
 
 // longer
 const howManyWith3Symbols2 = carsArray.reduce((total, item) => {
-if (item.length === 3) {
-    return total + 1;
-} else {
-    return total;
-}
+    if (item.length === 3) {
+        return total + 1;
+    } else {
+        return total;
+    }
 }, 0);
 
 
@@ -108,7 +108,7 @@ let max = 0;
 for (let i = 0; i < numbersBigArray.length; i++) {
     if (numbersBigArray[i] > max) {
         max = numbersBigArray[i];
-    }    
+    }
 }
 const maxN1 = max;
 
@@ -188,15 +188,15 @@ console.groupEnd();
 
 // 1 way
 const adultsNames = people.filter((peopleObj) => peopleObj.age >= 18)
-.map((peopleObj) => ({name: peopleObj.name}));
+    .map((peopleObj) => ({ name: peopleObj.name }));
 
 // 2 way
 const adultsNames2 = people.filter((peopleObj) => peopleObj.age >= 18)
-.map(({name}) => ({name}));
+    .map(({ name }) => ({ name }));
 
 // 3 way, cao way, only value without a key
 const adultsNames3 = people.filter((peopleObj) => peopleObj.age >= 18)
-.map((peopleObj) => peopleObj.name); // cao way, only value without 'name'
+    .map((peopleObj) => peopleObj.name); // cao way, only value without 'name'
 console.log('Task 2. adults names ===', adultsNames3);
 
 console.group('Task 2. adults names ===');
@@ -226,3 +226,53 @@ Pvz:
 iškvietimas: fn([{name: "lemonade", price: 50}, {name: "lime", price: 10}])
 grąžins: {brangiausias: "lemonade", pigausias: "lime"} */
 
+
+const products = [
+    {
+        name: "lemonade",
+        price: 50
+    },
+    {
+        name: "lime",
+        price: 10
+    },
+    {
+        name: "apple",
+        price: 30
+    },
+];
+
+console.group('Task 4. products ===');
+console.table(products);
+console.groupEnd();
+
+
+function minAndMax(array) {
+
+    // max min price objects
+    const arrayMaxObj = array.reduce((total, item) => total.price > item.price ? total : item); // ? total.price : item.price); - tik price
+    console.log('Task 4. Max price obj ===', arrayMaxObj); // {name: 'lemonade', price: 50}
+
+    const arrayMinObj = array.reduce((total, item) => total.price < item.price ? total : item);
+    console.log('Task 4. Min price obj ===', arrayMinObj); // {name: 'lime', price: 10}
+
+    return { brangiausias: arrayMaxObj.name, pigausias: arrayMinObj.name };
+}
+console.log(minAndMax(products));
+//minAndMax([{ name: "lemonade", price: 50 }, { name: "lime", price: 10 }]);
+
+
+/* ---------------------- */
+/* CAO way */
+const drinks = [
+    { name: "cola", price: 30 },
+    { name: "fanta", price: 10 }
+]
+
+function fn(items) {
+    items.sort((a, b) => a.price - b.price)
+    console.log('Task 4. cao:');
+    return { pigiausias: items[0].name, brangiausias: items[items.length - 1].name }
+}
+
+console.log(fn(drinks))

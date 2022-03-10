@@ -15,6 +15,7 @@ console.log(`Du sk po kablelio ${number.toFixed(2)}`); // suapvalina du skaiciai
 // min max
 console.log('Math.min(0, 150, 30, 20, -8, -200) ===', Math.min(0, 150, 30, 20, -8, -200));
 console.log('Math.max(0, 150, 30, 20, -8, -200) ===', Math.max(0, 150, 30, 20, -8, -200));
+console.log('Math.max ===', Math.max(...numbersArray));
 
 // random
 console.log('Math.random(0, 150, 30, 20, -8, -200) ===', Math.random(0, 150, 30, 20, -8, -200));
