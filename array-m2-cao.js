@@ -208,9 +208,21 @@ console.groupEnd();
 /* ---------------------------------------------------------------------------------- */
 /* 3.  Antro pratimo array A-Z tvarka išrikiuokite. Optimizuokite kodą, kad visas veiksmas tilptų į vieną eilutę. */
 
+// 1 way
+const adultsNamesSorted = adultsNames.sort();
+
+// 2 way
+const adultsNamesSorted2 = adultsNames.sort((adultObjA, adultObjB) => (adultObjA.name > adultObjB.name ? 1 : -1));
+
+console.group('Task 3. adults sorted by name ===');
+console.table(adultsNamesSorted);
+console.groupEnd();
+//console.log('Task 3. adults sorted by name ===', adultsNamesSorted);
+
 
 /* ---------------------------------------------------------------------------------- */
 /* 4. Sukurkite funkciją. Ji priims vieną argumentą - array su objektais, kurie turės du parametrus - name ir price. Grąžins - brangiausią ir pigiausią prekes. Turi veikti padavus neribotą kiekį elementų (pavyzdyje apačioje - tik du).
 Pvz:
 iškvietimas: fn([{name: "lemonade", price: 50}, {name: "lime", price: 10}])
 grąžins: {brangiausias: "lemonade", pigausias: "lime"} */
+
