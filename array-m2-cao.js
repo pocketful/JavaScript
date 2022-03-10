@@ -139,9 +139,10 @@ const maxN6 = numbersBigArray.reduce((total, item) => total > item ? total : ite
 
 
 /* Part 3 (array methods) =============================================================================== */
+console.log('3 part. Array methods: ---------------------------------------------------------');
 /* https://javascript.info/array-methods */
 
-/* 1. Nusikopijuokite array. Kaip matome - šitame masyve yra objektai (o iš objekto pasiimame reikšmę - t.y. property, rašydami objektas.property). Prafiltruojame masyvą, kad rodytų tik pilnamečius. */ // apacioj susije pratimai
+/* 1. Nusikopijuokite array. Kaip matome - šitame masyve yra objektai (o iš objekto pasiimame reikšmę - t.y. property, rašydami objektas.property). Prafiltruojame masyvą, kad rodytų tik pilnamečius. */
 
 const people = [
     {
@@ -170,13 +171,42 @@ const people = [
     }
 ];
 
+console.group('Task 1. people ===');
+console.table(people);
+console.groupEnd();
+// console.log('Task 1. people ===', people);
+
+const adults = people.filter((peopleObj) => peopleObj.age >= 18);
+console.group('Task 1. only adults ===');
+console.table(adults);
+console.groupEnd();
+// console.log('Task 1. only adults ===', adults);
+
 
 /* ---------------------------------------------------------------------------------- */
 /* 2. Pakoreguojame aukščiau nurodytą pratimą, kad pilnamečių array rodytų tik vardus (amžius jau nesvarbu). Tai rezultatas turi būti: ["Petras", "Antanas", "Diana"]. */
 
+// 1 way
+const adultsNames = people.filter((peopleObj) => peopleObj.age >= 18)
+.map((peopleObj) => ({name: peopleObj.name}));
+
+// 2 way
+const adultsNames2 = people.filter((peopleObj) => peopleObj.age >= 18)
+.map(({name}) => ({name}));
+
+// 3 way, cao way, only value without a key
+const adultsNames3 = people.filter((peopleObj) => peopleObj.age >= 18)
+.map((peopleObj) => peopleObj.name); // cao way, only value without 'name'
+console.log('Task 2. adults names ===', adultsNames3);
+
+console.group('Task 2. adults names ===');
+console.table(adultsNames);
+console.groupEnd();
+// console.log('Task 2. adults names ===', adultsNames);
+
 
 /* ---------------------------------------------------------------------------------- */
-/* 3.  Antro pratimo array A-Z tvarka išrykiuokite. Optimizuokite kodą, kad visas veiksmas tilptų į vieną eilutę. */
+/* 3.  Antro pratimo array A-Z tvarka išrikiuokite. Optimizuokite kodą, kad visas veiksmas tilptų į vieną eilutę. */
 
 
 /* ---------------------------------------------------------------------------------- */
