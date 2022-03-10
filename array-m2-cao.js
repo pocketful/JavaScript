@@ -100,10 +100,45 @@ if (item.length === 3) {
 
 /* ---------------------------------------------------------------------------------- */
 /* 3. Sukurk array su daug skaičių. Grąžink didžiausią skaičių iš array naudojant reduce. */
+const numbersBigArray = [15, 8, 4, 16, 10, 42, 2, 80, 15];
+console.log('Task 3. NumbersBigArray ===', numbersBigArray);
+
+// for
+let max = 0;
+for (let i = 0; i < numbersBigArray.length; i++) {
+    if (numbersBigArray[i] > max) {
+        max = numbersBigArray[i];
+    }    
+}
+const maxN1 = max;
 
 
+// math.max
+const maxN2 = Math.max(...numbersBigArray);
 
-/* Part 2 (reduce) ========================================================================================= */
+
+// math.max reduce
+const maxN3 = numbersBigArray.reduce((a, b) => Math.max(a, b), 0);
+
+
+// reduce long
+const maxN4 = numbersBigArray.reduce((total, item) => {
+    if (item > total) {
+        return total = item;
+    } else {
+        return total;
+    }
+}, 0);
+
+// reduce short
+const maxN5 = numbersBigArray.reduce((total, item) => item > total ? total = item : total);
+console.log('Task 3. Max num4===', maxN5);
+
+// reduce short CAO way
+const maxN6 = numbersBigArray.reduce((total, item) => total > item ? total : item);
+
+
+/* Part 3 (array methods) =============================================================================== */
 /* https://javascript.info/array-methods */
 
 /* 1. Nusikopijuokite array. Kaip matome - šitame masyve yra objektai (o iš objekto pasiimame reikšmę - t.y. property, rašydami objektas.property). Prafiltruojame masyvą, kad rodytų tik pilnamečius. */ // apacioj susije pratimai
