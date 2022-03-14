@@ -148,10 +148,11 @@ const students = [
 
 
 // st2. Parasyti funkcija, kuriai paduodam miesta kaip argumenta ir ji atrenka studentus is to miesto
+const kaunieciai = fromCityStudents(students, 'Kaunas');
+console.log('kaunieciai ===', kaunieciai);
 
 function fromCityStudents(array, city) {
-    const studentsFromCity = array.filter((studentObj) => studentObj.town === city);
-    console.log('studentsFromCity ===', studentsFromCity);
+    return array.filter((studentObj) => studentObj.town === city);
 }
 fromCityStudents(students, 'Kaunas');
 
@@ -248,11 +249,56 @@ document.body.addEventListener('click', (e) => {
     <p>He is 25 years old and has a car</p>
 </div> */
 
-function generateCards(array) {
-    const cardsEl = document.createElement('div');
-    // cardsEl.classList.add('cards');
-    cardsEl.innerHTML = array.map((arrayObj) => `<div class='card'><h3>${arrayObj.name}</h3><p>A ${arrayObj.gender} from ${arrayObj.town}.</p><p>${arrayObj.age} years old.</p><p> A car: ${arrayObj.hasCar}.</div>`).join('');
-    document.body.append(cardsEl);
+// function generateCards(array) {
+//     const cardsEl = document.createElement('div');
+//     // cardsEl.classList.add('cards');
+//     cardsEl.innerHTML = array.map((arrayObj) => `<div class='card'><h3>${arrayObj.name}</h3><p>A ${arrayObj.gender} from ${arrayObj.town}.</p><p>${arrayObj.age} years old.</p><p> A car: ${arrayObj.hasCar}.</div>`).join('');
+//     document.body.append(cardsEl);
+// }
+// generateCards(students);
+
+
+// st6 paspaudus atitinkamus mygtukus mes htmle atvaizduojam visus, kauniecius arba vilniecius korteliu pavidalu (st5)
+/* <button id="all">Visi</button>
+<button id="kaunas">Kaunieciai</button>
+<button id="vilnius">Vilnieciai</button> */
+
+function generateCityCards(array) {
+    const buttonAllEl = document.getElementById('all');
+    const buttonKnsEl = document.getElementById('kaunas');
+    const buttonVlnEl = document.getElementById('vilnius');
+
+    buttonAllEl.addEventListener('click', (event) => {
+        const cardsEl = document.createElement('div');
+        // cardsEl.classList.add('cards');
+        cardsEl.innerHTML = array.map((arrayObj) => `<div class='card'><h3>${arrayObj.name}</h3><p>A ${arrayObj.gender} from ${arrayObj.town}.</p><p>${arrayObj.age} years old.</p><p> A car: ${arrayObj.hasCar}.</div>`).join('');
+        document.body.append(cardsEl);
+    });
+
+    buttonKnsEl.addEventListener('click', (event) => {
+        const cardsEl = document.createElement('div');
+        // cardsEl.classList.add('cards');
+        cardsEl.innerHTML = array.filter((arrayObj) => arrayObj.town === 'Kaunas').map((arrayObj) => `<div class='card'><h3>${arrayObj.name}</h3><p>A ${arrayObj.gender} from ${arrayObj.town}.</p><p>${arrayObj.age} years old.</p><p> A car: ${arrayObj.hasCar}.</div>`).join('');
+        document.body.append(cardsEl);
+    });
+
+    // 2 way
+        // aprasyta pries tai:
+        // function fromCityStudents(array, city) {
+        //     return array.filter((studentObj) => studentObj.town === city);
+        // }
+        // fromCityStudents(students, 'Kaunas');
+    // const knsStuds = fromCityStudents(students, 'Kaunas');
+    const vlnStuds = fromCityStudents(students, 'Vilnius');
+
+    buttonVlnEl.addEventListener('click', (event) => {
+        const cardsEl = document.createElement('div');
+        // cardsEl.classList.add('cards');
+        cardsEl.innerHTML = vlnStuds.map((arrayObj) => `<div class='card'><h3>${arrayObj.name}</h3><p>A ${arrayObj.gender} from ${arrayObj.town}.</p><p>${arrayObj.age} years old.</p><p> A car: ${arrayObj.hasCar}.</div>`).join('');
+        document.body.append(cardsEl);
+    });
 }
-generateCards(students);
+generateCityCards(students);
+
+
 
