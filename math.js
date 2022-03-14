@@ -24,6 +24,7 @@ console.log('Math.random(0, 150, 30, 20, -8, -200) ===', Math.random(0, 150, 30,
 
 points = Math.random(); // Nuo 0 - 1  console.log(points)
 points = Math.random() * 10; // 0 - 10 reikia padauginti is 10
+points = Math.floor(Math.random() * 10); // a random integer between 0 and 9 (both included)
 
 points = Math.floor(Math.random() * 11) + 2; // returns a random integer between 2 and 11 (both included)
 

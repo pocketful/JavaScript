@@ -17,7 +17,7 @@ console.log('cars DESC ===', cars); // ['NISSAN', 'AUDI', 'VW']
 console.log('1 part. Sort: ---------------------------------------------------------');
 
 
-/* 1. Pasirašyk sąrašą su savo draugų vardais. A-Z tvarka išrykiuok. */
+/* 1. Pasirašyk sąrašą su savo draugų vardais. A-Z tvarka išrikiuok. */
 const namesArray = ['Hermione', 'Ron', 'Harry', 'Petunia', 'Dudley'];
 console.log('Task 1. namesArray ===', namesArray);
 

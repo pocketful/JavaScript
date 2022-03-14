@@ -132,9 +132,26 @@ const fn10 = (array) => array.sort((a, b) => a.name > b.name ? 1 : -1).sort((a, 
 
 /* 11. Parašykite funkciją, į kurią padavus datą, pasakys ar išeiginė ar ne (visos išeiginės turi būti saugomos array.)
 Pvz.: fn(new Date(2020, 12, 25)) -> true */
+function isItHoliday(date) {
+    const holidays = ['2022 01 01', '2022 05 01', '2022 08 15'];
+    const holiday = holidays.some((holidayDate) => holidayDate === date);
+    console.log('holiday ===', holiday);
+    return holiday;
+};
+isItHoliday('2022 01 01');
+
+// cao -- tik pagal diena
+function isItHoliday2(date) {
+    const holidays = ["2020-01-01", "2020-05-25"];
+    return holidays.some(holiday => (new Date(holiday)).getDate() === date.getDate())
+}
+console.log(isItHoliday2(new Date("2020-05-25")))
+// The getDate() method returns the day of the month for the specified date according to local time.
 
 
+/* 12. Sukurkite funkciją, kuri kaip parametrą gaus array su skaičiais. Funkcija turės grąžinti mažiausią trūkstamą skaičių iš array. Pvz. Paduodu: [1, 2, 4, 5]; Grąžina: 3 */
 
-/* 12. Sukurkite funkciją, kuri kaip parametrą gaus array su skaičiais. Funkcija turės grąžinti mažiausią trūkstamą skaičių iš array.
-Pvz. Paduodu: [1, 2, 4, 5]; Grąžina: 3 */
-
+// cao
+debugger
+const missingNumber = (array) => array.find((x, i) => x + 1 !== array[i + 1]) + 1;
+console.log('missingNumber ===', missingNumber([1, 2, 4, 5, 7]));
