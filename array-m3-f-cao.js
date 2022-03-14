@@ -12,7 +12,7 @@ minToSec(3);
     // cao
     const fn1 = (n1) => n1 * 60 + " seconds";
 
-    
+
 /* 2. Parašykite funkciją, kuri priims varotojų amžių ir grąžins kiek dienų jis jau nugyveno (skaičių, metų tikslumu, neskaičiuojant keliamųjų metų - t.y. visada 365 dienos).
 Pvz: fn(20) => 7300. */
 function ageToDaysLived(age) {
@@ -29,8 +29,7 @@ ageToDaysLived(18);
 /* 3. Parašykite arrow funkciją (viena eilutė), kuriai padavus skaičių – ji grąžintų jo kvadratą.
 Pvz.: fn(5) -> 25 */
 const kvadratu = (sk) => sk ** 2;
-const kvard = kvadratu(3);
-console.log('pakeltas kvadratu', kvard);
+console.log('pakeltas kvadratu ===', kvadratu(3));
 
     // cao
     const fn3 = (n1) => n1**2;
@@ -38,19 +37,36 @@ console.log('pakeltas kvadratu', kvard);
 
 /* 4. Parašykite arrow funkciją (viena eilutę), kuri paėmus du skaičius (aukštį ir plotį) grąžintų trikampio plotą ((aukštis * plotis) / 2)
 Pvz: fn(10, 10) -> 50 */
+const plotas = (h, a) => h * a / 2;
+console.log('plotas ===', plotas(5, 3));
 
+    // cao
+    const fn4 = (n1, n2) => n1 * n2 / 2;
 
 
 /* 5. Parašykite funkciją, kuri paims parametrą String, ir grąžins to parametro paskutinę raidę.
 pvz. Paduodu: "Petras", grąžina "s". */
+function lastLetter(text) {
+    // return string.slice(-1); // or
+    return text.charAt(text.length - 1);
+}
+console.log('lastLetter ===', lastLetter('hello'));
 
+    // cao
+    const fn5 = (text) => text.charAt(text.length - 1);
 
 
 /* 6. Sukurkite funkciją, kuri paims stringą ir grąžins jį apverstą mažosiomis.
 T.y. "Petras" -> "sartep" */
+function reverseString(text) {
+    return text.split('').reverse().join('');
+}
+console.log('reverseString ===', reverseString('hello'));
 
+    // cao
+    const fn6 = (text) => text.split("").reverse().join("").toLowerCase();
 
-
+    
 /* 7. Parašykite funkciją, kuri paims array skaičių ir grąžins didžiausią neigiamą skaičių.
 pvz: [-1, -100, -5, 10, 0, 11] -> "-1" */
 
