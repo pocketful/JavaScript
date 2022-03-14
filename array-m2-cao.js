@@ -112,13 +112,21 @@ for (let i = 0; i < numbersBigArray.length; i++) {
 }
 const maxN1 = max;
 
+    // su forEach
+    // let max = 0;
+    // numbersBigArray.foreach(sk) => {
+    //     if (sk > max) {
+    //         max = sk;
+    //     }
+    // }
+
 
 // math.max
 const maxN2 = Math.max(...numbersBigArray);
 
 
 // math.max reduce
-const maxN3 = numbersBigArray.reduce((a, b) => Math.max(a, b), 0);
+const maxN3 = numbersBigArray.reduce((total, item) => Math.max(total, item), numbersBigArray[0]);
 
 
 // reduce long
