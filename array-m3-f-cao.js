@@ -66,16 +66,40 @@ console.log('reverseString ===', reverseString('hello'));
     // cao
     const fn6 = (text) => text.split("").reverse().join("").toLowerCase();
 
-    
+
 /* 7. Parašykite funkciją, kuri paims array skaičių ir grąžins didžiausią neigiamą skaičių.
 pvz: [-1, -100, -5, 10, 0, 11] -> "-1" */
+function maxNegativeNum(array) {
+    return array.filter((num) => num < 0).reduce((total, num) => Math.max(total, num), array[0]);
+}
+console.log('maxNegativeNum ===', maxNegativeNum([-1, -100, -5, 10, 0, 11]));
 
+    // cao
+    const fn7 = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
 
 
 /* 8. Sukurkite funkciją, kuri paims skaičių parametrą ir sugeneruos array su tiek random skaičių (nuo 1 - 10)), kiek parametre nurodyta.
 T.y. "3" => [1, 6, 3]. */
 
+// debugger
+function randomNumbersArray(length) {
+    const array = [];
+    for (let i = 0; i < length; i++) {
+        array.push(Math.floor(Math.random() * 10) + 1);
+    }
+    return array;    
+}
+console.log('randomNumbersArray ===', randomNumbersArray(5));
 
+    // cao
+    const randomNumbers = (quant) => {
+        const generatedNums = [];
+        for(let i = 0; i < quant; i++){
+          generatedNums.push(Math.floor(Math.random() * 10) + 1)
+        }
+        return generatedNums;
+      }
+      
 
 /* 9. Sukurkite arrow funkciją, kuri paimtų du skaičius ir grąžintų boolean value ar skaičių suma didesnė už 100 ar mažesnė (ir lygi).
 Pvz.: fn(10, 50) -> true */
