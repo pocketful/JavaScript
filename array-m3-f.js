@@ -72,13 +72,11 @@ numbers.forEach((sk, i) => console.log(`[${i}] => ${sk}`));
 // keiciant struktura map tinka
 
 function objectsArray(array) {
-    const newArray = array.slice();
-    // return console.log(newArray);
-    // const newArray = array.map(({ key1, key2 }) => ({ key1, key2 }));
-    // const newArray = array.map((array) => ({ index: }));
-    return console.log(newArray);
+    // const newArray = array.slice();
+    const newArray = array.map((value, i) => ({ index: i, reiksme: value }));
+    return console.log('newArray', newArray);
 }
-objectsArray([{ index: 0, reiksme: 64 }, { index: 1, reiksme: 25 }]);
+objectsArray(numbers);
 
 
 // 16. Suskaičiuoti visų elementų sumą
@@ -93,7 +91,8 @@ console.log('maxNumber ===', maxNumber);
 console.log('maxNumber2 ===', maxNumber);
 
 
-/* students object ================================================================ */
+/* ============================================================================ */
+/* students object, generate html  ============================================ */
 
 const students = [
     {
@@ -238,3 +237,22 @@ document.body.addEventListener('click', (e) => {
       e.target.parentElement.remove();
     }
 });
+
+
+// st5. is studentu masyvo informacijos sugeneruoti korteles htmle.
+// korteles turi tureti apvada ir visa su studentu susijusia info. korteles turi tilpti 3 per pulapio ploti.
+/*
+<div class="stud-card">
+    <h3>James</h3>
+    <p>A man from Vilnius</p>
+    <p>He is 25 years old and has a car</p>
+</div> */
+
+function generateCards(array) {
+    const cardsEl = document.createElement('div');
+    // cardsEl.classList.add('cards');
+    cardsEl.innerHTML = array.map((arrayObj) => `<div class='card'><h3>${arrayObj.name}</h3><p>A ${arrayObj.gender} from ${arrayObj.town}.</p><p>${arrayObj.age} years old.</p><p> A car: ${arrayObj.hasCar}.</div>`).join('');
+    document.body.append(cardsEl);
+}
+generateCards(students);
+
