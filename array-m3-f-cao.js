@@ -9,8 +9,8 @@ function minToSec(min) {
 }
 minToSec(3);
 
-    // cao
-    const fn1 = (n1) => n1 * 60 + " seconds";
+// cao
+const fn1 = (n1) => n1 * 60 + " seconds";
 
 
 /* 2. Parašykite funkciją, kuri priims varotojų amžių ir grąžins kiek dienų jis jau nugyveno (skaičių, metų tikslumu, neskaičiuojant keliamųjų metų - t.y. visada 365 dienos).
@@ -22,8 +22,8 @@ function ageToDaysLived(age) {
 }
 ageToDaysLived(18);
 
-    // cao
-    const fn2 = (n1) => n1 * 365;
+// cao
+const fn2 = (n1) => n1 * 365;
 
 
 /* 3. Parašykite arrow funkciją (viena eilutė), kuriai padavus skaičių – ji grąžintų jo kvadratą.
@@ -31,8 +31,8 @@ Pvz.: fn(5) -> 25 */
 const kvadratu = (sk) => sk ** 2;
 console.log('pakeltas kvadratu ===', kvadratu(3));
 
-    // cao
-    const fn3 = (n1) => n1**2;
+// cao
+const fn3 = (n1) => n1 ** 2;
 
 
 /* 4. Parašykite arrow funkciją (viena eilutę), kuri paėmus du skaičius (aukštį ir plotį) grąžintų trikampio plotą ((aukštis * plotis) / 2)
@@ -40,8 +40,8 @@ Pvz: fn(10, 10) -> 50 */
 const plotas = (h, a) => h * a / 2;
 console.log('plotas ===', plotas(5, 3));
 
-    // cao
-    const fn4 = (n1, n2) => n1 * n2 / 2;
+// cao
+const fn4 = (n1, n2) => n1 * n2 / 2;
 
 
 /* 5. Parašykite funkciją, kuri paims parametrą String, ir grąžins to parametro paskutinę raidę.
@@ -52,8 +52,8 @@ function lastLetter(text) {
 }
 console.log('lastLetter ===', lastLetter('hello'));
 
-    // cao
-    const fn5 = (text) => text.charAt(text.length - 1);
+// cao
+const fn5 = (text) => text.charAt(text.length - 1);
 
 
 /* 6. Sukurkite funkciją, kuri paims stringą ir grąžins jį apverstą mažosiomis.
@@ -63,8 +63,8 @@ function reverseString(text) {
 }
 console.log('reverseString ===', reverseString('hello'));
 
-    // cao
-    const fn6 = (text) => text.split("").reverse().join("").toLowerCase();
+// cao
+const fn6 = (text) => text.split("").reverse().join("").toLowerCase();
 
 
 /* 7. Parašykite funkciją, kuri paims array skaičių ir grąžins didžiausią neigiamą skaičių.
@@ -74,41 +74,60 @@ function maxNegativeNum(array) {
 }
 console.log('maxNegativeNum ===', maxNegativeNum([-1, -100, -5, 10, 0, 11]));
 
-    // cao
-    const fn7 = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
+// cao
+const fn7 = (nums) => nums.filter(x => x < 0).sort((a, b) => b - a)[0];
 
 
 /* 8. Sukurkite funkciją, kuri paims skaičių parametrą ir sugeneruos array su tiek random skaičių (nuo 1 - 10)), kiek parametre nurodyta.
 T.y. "3" => [1, 6, 3]. */
-
-// debugger
 function randomNumbersArray(length) {
     const array = [];
     for (let i = 0; i < length; i++) {
         array.push(Math.floor(Math.random() * 10) + 1);
     }
-    return array;    
+    return array;
 }
 console.log('randomNumbersArray ===', randomNumbersArray(5));
 
-    // cao
-    const randomNumbers = (quant) => {
-        const generatedNums = [];
-        for(let i = 0; i < quant; i++){
-          generatedNums.push(Math.floor(Math.random() * 10) + 1)
-        }
-        return generatedNums;
-      }
-      
+// cao
+const randomNumbers = (quant) => {
+    const generatedNums = [];
+    for (let i = 0; i < quant; i++) {
+        generatedNums.push(Math.floor(Math.random() * 10) + 1)
+    }
+    return generatedNums;
+}
+
 
 /* 9. Sukurkite arrow funkciją, kuri paimtų du skaičius ir grąžintų boolean value ar skaičių suma didesnė už 100 ar mažesnė (ir lygi).
 Pvz.: fn(10, 50) -> true */
+const sumGreaterThan100 = (x, y) => x + y > 100 ? true : false;
+console.log('sumGreaterThan100 ===', sumGreaterThan100(30, 2));
+
+// cao
+const sumOverHundred = (n1, n2) => n1 + n2 > 100;
 
 
-
-/* 10. Parašykite funkciją, kuri paimtų array (susideda iš objektų su vardu ir amžium) bei grąžina array išrykiuotą pagal amžių ir jei amžius sutampa – vardus a>z tvarka.
+/* 10. Parašykite funkciją, kuri paimtų array (susideda iš objektų su vardu ir amžium) bei grąžina array išrikiuotą pagal amžių ir jei amžius sutampa – vardus a>z tvarka.
 Pvz.: fn([{name: „Alfredas“, age: 25}, {name: „Jonas“, age: 25}, {name: „Kasparas“, age: 20}]) -> [{name: „Kasparas“, age: 20}, {name: „Alfredas“, age: 25}, {name: „Jonas“, age: 25}] */
 
+// const people = [
+//     { name: 'Alfredas', age: 25 }, 
+//     { name: 'Jonas', age: 25 }, 
+//     { name: 'Kasparas', age: 20 }
+// ];
+const sortedArray = (array) => {
+    const newArray = array.sort((peopleObjA, peopleObjB) => (peopleObjA.name > peopleObjB.name ? 1 : -1)).sort((peopleObjA, peopleObjB) => peopleObjA.age - peopleObjB.age);
+    console.group('sortedArray ===');
+    console.table(newArray);
+    console.groupEnd();
+    return newArray;
+}
+// sortedArray(people);
+sortedArray([{ name: 'Jonas', age: 25 }, { name: 'Alfredas', age: 25 }, { name: 'Kasparas', age: 20 }]);
+
+// cao
+const fn10 = (array) => array.sort((a, b) => a.name > b.name ? 1 : -1).sort((a, b) => a.age - b.age);
 
 
 /* 11. Parašykite funkciją, į kurią padavus datą, pasakys ar išeiginė ar ne (visos išeiginės turi būti saugomos array.)
