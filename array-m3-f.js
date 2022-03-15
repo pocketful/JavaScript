@@ -13,12 +13,12 @@ console.log('doubleNumbersArray === ', doubleNumbersArray);
 const kvadratuNumbersArray = numbers.map(sk => sk ** 2);
 console.log('doubleNumbersArray === ', kvadratuNumbersArray);
 
-    // 2 way, fn
-    const kvadratuNumbersArray2 = numbers.map(kvadratu);
+// 2 way, fn
+const kvadratuNumbersArray2 = numbers.map(kvadratu);
 
-    function kvadratu(num) {
-        return num * num;
-    }
+function kvadratu(num) {
+    return num * num;
+}
 
 
 // 5. Sukurkite ir atvaizduokite masyvą su reikšmėmis padaugintomis iš jų vietos masyve indekso
@@ -168,23 +168,23 @@ olderThanAgeStudents(students, 21);
 
 // st1. sugeneruoti studentu nerikiuota sarasa htmle kuriame butu studentu vardai
 
-    // 1 way
-    // function generateNameList(array) {
-    //     const ulEl = document.createElement('ul');
-    //     array.map((arrayObj) => { // forEach irgi ok
-    //         const liEl = document.createElement('li');
-    //         liEl.textContent = `${arrayObj.name}`;
-    //         ulEl.append(liEl);
-    //     });
-    //     document.body.append(ulEl);
-    // }
-    // generateNameList(students);
+// 1 way
+// function generateNameList(array) {
+//     const ulEl = document.createElement('ul');
+//     array.map((arrayObj) => { // forEach irgi ok
+//         const liEl = document.createElement('li');
+//         liEl.textContent = `${arrayObj.name}`;
+//         ulEl.append(liEl);
+//     });
+//     document.body.append(ulEl);
+// }
+// generateNameList(students);
 
 // 2 way
 function generateNameList(array) {
     const ulEl = document.createElement('ul');
     // map way
-    ulEl.innerHTML = array.map((arrayObj) => `<li> ${arrayObj.name} </li>`).join('');    
+    ulEl.innerHTML = array.map((arrayObj) => `<li> ${arrayObj.name} </li>`).join('');
     // reduce way
     // ulEl.innerHTML = array.reduce((totalString, arrayObj) => totalString + `<li> ${arrayObj.name} </li>`, '');
     document.body.append(ulEl);
@@ -194,17 +194,17 @@ generateNameList(students);
 
 // st4. prie st1 sugeneruoto saraso pridedam mygtuka su textu 'delete'. mygtuka paspaudus istriname ta li el kuriame yra paspaustas mygtukas
 
-    // 1 way
-        // function generateNameList(array) {
-        //     const ulEl = document.createElement('ul');
-        //     array.map((arrayObj) => {  // map - forEach
-        //         const liEl = document.createElement('li');
-        //         liEl.innerHTML = `${arrayObj.name} <button>delete</button>`;
-        //         ulEl.append(liEl);
-        //     });
-        //     document.body.append(ulEl);
-        // }
-        // generateNameList(students);
+// 1 way
+// function generateNameList(array) {
+//     const ulEl = document.createElement('ul');
+//     array.map((arrayObj) => {  // map - forEach
+//         const liEl = document.createElement('li');
+//         liEl.innerHTML = `${arrayObj.name} <button>delete</button>`;
+//         ulEl.append(liEl);
+//     });
+//     document.body.append(ulEl);
+// }
+// generateNameList(students);
 
 // 2 way
 function generateNameList(array) {
@@ -219,23 +219,23 @@ generateNameList(students);
 
 
 //  paspaudus mygtuka trinam ta el
-    // 1 way
-    // const buttonElArray = document.querySelectorAll('button');
-    // for (let i = 0; i < buttonElArray.length; i++) {
-    //     buttonElArray[i].addEventListener('click', (event) => {
-    //         const clickedEl = event.target;
-    //         clickedEl.parentElement.remove();
-    //     });
-    // }
+// 1 way
+// const buttonElArray = document.querySelectorAll('button');
+// for (let i = 0; i < buttonElArray.length; i++) {
+//     buttonElArray[i].addEventListener('click', (event) => {
+//         const clickedEl = event.target;
+//         clickedEl.parentElement.remove();
+//     });
+// }
 
 // teachers way
 document.body.addEventListener('click', (e) => {
     // console.log('clicked on', e.target);
     // suzinoti ar paspaude ant el kuris turi klase 'del-stud'
     if (e.target.classList.contains('del-stud')) {
-      // console.log('delete', e.target.parentElement);
-      // e.target yra button, o istrinti norim li el
-      e.target.parentElement.remove();
+        // console.log('delete', e.target.parentElement);
+        // e.target yra button, o istrinti norim li el
+        e.target.parentElement.remove();
     }
 });
 
@@ -283,11 +283,11 @@ function generateCityCards(array) {
     });
 
     // 2 way
-        // aprasyta pries tai:
-        // function fromCityStudents(array, city) {
-        //     return array.filter((studentObj) => studentObj.town === city);
-        // }
-        // fromCityStudents(students, 'Kaunas');
+    // aprasyta pries tai:
+    // function fromCityStudents(array, city) {
+    //     return array.filter((studentObj) => studentObj.town === city);
+    // }
+    // fromCityStudents(students, 'Kaunas');
     // const knsStuds = fromCityStudents(students, 'Kaunas');
     const vlnStuds = fromCityStudents(students, 'Vilnius');
 
@@ -301,4 +301,56 @@ function generateCityCards(array) {
 generateCityCards(students);
 
 
+/* teacher's way -------------------------------------------------------------------*/
 
+// st5. is studentu masyvo infomracijos sugeneruoti korteles htmle.
+// korteles turi tureti apvada ir visa su studentu susijusia info. korteles turi tilpti 3 per puslapio ploti.
+/* <div class="stud-card">
+     <h3>James</h3>
+     <p>A man from Vilnius</p>
+     <p>He is 25 years old and has a car</p>
+   </div> */
+
+function makeStudCard(stObj) {
+    const gender = stObj.gender === 'male' ? 'man' : 'woman';
+    const who = stObj.gender === 'male' ? 'He' : 'She';
+    const car = stObj.hasCar ? 'and has a car' : '';
+
+    return `
+    <div class="stud-card">
+      <h3>${stObj.name}</h3>
+      <p>A ${gender} from ${stObj.town}</p>
+      <p>${who} is ${stObj.age} years old ${car}</p>
+    </div>
+    `;
+    // console.log('studString ===', studString);
+}
+const divEl = document.createElement('div');
+divEl.className = 'grid';
+document.body.append(divEl);
+
+function generateCards(arr) {
+    // clear el
+    divEl.innerHTML = '';
+    // gen
+    arr.forEach((el) => {
+        divEl.innerHTML += makeStudCard(el);
+    });
+}
+// generateCards(students);
+
+const allBtn = document.getElementById('all');
+const kaunasBtn = document.getElementById('kaunas');
+const vilniusBtn = document.getElementById('vilnius');
+
+// allBtn.addEventListener('click', clickLog);
+allBtn.addEventListener('click', () => generateCards(students));
+kaunasBtn.addEventListener('click', () => generateCards(studentsFrom('Kaunas')));
+vilniusBtn.addEventListener('click', () => generateCards(students.filter((studObj) => studObj.town === 'Vilnius')));
+
+function clickLog() {
+    console.log('clicked');
+}
+
+function makeEl(tag, className, text, dest) { }
+makeEl('h2', 'title', 'yes', divEl);
