@@ -40,29 +40,36 @@ const users = [
 
 function isOnline(array) {
     const onlineUsers = array.filter((user) => user.online === true);
-
     console.group('isOnline ===');
     console.table(onlineUsers);
     console.groupEnd();
+    return onlineUsers;
 }
 isOnline(users);
 
 /* ---------------------------------------------------------------- */
-
 // 2. su funkcija atrinkti B ir C departameto userius
 function fromDepartmentsBC(array) {
     const departmentBC = array.filter((user) => user.department === 'B' || 'C');
     console.group('fromDepartmentsBC ===');
     console.table(departmentBC);
     console.groupEnd();
+    return departmentBC;
 }
 fromDepartmentsBC(users);
 
-/* ---------------------------------------------------------------- */
+    //  => uObj.department === 'B' || uObj.department === 'C'); ?
+    // array.includes()
 
+// extra
+// const departmentBC = fromDepartmentsBC(users, ['B', 'C']);
+// const departmentA = fromDepartmentsBC(users, ['A']);
+
+
+/* ---------------------------------------------------------------- */
 // 3. parasyti funkcija kuri sugeneruoja htmle nuotrauku galerija is user paveiksleliu, su username pavadinimu
 
-function generateUserImg(array) {
+function generateGallery(array) {
     // container
     const divEl = document.createElement('div');
     divEl.className = 'container';
@@ -79,10 +86,11 @@ function generateUserImg(array) {
         userCardEl.append(figcaptionEl);
 
         // user img
-        const img = document.createElement('img');
-        img.src = user.avatar;
-        img.className = 'user-card-img';
-        userCardEl.append(img);
+        const imgEl = document.createElement('img');
+        imgEl.src = user.avatar; //   `img/${user.avatar}` - if it's in folder
+        imgEl.alt = 'nature image of ' + user.username;
+        imgEl.className = 'user-card-img';
+        userCardEl.append(imgEl);
 
         // append card to container
         divEl.append(userCardEl);
@@ -91,6 +99,25 @@ function generateUserImg(array) {
     //append container
     document.body.append(divEl);
 }
-generateUserImg(users);
+generateGallery(users);
 
 /* ---------------------------------------------------------------- */
+// 4. parasyti funkcija kuriai paduodam id ir ji grazina objekta kurio id sutampa su duotu. jei toks nerandamas tai grazina { found: false, msg: 'user not found', }
+
+function objectFromId(id, array) {
+    const userWithId = array.find((user) => user.id === id) || { found: false, msg: 'user not found'};
+
+    console.group('userWithId ===');
+    console.table(userWithId);
+    console.groupEnd();
+}
+objectFromId(8, users);
+
+
+/* ---------------------------------------------------------------- */
+// 5. Parasyti funkcija kuriai paduodam username ir password.
+// 5.1 jei pasword ir username sutampa tai iskonsolinam loggin success
+// 5.2 jei pasword ir username nesutampa tai iskonsolinam loggin fail
+// 5.3 jei pasword ir username sutampa tai padarom vartotoja kad jis butu online
+
+
