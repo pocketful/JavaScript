@@ -50,7 +50,7 @@ isOnline(users);
 /* ---------------------------------------------------------------- */
 // 2. su funkcija atrinkti B ir C departameto userius
 function fromDepartmentsBC(array) {
-    const departmentBC = array.filter((user) => user.department === 'B' || 'C');
+    const departmentBC = array.filter((user) => user.department === 'B' || user.department === 'C');
     console.group('fromDepartmentsBC ===');
     console.table(departmentBC);
     console.groupEnd();
@@ -58,7 +58,6 @@ function fromDepartmentsBC(array) {
 }
 fromDepartmentsBC(users);
 
-    //  => uObj.department === 'B' || uObj.department === 'C'); ?
     // array.includes()
 
 // extra

@@ -1,5 +1,7 @@
 'use strict';
 
+// https://www.w3schools.com/js/js_classes.asp
+
 const users = [
     {
       name: 'James',
