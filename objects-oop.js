@@ -99,7 +99,7 @@ this.getPrice = function () {
 
 
 // new way, classes ---------------------------
-class Car {
+class CarNew {
   constructor(brand, model, engine, basePrice) {
     this.brand = brand;
     this.model = model;
@@ -122,9 +122,9 @@ class Car {
   };
 }
 
-const car1 = new Car('Pontiac ', 'Firebird', 'Petrol', 10000);
-const car2 = new Car('Chevrolet ', 'Lacetti', 'Diesel', 10000);
-const car3 = new Car('Mini', 'Rover', 'Electric', 10000);
+const car1 = new CarNew('Pontiac ', 'Firebird', 'Petrol', 10000);
+const car2 = new CarNew('Chevrolet ', 'Lacetti', 'Diesel', 10000);
+const car3 = new CarNew('Mini', 'Rover', 'Electric', 10000);
 
 console.log('car1', car1);
 console.log('car2', car2);
@@ -136,8 +136,8 @@ console.log('getPrice === car1: ' + car1.getPrice() + '$; car2: ' + car2.getPric
 
 class Person {
   constructor(name, surname) {
-      this.name = name;
-      this.surname = surname;
+    this.name = name;
+    this.surname = surname;
   }
   toTable() {
     const tbody = document.querySelector('tbody')
@@ -152,26 +152,35 @@ class Person {
   }
 }
 
+// array
+const personsArray = [];
+
 const formEl = document.forms.fullnameForm;
 formEl.addEventListener('submit', (event) => {
-    event.preventDefault();
+  event.preventDefault();
 
-    // value from input
-    const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');  
-    const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
-    const surnameValue = fullnameValueArray[1].charAt(0).toUpperCase() + fullnameValueArray[1].slice(1);   
+  // value from input
+  const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');
+  const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
+  const surnameValue = fullnameValueArray[1].charAt(0).toUpperCase() + fullnameValueArray[1].slice(1);
 
-    const person1 = new Person(nameValue, surnameValue);
-    person1.toTable();
-    console.log(person1);
+  // new object
+  const newPerson = new Person(nameValue, surnameValue);
+  newPerson.toTable();
+  console.log(newPerson);
+
+  // new object to array
+  personsArray.push(newPerson);
+  console.log(personsArray);
 });
+
 
 
 // formEl
 // const formEl = document.forms.fullnameForm;
 // formEl.addEventListener('submit', (event) => {
 //     event.preventDefault();
-    
+
 //     // value from input
 //     const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');  
 //     const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
@@ -196,6 +205,60 @@ formEl.addEventListener('submit', (event) => {
 /* ------------------------------------------------------------------------------------------- */
 /* 2. Sukurkite HTML formą, kurioje vartotojas galės įrašyti (į input laukelius): car brand, model, mileage, price ir image (url laukelis). Per konstruktorių, sukuriamas objektas ir jis atvaizduojamas po forma (CSS rašykite CSS'e) kaip atvaizduota nuotraukoje apačioje. Paspaudus ant automobilio bloko - turi alert išmesti kainą. */
 
+class Car {
+  constructor(carbrand, model, mileage, price, image) {
+    this.carbrand = carbrand;
+    this.model = model;
+    this.mileage = mileage;
+    this.price = price;
+    this.image = image;
+  }
+  toHtml() {
+  }
+}
+
+// array
+const carsArray = [];
+
+const carFormEl = document.forms.carForm;
+carFormEl.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // value from input
+  const carbrandValue = carFormEl.elements.carbrand.value;
+  const modelValue = carFormEl.elements.model.value;
+  const mileageValue = carFormEl.elements.mileage.value;
+  const priceValue = carFormEl.elements.price.value;
+  const imageValue = carFormEl.elements.image.value;
+
+  // new object
+  const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
+  // newCar.toHtml();
+  console.log(newCar);
+
+  // --------- gallery ---------------
+  const containerEl = document.querySelector('.container');
+  // car card
+  const carCardEl = document.createElement('figure');
+  carCardEl.className = 'user-card';
+  // car card image
+  const imgEl = document.createElement('img');
+  imgEl.src = imageValue;
+  imgEl.alt = 'a car';
+  imgEl.className = 'card-img';
+  carCardEl.append(imgEl);
+  // car card text
+  const figcaptionEl = document.createElement('figcaption');
+  figcaptionEl.textContent = carbrandValue + ' ' + modelValue;
+  figcaptionEl.className = 'card-figcaption';
+  carCardEl.append(figcaptionEl);
+  // append card to container
+  containerEl.append(carCardEl);
+
+  // new object to array
+  carsArray.push(newCar);
+  console.log(carsArray);
+});
 
 
 /* ------------------------------------------------------------------------------------------- */
@@ -208,7 +271,7 @@ function withoutRepeatingNumbers(array) {
   console.log('1. array with repeating numbers ===', array);
 
   const newArray = array.sort((a, b) => a - b)
-  .filter((sk, i) => sk !== array[i + 1]);
+    .filter((sk, i) => sk !== array[i + 1]);
 
   console.log('2. array without repeating numbers ===', newArray);
 }
