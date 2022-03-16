@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <title>JavaScript</title>
+  <script src="objects-oop.js" defer></script>
+  <style>
+    /* table, th, td { border: 1px solid black; } */
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    /* .user-card {} */
+    /* .card-img {} */
+    .card-figcaption {
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>Task 1</h3>
+  <form id="fullnameForm" autocomplete="off">
+    <input type="text" name="fullname" id="fullname" placeholder="Fullname" value=" ivEta jaCK  " />
+    <button type="submit">Submit</button>
+  </form>
+  <br />
+  <table style="width: 100%">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Surname</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <h3>Task 2</h3>
+  <form id="carForm" autocomplete="off">
+    <input type="text" name="carbrand" id="carbrand" placeholder="Car brand" value="Cadillac" />
+    <input type="text" name="model" id="model" placeholder="Model" value="Seville" />
+    <input type="text" name="mileage" id="mileage" placeholder="Mileage" value="88888" />
+    <input type="number" name="price" id="price" placeholder="Price" value="10000" />
+    <input type="text" name="image" id="image" placeholder="Image url" width="100%"
+      value="https://placeimg.com/640/480/tech" />
+    <button type="submit">Submit</button>
+  </form>
+  <div class="container"></div>
+
+</body>
+</html>
