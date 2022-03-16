@@ -58,11 +58,35 @@ function fromDepartmentsBC(array) {
 }
 fromDepartmentsBC(users);
 
-    // array.includes()
 
-// extra
-// const departmentBC = fromDepartmentsBC(users, ['B', 'C']);
-// const departmentA = fromDepartmentsBC(users, ['A']);
+// norint atrinkt kai argumentu paduodi raide
+function fromDepartments(array, letters) {
+
+    debugger
+    const departmentUsers = array.filter((user) => letters.includes(user.department));
+
+    // 2 way, for
+    const departmentUsers2 = array.filter((user) => {
+        for (let i = 0; i < letters.length; i++) {
+            if (user.department === letters[i]) {  // same: if (user.department.includes(letters[i])) {
+                return true;
+            }
+        }
+        return false;
+    });
+
+    // su viena raide ok:
+    // const departmentUsers = array.filter((user) => user.department.includes(letters[1]));
+    // fromDepartments(users, ['A']);
+    //const departmentUsers = array.filter((user) => user.department.includes(letters));
+
+    console.group('fromDepartments ===', letters);
+    console.table(departmentUsers);
+    console.groupEnd();
+    return departmentUsers;
+}
+fromDepartments(users, ['A', 'C']);
+// fromDepartments(users, ['A']);
 
 
 /* ---------------------------------------------------------------- */
@@ -72,7 +96,7 @@ function generateGallery(array) {
     // container
     const divEl = document.createElement('div');
     divEl.className = 'container';
-    
+
     array.forEach((user) => {
         // user card
         const userCardEl = document.createElement('figure');
@@ -104,7 +128,7 @@ generateGallery(users);
 // 4. parasyti funkcija kuriai paduodam id ir ji grazina objekta kurio id sutampa su duotu. jei toks nerandamas tai grazina { found: false, msg: 'user not found', }
 
 function objectFromId(id, array) {
-    const userWithId = array.find((user) => user.id === id) || { found: false, msg: 'user not found'};
+    const userWithId = array.find((user) => user.id === id) || { found: false, msg: 'user not found' };
 
     console.group('userWithId ===');
     console.table(userWithId);
