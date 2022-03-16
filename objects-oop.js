@@ -134,22 +134,83 @@ console.log('getPrice === car1: ' + car1.getPrice() + '$; car2: ' + car2.getPric
 /* ----------------------------------------------------------------------------------------------------- */
 /* 1. Sukurkite su HTML formą su vienu laukeliu - fullname, ir po apačia - lentelę su dviem stulpeliais - name ir surname. JavaScripte pasirašykite konstruktorių, kuris turės vardą, pavardę ir metodą - atsirasti lentelėje. Kai vartotojas įrašo savo pilną vardą - su JS metodais išskirkite jį į dvi dalis; pasirūpinkite, kad nebūtų tarpelių prieš ir po vardo; pirmą raidę vardo ir pavardės padidinkit, o kitas - sumažinkit (capitalization); sukurkite objektą naudojant konstruktorių; ir galiausiai iškvieskite metodą, kad pridėtų į lentelę. Taip, naudojant OOP pagrindus, vartotojui įrašius duomenis į formą, atsiras apačioje lentelėje išskirtas vardas ir pavardė, o ir leis tolimesniai projekto plėtrai (t.y. darbui su objektais). */
 
+class Person {
+  constructor(name, surname) {
+      this.name = name;
+      this.surname = surname;
+  }
+  toTable() {
+    const tbody = document.querySelector('tbody')
+    const trEl = document.createElement('tr');
+    tbody.append(trEl);
+    const tdEl1 = document.createElement('td');
+    tdEl1.textContent = this.name;
+    trEl.append(tdEl1);
+    const tdEl2 = document.createElement('td');
+    tdEl2.textContent = this.surname;
+    trEl.append(tdEl2);
+  }
+}
 
-/* 2. Sukurkite HTML formą, kurioje vartotojas galės įrašyti (į input laukelius): car brand, model, mileage, price ir image (url laukelis). Per konstruktorių, sukuriams objektas ir jis atvaizduojamas po forma (CSS rašykite CSS'e) kaip atvaizduota nuotraukoje apačioje. Paspaudus ant automobilio bloko - turi alert išmesti kainą. */
+const formEl = document.forms.fullnameForm;
+formEl.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // value from input
+    const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');  
+    const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
+    const surnameValue = fullnameValueArray[1].charAt(0).toUpperCase() + fullnameValueArray[1].slice(1);   
+
+    const person1 = new Person(nameValue, surnameValue);
+    person1.toTable();
+    console.log(person1);
+});
 
 
+// formEl
+// const formEl = document.forms.fullnameForm;
+// formEl.addEventListener('submit', (event) => {
+//     event.preventDefault();
+    
+//     // value from input
+//     const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');  
+//     const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
+//     const surnameValue = fullnameValueArray[1].charAt(0).toUpperCase() + fullnameValueArray[1].slice(1);   
+//     console.log('fullnameValueArray ===', fullnameValueArray);
+//     console.log('nameValue ===', nameValue);
+//     console.log('surnameValue ===', surnameValue);
+
+//     // create table row
+//     const tbody = document.querySelector('tbody')
+//     const trEl = document.createElement('tr');
+//     tbody.append(trEl);
+//     const tdEl1 = document.createElement('td');
+//     tdEl1.textContent = nameValue;
+//     trEl.append(tdEl1);
+//     const tdEl2 = document.createElement('td');
+//     tdEl2.textContent = surnameValue;
+//     trEl.append(tdEl2);
+// });
+
+
+/* ------------------------------------------------------------------------------------------- */
+/* 2. Sukurkite HTML formą, kurioje vartotojas galės įrašyti (į input laukelius): car brand, model, mileage, price ir image (url laukelis). Per konstruktorių, sukuriamas objektas ir jis atvaizduojamas po forma (CSS rašykite CSS'e) kaip atvaizduota nuotraukoje apačioje. Paspaudus ant automobilio bloko - turi alert išmesti kainą. */
+
+
+
+/* ------------------------------------------------------------------------------------------- */
 /* 3. Prisimename darbą su masyvais: sukurkite funkciją, kuri priims masyvą ir išfiltruos visus pasikartojančius skaičius bei šį masyvą grąžins atgal.
 Pvz:
 paduodu: [1, 3, 3, 5, 5, 5]
 grąžina: [1, 3, 5] */
 
 function withoutRepeatingNumbers(array) {
-  console.log('array ===', array);
-  
+  console.log('1. array with repeating numbers ===', array);
+
   const newArray = array.sort((a, b) => a - b)
   .filter((sk, i) => sk !== array[i + 1]);
 
-  console.log('array withoutRepeatingNumbers ===', newArray);
+  console.log('2. array without repeating numbers ===', newArray);
 }
 withoutRepeatingNumbers([1, 3, 3, 5, 5, 5]);
 withoutRepeatingNumbers([1, 6, 5, 6, 3, 5, 3]);
