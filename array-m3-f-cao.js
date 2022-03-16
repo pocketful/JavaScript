@@ -151,30 +151,34 @@ console.log(isItHoliday2(new Date("2020-05-25")))
 
 /* 12. Sukurkite funkciją, kuri kaip parametrą gaus array su skaičiais. Funkcija turės grąžinti mažiausią trūkstamą skaičių iš array. Pvz. Paduodu: [1, 2, 4, 5]; Grąžina: 3 */
 
-// cao
-const missingNumber = (array) => array.find((x, i) => x + 1 !== array[i + 1]) + 1;
+// 1 way cao
+const missingNumber = (array) => array.find((sk, i) => sk + 1 !== array[i + 1]) + 1;
 console.log('missingNumber ===', missingNumber([1, 2, 4, 5, 7]));
 
-// teachers way
-const numbers = [1, 2, 4, 5];
-const numbers2 = [5, 6, 8, 9, 10];
-
-function missingNr(arr) {
-  const findGraza = arr.find((sk, i, masyvas) => {
-    // console.log(sk);
-    const dabartineReiksme = masyvas[i];
-    const priekineReiksme = masyvas[i + 1];
-    // console.log('dabartineReiksme, priekineReiksme ===', dabartineReiksme, priekineReiksme);
-    if (dabartineReiksme + 1 !== priekineReiksme) {
-      // console.log('blogai dabartineReiksme', dabartineReiksme);
-      return true;
-    }
-  });
-  console.log('findGraza ===', findGraza);
-  return findGraza + 1;
+// 2 way
+function getMissingNumber(array) {
+    const missingNum = array.find((sk, i) => {  // ((sk, i, arr)
+        const currentValue = sk;                // const currentValue = arr[i];
+        const nextValue = array[i + 1];         // const nextValue = arr[i + 1];
+        // console.log('currentValue, nextValue ===', currentValue, nextValue);
+        if (currentValue + 1 !== nextValue) {
+            // console.log('bad currentValue', currentValue);
+            return true;
+        }
+    });
+    console.log('missingNumber ===', missingNum + 1);
+    return missingNum + 1;
 }
+getMissingNumber([1, 2, 4, 5]);
+getMissingNumber([5, 6, 8, 9, 10]);
 
-const miss1 = missingNr(numbers);
-const miss2 = missingNr(numbers2);
-console.log('miss1 ===', miss1);
-console.log('miss2 ===', miss2);
+// 2 way short version
+function getMissingNumber2(array) {
+    const missingNum = array.find((sk, i) => {
+        if (sk + 1 !== array[i + 1]) {
+            return true;
+        }
+    });
+    console.log('missingNumber ===', missingNum + 1);
+    return missingNum + 1;
+}

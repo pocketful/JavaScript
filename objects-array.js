@@ -61,8 +61,6 @@ fromDepartmentsBC(users);
 
 // norint atrinkt kai argumentu paduodi raide
 function fromDepartments(array, letters) {
-
-    debugger
     const departmentUsers = array.filter((user) => letters.includes(user.department));
 
     // 2 way, for
