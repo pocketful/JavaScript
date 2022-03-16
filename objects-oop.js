@@ -155,6 +155,7 @@ class Person {
 // array
 const personsArray = [];
 
+// formEl
 const formEl = document.forms.fullnameForm;
 formEl.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -166,14 +167,15 @@ formEl.addEventListener('submit', (event) => {
 
   // new object
   const newPerson = new Person(nameValue, surnameValue);
-  newPerson.toTable();
   console.log(newPerson);
+  
+  // new object render to html table
+  newPerson.toTable();
 
   // new object to array
   personsArray.push(newPerson);
   console.log(personsArray);
 });
-
 
 
 // formEl
@@ -214,12 +216,30 @@ class Car {
     this.image = image;
   }
   toHtml() {
+    const containerEl = document.querySelector('.container');
+    // car card
+    const carCardEl = document.createElement('figure');
+    carCardEl.className = 'user-card';
+    // car card image
+    const imgEl = document.createElement('img');
+    imgEl.src = this.image;
+    imgEl.alt = 'a car';
+    imgEl.className = 'card-img';
+    carCardEl.append(imgEl);
+    // car card text
+    const figcaptionEl = document.createElement('figcaption');
+    figcaptionEl.textContent = this.carbrand + ' ' + this.model;
+    figcaptionEl.className = 'card-figcaption';
+    carCardEl.append(figcaptionEl);
+    // append card to container
+    containerEl.append(carCardEl);
   }
 }
 
 // array
 const carsArray = [];
 
+// formEl
 const carFormEl = document.forms.carForm;
 carFormEl.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -233,32 +253,65 @@ carFormEl.addEventListener('submit', (event) => {
 
   // new object
   const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
-  // newCar.toHtml();
   console.log(newCar);
 
-  // --------- gallery ---------------
-  const containerEl = document.querySelector('.container');
-  // car card
-  const carCardEl = document.createElement('figure');
-  carCardEl.className = 'user-card';
-  // car card image
-  const imgEl = document.createElement('img');
-  imgEl.src = imageValue;
-  imgEl.alt = 'a car';
-  imgEl.className = 'card-img';
-  carCardEl.append(imgEl);
-  // car card text
-  const figcaptionEl = document.createElement('figcaption');
-  figcaptionEl.textContent = carbrandValue + ' ' + modelValue;
-  figcaptionEl.className = 'card-figcaption';
-  carCardEl.append(figcaptionEl);
-  // append card to container
-  containerEl.append(carCardEl);
+  // new object render to html
+  newCar.toHtml();
 
   // new object to array
   carsArray.push(newCar);
   console.log(carsArray);
 });
+
+
+// // formEL
+// const carFormEl = document.forms.carForm;
+// carFormEl.addEventListener('submit', (event) => {
+//   event.preventDefault();
+
+//   // value from input
+//   const carbrandValue = carFormEl.elements.carbrand.value;
+//   const modelValue = carFormEl.elements.model.value;
+//   const mileageValue = carFormEl.elements.mileage.value;
+//   const priceValue = carFormEl.elements.price.value;
+//   const imageValue = carFormEl.elements.image.value;
+
+//   // new object
+//   const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
+//   console.log(newCar);
+//   // newCar.toHtml();
+
+
+//   // --------- gallery ---------------
+//   const containerEl = document.querySelector('.container');
+//   // car card
+//   const carCardEl = document.createElement('figure');
+//   carCardEl.className = 'user-card';
+//   // car card image
+//   const imgEl = document.createElement('img');
+//   imgEl.src = imageValue;
+//   imgEl.alt = 'a car';
+//   imgEl.className = 'card-img';
+//   carCardEl.append(imgEl);
+//   // car card text
+//   const figcaptionEl = document.createElement('figcaption');
+//   figcaptionEl.textContent = carbrandValue + ' ' + modelValue;
+//   figcaptionEl.className = 'card-figcaption';
+//   carCardEl.append(figcaptionEl);
+//   // append card to container
+//   containerEl.append(carCardEl);
+
+//   // new object
+//   const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
+//   console.log(newCar);
+
+//   // new object render to html
+//   newCar.toHtml();
+
+//   // new object to array
+//   carsArray.push(newCar);
+//   console.log(carsArray);
+// });
 
 
 /* ------------------------------------------------------------------------------------------- */
