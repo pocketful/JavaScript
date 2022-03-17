@@ -171,8 +171,8 @@ console.log('totalReduce ===', totalReduce);
 
 
 const totalReduceAverage = numbers.reduce((total, num, i) => {
-    //    const singleNumAverage = num / numbers.length;
-    //    return total + singleNumAverage;
+    //    const singleNumAverage = num / numbers.length; // kiekvieno num vidurki atskirai
+    //    return total + singleNumAverage;  // sudeti visu num vidurkius atskirus
     return total + num / numbers.length;
 }, 0);
 console.log('totalReduceAverage ===', totalReduceAverage);

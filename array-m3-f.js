@@ -354,3 +354,92 @@ function clickLog() {
 
 function makeEl(tag, className, text, dest) { }
 makeEl('h2', 'title', 'yes', divEl);
+
+/* Array tasks from edabit ========================================================================================== */
+
+// 1. Destructuring Arrays
+// Create variables a and b from the given array using es6 array destructuring
+/* Example
+const arr = [1, 2, 3, 4, 5, 6]
+let a = arr[0]
+let b = arr[1]
+console.log(a) // outputs 1
+console.log(b) // outputs 2
+*/
+
+const arr = [1, 2, 3, 4, 5, 6];
+const [first, second] = arr;
+// const [first,second,...rest] = arr; // ?
+console.log('Task 1. Destructuring:', first, second);
+
+/* 2 way */
+function getArray(array) {
+    return array;
+}
+const result = getArray(arr);
+const [a, b, c, d, e, f] = result;
+// console.log('Task 1. Destructuring:', a, b, c, d, e, f);
+
+// instead of
+// const first = result[0];
+
+/* ------------------------------------------------------------------------------------------ */
+// 2. Given a number, return an array containing the two halves of the number. If the number is odd, make the rightmost number higher. All numbers will be integers. You can expect negative numbers too. */
+/* Examples:
+numberSplit(4) ➞ [2, 2]
+numberSplit(10) ➞ [5, 5]
+numberSplit(11) ➞ [5, 6]
+numberSplit(-9) ➞ [-5, -4]
+*/
+function numberSpli2(n) {
+	return [Math.floor(n / 2), Math.ceil(n / 2)]; 
+}
+
+function numberSplit(n) {
+    const half = n / 2;  // 5.5
+    const result = [Math.floor(half), Math.ceil(half)];    
+	return console.log('Task 2. Two halves of the number:', result);
+}
+// numberSplit(4);
+// numberSplit(10);
+numberSplit(11);
+// numberSplit(-9);
+
+/* ------------------------------------------------------------------------------------------ */
+// 3. Create a function that returns an array of strings sorted by length in ascending order
+/* Example: sortByLength(["a", "ccc", "dddd", "bb"]) ➞ ["a", "bb", "ccc", "dddd"] */
+
+function sortByLength(arr) {
+    const sortedArray = arr.sort((a, b) => a.length - b.length);
+    return console.log('Task 3: Sort ASC.length ===', sortedArray);
+}
+sortByLength(["a", "ccc", "dddd", "bb"]);
+
+
+/* ------------------------------------------------------------------------------------------ */
+// 4. Create a function that takes an array as an argument and returns true or false depending on whether the average of all elements in the array is a whole number or not.
+
+/* Examples:
+isAvgWhole([1, 3]) ➞ true
+isAvgWhole([1, 2, 3, 4]) ➞ false
+isAvgWhole([1, 5, 6]) ➞ true
+isAvgWhole([1, 1, 1]) ➞ true
+isAvgWhole([9, 2, 2, 5]) ➞ false
+*/
+
+function isAvgWhole(arr) {
+    const average = Number.isInteger(arr.reduce((total, num) => total + num) / arr.length);
+    // 2 way
+	const average2 = Number.isInteger(arr.reduce((total, num) => total + num / arr.length, 0));
+    // 3 way
+	const average3 = arr.reduce((total, num) => total + num) % arr.length; // jei su liekana,tai true,!(2)===false
+    // 4 way 
+    const average4 = !(arr.reduce(function(total,num){return total + num}) % arr.length);
+
+    console.log('Task 4: Average ===', average3);
+}
+isAvgWhole([1, 3]);
+isAvgWhole([1, 2, 3, 4]);
+isAvgWhole([1, 5, 6]);
+isAvgWhole([1, 1, 1]);
+isAvgWhole([9, 2, 2, 5]);
