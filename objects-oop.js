@@ -141,15 +141,15 @@ class Person {
     this.toTable();
   }
   toTable() {
-    this.tbody = document.querySelector('tbody')
-    this.trEl = document.createElement('tr');
-    this.tbody.append(this.trEl);
-    this.tdEl1 = document.createElement('td');
-    this.tdEl1.textContent = this.name;
-    this.trEl.append(this.tdEl1);
-    this.tdEl2 = document.createElement('td');
-    this.tdEl2.textContent = this.surname;
-    this.trEl.append(this.tdEl2);
+    const tbody = document.querySelector('tbody')
+    const trEl = document.createElement('tr');
+    tbody.append(trEl);
+    const tdEl1 = document.createElement('td');
+    tdEl1.textContent = this.name;
+    trEl.append(tdEl1);
+    const tdEl2 = document.createElement('td');
+    tdEl2.textContent = this.surname;
+    trEl.append(tdEl2);
   }
 }
 
@@ -169,7 +169,7 @@ formEl.addEventListener('submit', (event) => {
   // new object
   const newPerson = new Person(nameValue, surnameValue);
   console.log(newPerson);
-  
+
   // new object to array
   personsArray.push(newPerson);
   console.log(personsArray);
@@ -186,28 +186,31 @@ class Car {
     this.price = price;
     this.image = image;
     this.toHtml();
-    this.carCardEl.addEventListener('click', (e) => {
-      alert('Price: ' + this.price);
-    })
   }
   toHtml() {
-    this.containerEl = document.querySelector('.container');
+    const containerEl = document.querySelector('.container');
     // car card
-    this.carCardEl = document.createElement('figure');
-    this.carCardEl.className = 'user-card';
+    const carCardEl = document.createElement('figure');
+    carCardEl.className = 'user-card';
     // car card image
-    this.imgEl = document.createElement('img');
-    this.imgEl.src = this.image;
-    this.imgEl.alt = 'a car';
-    this.imgEl.className = 'card-img';
-    this.carCardEl.append(this.imgEl);
+    const imgEl = document.createElement('img');
+    imgEl.src = this.image;
+    imgEl.alt = 'a car';
+    imgEl.className = 'card-img';
+    carCardEl.append(imgEl);
     // car card text
-    this.figcaptionEl = document.createElement('figcaption');
-    this.figcaptionEl.textContent = this.carbrand + ' ' + this.model;
-    this.figcaptionEl.className = 'card-figcaption';
-    this.carCardEl.append(this.figcaptionEl);
+    const figcaptionEl = document.createElement('figcaption');
+    figcaptionEl.textContent = this.carbrand + ' ' + this.model;
+    figcaptionEl.className = 'card-figcaption';
+    carCardEl.append(figcaptionEl);
     // append card to container
-    this.containerEl.append(this.carCardEl);
+    containerEl.append(carCardEl);
+
+    // show price
+    carCardEl.addEventListener('click', (e) => {
+      // alert('Price: ' + this.price);
+      console.log('Price: ' + this.price);
+    });    
   }
 }
 
