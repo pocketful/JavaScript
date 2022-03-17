@@ -355,7 +355,7 @@ function clickLog() {
 function makeEl(tag, className, text, dest) { }
 makeEl('h2', 'title', 'yes', divEl);
 
-/* Array tasks from edabit ========================================================================================== */
+/* Array tasks from edabit ================================================================================== */
 
 // 1. Destructuring Arrays
 // Create variables a and b from the given array using es6 array destructuring
@@ -443,3 +443,96 @@ isAvgWhole([1, 2, 3, 4]);
 isAvgWhole([1, 5, 6]);
 isAvgWhole([1, 1, 1]);
 isAvgWhole([9, 2, 2, 5]);
+
+
+/* CAO Array methods ================================================================================== */
+
+/* 3. Prisimename darbą su masyvais: sukurkite funkciją, kuri priims masyvą ir išfiltruos visus pasikartojančius skaičius bei šį masyvą grąžins atgal.
+Pvz:
+paduodu: [1, 3, 3, 5, 5, 5]
+grąžina: [1, 3, 5] */
+
+function withoutRepeatingNumbers(array) {
+    console.log('1. array with repeating numbers ===', array);
+  
+    const newArray = array.sort((a, b) => a - b)
+      .filter((sk, i) => sk !== array[i + 1]);
+  
+    console.log('2. array without repeating numbers ===', newArray);
+  }
+  withoutRepeatingNumbers([1, 3, 3, 5, 5, 5]);
+  withoutRepeatingNumbers([1, 6, 5, 6, 3, 5, 3]);
+
+
+/* ---------------------------------------------------------------------------------- */
+/* 2. Parašykit funkciją, kuri priimtu mąsyvą sudarytą iš skaičių ir raidžių. Grąžinkite masyvą tik su skaičiais.
+pvz: fn([1, 5, "a", "g", "z", 6]) => [1, 5, 6] */
+
+function onlyNumbers(array) {
+    const numArray = array.filter((item) => typeof(item) === 'number');
+    console.log('onlyNumbers ===', numArray);
+}
+onlyNumbers([1, 5, "a", "g", "z", 6]);
+
+/* ---------------------------------------------------------------------------------- */
+/* 3. Sukurk funkciją, kuri paims stringą kaip parametrą ir padvigubins kiekvieną raidę (bet ne simbolį ar skaičių).
+pvz: fn("Petras 123 Slekys") => "PPeettrraass 123 SSlleekkyyss" */
+
+function doubledLetters(str) {
+    // string to individual char array
+    const doubled = str.split('')
+    // doubling strings in array
+    .map((char) => char.toLowerCase() != char.toUpperCase() ? char + char : char)
+    // array to string
+    .join('');
+
+    return console.log('doubledLetters ===', doubled);
+}
+doubledLetters('Iveta 123 %$! Jac');
+
+
+    // same, longer
+    function doubledLetters2(str) {
+        console.log('str ===', str);
+        // string to individual char array
+        const stringsArray = str.split('');
+        console.log('stringsArray ===', stringsArray);
+        // doubling strings in array
+        const doubledLettersArray = stringsArray.map((char) => char.toLowerCase() != char.toUpperCase() ? char + char : char);
+        console.log('doubledLettersArray ===', doubledLettersArray);        
+        // array to string
+        const doubledLettersString = doubledLettersArray.join('');
+        console.log('doubledLetters ===', doubledLettersString);
+    }
+    doubledLetters2('Iveta 123 %$! Jac');
+    
+    
+    // for way
+    function doubledLettersFor(str) {
+        let newStr = '';
+        for (let i = 0; i < str.length; i++) {
+            if (str[i].toLowerCase() != str[i].toUpperCase()) {
+                newStr += str[i] + str[i];
+            } else {
+                newStr += str[i];
+            }           
+        }
+        console.log('doubledLetters with for ===', newStr);
+    }
+    doubledLettersFor('Iveta 123 %$! Jac');
+
+
+/* ---------------------------------------------------------------------------------- */
+/* 4. Parašykite funkciją, kuri tikrins ar paduotas post code - teisingas. Post code turi susidėti iš 5 skaičių, arba trijų skaičių ir dviejų raidžių. Jei yra tarpų - post code neteisingas.
+Pvz: fn("abc123") => false; fn("12345") => true; fn("123ab") => true. */
+
+
+/* ---------------------------------------------------------------------------------- */
+/* 5. Sukurkite funkciją, kuri priims array ir prie kiekvieno array elemento pridės "7", nebent elementas baigsis "7".
+pvz:
+jazzify(["G", "F", "C"]) ➞ ["G7", "F7", "C7"]
+jazzify(["Dm", "G", "E", "A"]) ➞ ["Dm7", "G7", "E7", "A7"]
+jazzify(["F7", "E7", "A7", "Ab7", "Gm7", "C7"]) ➞ ["F7", "E7", "A7", "Ab7", "Gm7", "C7"]
+jazzify([]) ➞ []
+*/
+
