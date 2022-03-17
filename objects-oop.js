@@ -186,6 +186,9 @@ class Car {
     this.price = price;
     this.image = image;
     this.toHtml();
+    this.carCardEl.addEventListener('click', (e) => {
+      alert('Price: ' + this.price);
+    })
   }
   toHtml() {
     this.containerEl = document.querySelector('.container');
