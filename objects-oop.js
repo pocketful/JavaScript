@@ -138,17 +138,18 @@ class Person {
   constructor(name, surname) {
     this.name = name;
     this.surname = surname;
+    this.toTable();
   }
   toTable() {
-    const tbody = document.querySelector('tbody')
-    const trEl = document.createElement('tr');
-    tbody.append(trEl);
-    const tdEl1 = document.createElement('td');
-    tdEl1.textContent = this.name;
-    trEl.append(tdEl1);
-    const tdEl2 = document.createElement('td');
-    tdEl2.textContent = this.surname;
-    trEl.append(tdEl2);
+    this.tbody = document.querySelector('tbody')
+    this.trEl = document.createElement('tr');
+    this.tbody.append(this.trEl);
+    this.tdEl1 = document.createElement('td');
+    this.tdEl1.textContent = this.name;
+    this.trEl.append(this.tdEl1);
+    this.tdEl2 = document.createElement('td');
+    this.tdEl2.textContent = this.surname;
+    this.trEl.append(this.tdEl2);
   }
 }
 
@@ -169,40 +170,10 @@ formEl.addEventListener('submit', (event) => {
   const newPerson = new Person(nameValue, surnameValue);
   console.log(newPerson);
   
-  // new object render to html table
-  newPerson.toTable();
-
   // new object to array
   personsArray.push(newPerson);
   console.log(personsArray);
 });
-
-
-// formEl
-// const formEl = document.forms.fullnameForm;
-// formEl.addEventListener('submit', (event) => {
-//     event.preventDefault();
-
-//     // value from input
-//     const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');  
-//     const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
-//     const surnameValue = fullnameValueArray[1].charAt(0).toUpperCase() + fullnameValueArray[1].slice(1);   
-//     console.log('fullnameValueArray ===', fullnameValueArray);
-//     console.log('nameValue ===', nameValue);
-//     console.log('surnameValue ===', surnameValue);
-
-//     // create table row
-//     const tbody = document.querySelector('tbody')
-//     const trEl = document.createElement('tr');
-//     tbody.append(trEl);
-//     const tdEl1 = document.createElement('td');
-//     tdEl1.textContent = nameValue;
-//     trEl.append(tdEl1);
-//     const tdEl2 = document.createElement('td');
-//     tdEl2.textContent = surnameValue;
-//     trEl.append(tdEl2);
-// });
-
 
 /* ------------------------------------------------------------------------------------------- */
 /* 2. Sukurkite HTML formą, kurioje vartotojas galės įrašyti (į input laukelius): car brand, model, mileage, price ir image (url laukelis). Per konstruktorių, sukuriamas objektas ir jis atvaizduojamas po forma (CSS rašykite CSS'e) kaip atvaizduota nuotraukoje apačioje. Paspaudus ant automobilio bloko - turi alert išmesti kainą. */
@@ -214,25 +185,26 @@ class Car {
     this.mileage = mileage;
     this.price = price;
     this.image = image;
+    this.toHtml();
   }
   toHtml() {
-    const containerEl = document.querySelector('.container');
+    this.containerEl = document.querySelector('.container');
     // car card
-    const carCardEl = document.createElement('figure');
-    carCardEl.className = 'user-card';
+    this.carCardEl = document.createElement('figure');
+    this.carCardEl.className = 'user-card';
     // car card image
-    const imgEl = document.createElement('img');
-    imgEl.src = this.image;
-    imgEl.alt = 'a car';
-    imgEl.className = 'card-img';
-    carCardEl.append(imgEl);
+    this.imgEl = document.createElement('img');
+    this.imgEl.src = this.image;
+    this.imgEl.alt = 'a car';
+    this.imgEl.className = 'card-img';
+    this.carCardEl.append(this.imgEl);
     // car card text
-    const figcaptionEl = document.createElement('figcaption');
-    figcaptionEl.textContent = this.carbrand + ' ' + this.model;
-    figcaptionEl.className = 'card-figcaption';
-    carCardEl.append(figcaptionEl);
+    this.figcaptionEl = document.createElement('figcaption');
+    this.figcaptionEl.textContent = this.carbrand + ' ' + this.model;
+    this.figcaptionEl.className = 'card-figcaption';
+    this.carCardEl.append(this.figcaptionEl);
     // append card to container
-    containerEl.append(carCardEl);
+    this.containerEl.append(this.carCardEl);
   }
 }
 
@@ -255,63 +227,10 @@ carFormEl.addEventListener('submit', (event) => {
   const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
   console.log(newCar);
 
-  // new object render to html
-  newCar.toHtml();
-
   // new object to array
   carsArray.push(newCar);
   console.log(carsArray);
 });
-
-
-// // formEL
-// const carFormEl = document.forms.carForm;
-// carFormEl.addEventListener('submit', (event) => {
-//   event.preventDefault();
-
-//   // value from input
-//   const carbrandValue = carFormEl.elements.carbrand.value;
-//   const modelValue = carFormEl.elements.model.value;
-//   const mileageValue = carFormEl.elements.mileage.value;
-//   const priceValue = carFormEl.elements.price.value;
-//   const imageValue = carFormEl.elements.image.value;
-
-//   // new object
-//   const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
-//   console.log(newCar);
-//   // newCar.toHtml();
-
-
-//   // --------- gallery ---------------
-//   const containerEl = document.querySelector('.container');
-//   // car card
-//   const carCardEl = document.createElement('figure');
-//   carCardEl.className = 'user-card';
-//   // car card image
-//   const imgEl = document.createElement('img');
-//   imgEl.src = imageValue;
-//   imgEl.alt = 'a car';
-//   imgEl.className = 'card-img';
-//   carCardEl.append(imgEl);
-//   // car card text
-//   const figcaptionEl = document.createElement('figcaption');
-//   figcaptionEl.textContent = carbrandValue + ' ' + modelValue;
-//   figcaptionEl.className = 'card-figcaption';
-//   carCardEl.append(figcaptionEl);
-//   // append card to container
-//   containerEl.append(carCardEl);
-
-//   // new object
-//   const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
-//   console.log(newCar);
-
-//   // new object render to html
-//   newCar.toHtml();
-
-//   // new object to array
-//   carsArray.push(newCar);
-//   console.log(carsArray);
-// });
 
 
 /* ------------------------------------------------------------------------------------------- */
