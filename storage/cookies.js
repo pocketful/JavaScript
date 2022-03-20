@@ -65,3 +65,47 @@ function checkCookie() {
 checkCookie();
 
 
+/* Cookies, dates ======================================================================================== */
+
+/* https://www.w3schools.com/js/js_dates.asp
+   new Date()
+   new Date(year, month, day, hours, minutes, seconds, milliseconds)
+   new Date(milliseconds)
+   new Date(date string) */
+
+// current time 
+const dateNow = new Date(); // Sun Mar 20 2022 19:46:39 GMT+0200 (Eastern European Standard Time)
+const dateNowToUTC = dateNow.toUTCString(); // Sun Mar 20 2022 19:46:39 GMT+0200 (Eastern European Standard Time)
+const dateNowToDateString = dateNow.toDateString(); // Sun Mar 20 2022 // more readable format 
+
+const date2 = new Date('1980-03-15'); // Sat Mar 15 1980 03:00:00 GMT+0300 (Eastern European Standard Time)
+const date3 = new Date(2022, 3, 24); // without zero
+Date.now() // 1647798477538 // current time in milliseconds
+
+/* classwork ----------------------------------------------------------------------------- */
+
+const future = new Date('2022-03-25'); // Fri Mar 25 2022 02:00:00 GMT+0200 (Eastern European Standard Time) {}
+const now = Date.now(); // 1647798855549
+const days = 4;
+const cookieTime = now + days * 24 * 60 * 60 * 1000; // 1648144455549
+const cookieTimeDateFormat = new Date(cookieTime); // new Date(milliseconds)
+console.log('cookieTimeDateFormat ===', cookieTimeDateFormat); // Thu Mar 24 2022 19:54:15 GMT+0200 (Eastern European Standard Time)
+// nustatyti cookie slapuka
+document.cookie = 'showAlert=true; expires=' + cookieTimeDateFormat.toUTCString();
+
+// visi cookie string formatu
+const cook = document.cookie;
+console.log('cook ===', cook); // "showAlert=true;
+const showAlertString = cook.split('=')[1]; // "true"
+const showAlert = showAlertString == 'true' ? true : false;
+console.log('showAlert ===', showAlert);  // true
+
+function showADD() {
+  if (showAlert) {
+    console.log('Pirkike nes pigu');
+    document.cookie = 'showAlert=false; expires=' + future.toUTCString();
+  } else {
+  }
+}
+showADD();
+
