@@ -49,12 +49,18 @@ function getCookie(cname) {
 }
 console.log(getCookie('wizard')); // Hermione Granger
 
+            // SO
+            // function get_cookie(name){
+            //     return document.cookie.split(';').some(c => {
+            //         return c.trim().startsWith(name + '=');
+            //     });
+            // }
 
 // 3. A Function to Check a Cookie if it's set, then it will display a greeting
 function checkCookie() {
     let wizard = getCookie("wizard"); // Hermione Granger
     if (wizard != "") { // if exists
-        console.log("Welcome again " + wizard);
+        console.log("Welcome again, " + wizard);
     } else { // if a cookie is not set
         wizard = prompt("Please enter your name:", ""); // ok ir be pask kabuciu
         if (wizard != "" && wizard != null) {
@@ -88,8 +94,7 @@ const future = new Date('2022-03-25'); // Fri Mar 25 2022 02:00:00 GMT+0200 (Eas
 const now = Date.now(); // 1647798855549
 const days = 4;
 const cookieTime = now + days * 24 * 60 * 60 * 1000; // 1648144455549
-const cookieTimeDateFormat = new Date(cookieTime); // new Date(milliseconds)
-console.log('cookieTimeDateFormat ===', cookieTimeDateFormat); // Thu Mar 24 2022 19:54:15 GMT+0200 (Eastern European Standard Time)
+const cookieTimeDateFormat = new Date(cookieTime); // new Date(milliseconds) // Thu Mar 24 2022 19:54:15 GMT+0200 (Eastern European Standard Time)
 // nustatyti cookie slapuka
 document.cookie = 'showAlert=true; expires=' + cookieTimeDateFormat.toUTCString();
 
@@ -98,7 +103,7 @@ const cook = document.cookie;
 console.log('cook ===', cook); // "showAlert=true;
 const showAlertString = cook.split('=')[1]; // "true"
 const showAlert = showAlertString == 'true' ? true : false;
-console.log('showAlert ===', showAlert);  // true
+// console.log('showAlert ===', showAlert);  // true
 
 function showADD() {
   if (showAlert) {
@@ -109,3 +114,64 @@ function showADD() {
 }
 showADD();
 
+
+/* CAO ========================================================================================= */
+
+/* 1. Sukurk formą, kuri leis įrašyti vardą - jis bus išsaugojamas į cookies. Jei vardas jau egzistuoja - išmeta tik vardą ir mygtuką, su kuriuo cookies ištrinamas. Jei neegzistuoja - formą. */
+
+const formNameEl = document.forms.nameForm;
+const title = document.querySelector('.title')
+
+// create new div for a name cookie and remove button
+const cookieDivEl = document.createElement('div');
+title.after(cookieDivEl);
+
+formNameEl.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    // get input value
+    const inputValue = formNameEl.elements.name.value.trim(); // event.target.name.value.trim();
+
+    // create new <p> with name
+    createNameP(inputValue);
+
+    // create a delete button
+    createDeleteBtn();
+
+    // create a new cookie from name
+    document.cookie = 'caoName=' + inputValue + ';';
+
+    // hide a form
+    formNameEl.classList.toggle('hide');
+});
+
+// create new <p> with name
+function createNameP(name) {
+    const pEl = document.createElement('p');
+    pEl.textContent = name;
+    cookieDivEl.append(pEl);
+}
+
+// create delete button
+function createDeleteBtn() {
+    const deleteEl = document.createElement('button');
+    deleteEl.textContent = 'Remove a cookie';
+    cookieDivEl.append(deleteEl);
+    // delete a cookie after clicking a button 'remove'
+    deleteACookie(deleteEl);
+}
+
+// delete a cookie after clicking a 'remove' button
+function deleteACookie(btn) { 
+    btn.addEventListener('click', () => {
+        // clear a cookie value and set the date to a past one
+        document.cookie = 'caoName= ; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+        console.log('cookie removed');
+
+        // display a form again
+        formNameEl.classList.toggle('hide');
+
+        // clear cookie div el with name and remove button
+        cookieDivEl.innerHTML = '';
+    });
+}
