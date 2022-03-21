@@ -71,7 +71,6 @@ const ulEl = document.querySelector('.names-list');
 
 formEl.onsubmit = function (e) { // formEl.addEventListener('submit', (e) => {
   e.preventDefault();
-  // debugger
   const inputEl = formEl.elements.name;
   // paimti reiksme
   let inputValue = inputEl.value.trim();  
@@ -138,8 +137,15 @@ function saveToStorage() {
   <button type="submit">Submit</button>
 </form> */
 
-const formFullnameEl = document.forms.fullname;
+// retrieving data from localStorage: from string to array again
+// after reloading the page, show list from localStorage
+let personsArray = localStorage.getItem('fullnames') === null ? [] : JSON.parse(localStorage.getItem('fullnames'));
+console.log('personsArray ===', personsArray);
 
+// create a table from localStorage
+personsArray.forEach((obj) => toTable(obj.name, obj.surname));
+
+const formFullnameEl = document.forms.fullname;
 formFullnameEl.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -152,17 +158,22 @@ formFullnameEl.addEventListener('submit', (event) => {
   const nameV = fullnameVArr[0];
   const surnameV = fullnameVArr[1];
 
+  // create a new line
+  toTable(nameV, surnameV);
+
   // create a new object
-  const fullnameObj = { name: nameV, surname: surnameV, };
-  console.log('obj === ', fullnameObj);
+  const fullnameObj = { name: nameV, surname: surnameV }; // {name: 'Iveta', surname: 'Jac'}
 
   // new object push to array
-  const personsArray = [];
-  personsArray.push(fullnameObj);
-  console.log('array === ', personsArray);
+  personsArray.push(fullnameObj); // [{…}, {…}] // 0: {name: 'Iveta', surname: 'Jac'} 1: {name: 'Iveta', surname: 'Jack'}
 
-  // create a new line with name surname
-  toTable(nameV, surnameV);
+  // array to string
+  const stringFromPersonsArray = JSON.stringify(personsArray); // [{"name":"Iveta","surname":"Jac"},{"name":"Iveta","surname":"Jack"}]  string
+
+  // Storing data: array string save to localStorage
+  localStorage.setItem('fullnames', stringFromPersonsArray);
+  console.log(localStorage);
+  // Storage {fullnames: '[{"name":"Iveta","surname":"Jac"},{"name":"Iveta","surname":"Jack"}]', length: 1}
 
   // clear input
   // formFullnameEl.elements.fullname.value = '';
@@ -180,4 +191,3 @@ function toTable(name, surname) {
   tdEl2.textContent = surname;
   trEl.append(tdEl2);
 }
-
