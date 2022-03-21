@@ -5,26 +5,25 @@
 /* The localStorage object stores data with no expiration date.
 The data is not deleted when the browser is closed, and are available for future sessions. */
 
-// localStorage.setItem(key, value);
-// issaugoti reiksmes
-localStorage.setItem('usernameKey', 'userValue');
-localStorage.setItem('passwordKey', 'passValue');
-// pasiimti reiksmes
-const usernameV = localStorage.getItem('usernameKey');
-console.log('usernameV ===', usernameV); // userValue. jei nera, null
+// // localStorage.setItem(key, value);
+// // issaugoti reiksmes
+// localStorage.setItem('usernameKey', 'userValue');
+// localStorage.setItem('passwordKey', 'passValue');
+// // pasiimti reiksmes
+// const usernameV = localStorage.getItem('usernameKey');
+// console.log('usernameV ===', usernameV); // userValue. jei nera, null
 
-localStorage // Storage {usernameKey: 'userValue', passwordKey: 'passValue', length: 2}
-// Save Data to Local Storage
-localStorage.setItem("key", "value");
-// Read Data from Local Storage
-let lastname = localStorage.getItem("key");
-// Remove Data from Local Storage
-localStorage.removeItem("key");
-// Remove All (Clear Local Starage)
-// localStorage.clear();
+// localStorage // Storage {usernameKey: 'userValue', passwordKey: 'passValue', length: 2}
+// // Save Data to Local Storage
+// localStorage.setItem("key", "value");
+// // Read Data from Local Storage
+// let lastname = localStorage.getItem("key");
+// // Remove Data from Local Storage
+// localStorage.removeItem("key");
+// // Remove All (Clear Local Starage)
+// // localStorage.clear();
 
-
-/* Task 1, counter -------------------------------------------------------------------------------------- */
+/* Task 1, counter ---------------------------------------------------------------------------------- */
 
 /*  <button id="btn1">Click me</button>
     <h2 id="count">0</h2> */
@@ -89,7 +88,6 @@ formEl.onsubmit = function (e) { // formEl.addEventListener('submit', (e) => {
 // const namesArray = []; // jei tik taip, tai perkrovus nelieka htmle lsito, o cookies uzraso ant virsaus nauja
 const namesArray = localStorage.getItem('names') === null ? [] : localStorage.getItem('names').split(',');
 // split nes gavom string, o cia array 'Iveta,Iveta' >> ['Iveta', 'Iveta'] 
-
 // after reloading the page, show list from localStorage from before
 // if name empty then create nothing, if name exist, makeLi
 namesArray.forEach((name) => makeLi(name));
@@ -119,3 +117,67 @@ function saveToStorage() {
   localStorage.setItem('names', stringFromNamesArray); 
   // Storage {names: 'Iveta', length: 1} >> Storage {names: 'Iveta,Iveta', length: 1}
 }
+
+/* CAO ========================================================================================= */
+
+/* 2. Į localStorage, įrašykite savo vardą, pavardę, aprašymą, linkus į FB, G+, Twitter, linką į nuotrauką. Informaciją galite įrašyti per console'ę, arba naudojant kodą projekte pirmą kart užkraunant puslapį. Vėliau susikurkite puslapį, kuris atvaizduos šią informaciją būtent taip: */
+
+// localStorage.setItem('T2-name', 'DarkCode');
+// localStorage.setItem('T2-occupation', 'Web Developer - Web Designer');
+// localStorage.setItem('T2-description', 'A web developer is a programmer or a coder who specializes in, or is specifically engaged in, the development of World Wide Web applications using a client–server model');
+// localStorage.setItem('T2-fb', 'https://www.facebook.com/');
+// localStorage.setItem('T2-twitter', 'https://twitter.com/home');
+// localStorage.setItem('T2-google', 'https://www.google.lt/');
+// localStorage.setItem('T2-photo', 'https://placeimg.com/300/300/nature');
+
+
+/* ---------------------------------------------------------------------------------------------------- */
+/* 3. Sukurkite puslapį, kuriame būtų forma su vienu input - fullName. Įvedus vardą ir pavardę, juos padalina į dvi dalis (name ir surname). Vardą ir pavardę įdeda į objektą, o objektą - į array. Šį array išsaugo localStorage. Po forma, tegul būna lentelė, būtent joje atsivaizduoja informacija iš localStorage array. *//*
+<form id="fullname">
+  <input type="text" name="fullname" id="fullname" placeholder="Fullname" value="Iveta Jac" />
+  <button type="submit">Submit</button>
+</form> */
+
+const formFullnameEl = document.forms.fullname;
+
+formFullnameEl.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  // value from input
+  const inputV = formFullnameEl.elements.fullname.value;
+  const fullnameVArr = inputV.trim().toLowerCase().split(' ').map(item => item.charAt(0).toUpperCase() + item.slice(1));
+  console.log('fullnameVArr === ', fullnameVArr); // ['Iveta', 'Jack']
+  // const nameV = fullnameVArr[0].charAt(0).toUpperCase() + fullnameVArr[0].slice(1);
+  // const surnameV = fullnameVArr[1].charAt(0).toUpperCase() + fullnameVArr[1].slice(1);
+  const nameV = fullnameVArr[0];
+  const surnameV = fullnameVArr[1];
+
+  // create a new object
+  const fullnameObj = { name: nameV, surname: surnameV, };
+  console.log('obj === ', fullnameObj);
+
+  // new object push to array
+  const personsArray = [];
+  personsArray.push(fullnameObj);
+  console.log('array === ', personsArray);
+
+  // create a new line with name surname
+  toTable(nameV, surnameV);
+
+  // clear input
+  // formFullnameEl.elements.fullname.value = '';
+});
+
+// create a new line with name surname
+function toTable(name, surname) {
+  const tbody = document.querySelector('tbody')
+  const trEl = document.createElement('tr');
+  tbody.append(trEl);
+  const tdEl1 = document.createElement('td');
+  tdEl1.textContent = name;
+  trEl.append(tdEl1);
+  const tdEl2 = document.createElement('td');
+  tdEl2.textContent = surname;
+  trEl.append(tdEl2);
+}
+
