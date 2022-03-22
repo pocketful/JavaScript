@@ -9,7 +9,7 @@
 /* https://www.w3schools.com/js/js_async.asp */
 
 
-/* setTiemout ------------------------------------------------------------------------ */
+/* setTimeout ------------------------------------------------------------------------ */
 
 const h1El = document.querySelector('h1');
 function changeH1(newTitle) {
@@ -105,3 +105,62 @@ getThings(drawThings);
     // getThings(() => drawThings(readyColors));
 // drawThings(things);
 // drawThings(readyColors); // Cannot read properties of undefined (reading 'map')
+
+/* ====================================================================================== */
+/* async Promises (buyTickets) ---------------------------------------------------------- */
+
+function buyTickets() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const error = false;
+            if (error) {
+                reject('Try again'); // when error
+            } else {
+                resolve('Thanks'); // when successful
+            }
+        }, 3000)
+    });
+}
+buyTickets()
+    .then((success) => console.log(success)) // vykdo resolve
+    .catch((error) => console.log(error)); // vykdo reject, kai false
+
+// 2 way, rare
+// const promise = buyTickets();
+// promise.then((success) => console.log(success));
+// promise.catch((error) => console.log(error));
+// console.log('promise ===', promise); // Promise {<pending>} tuo metu kai spausdina, nepraejo 3s
+
+
+/* async Promises ------------------------------------------------------------------- */
+
+function fnPr1() {
+    console.log('Async. Number One 1');
+}
+
+function fnPr2() {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            console.log('Async. Number Two 2');
+            resolve();
+        }, 1500);
+    })
+}
+
+function fnPr3() {
+    console.log('Async. Number Three 3');
+}
+
+function fnPr4() {
+    console.log('Async. Number Four 4');
+}
+
+// fnPr1();
+// fnPr2().then(fnPr3); // vykdo resolve, without 4
+
+fnPr1();
+fnPr2().then(() => { // vykdo resolve
+    fnPr3();
+    fnPr4();
+});
+
