@@ -164,3 +164,27 @@ fnPr2().then(() => { // vykdo resolve
     fnPr4();
 });
 
+
+/* setInterval (clock) ===================================================================================== */
+/* https://www.w3schools.com/Jsref/met_win_setinterval.asp */
+
+
+const interval = setInterval(printL, 1000); // print every second
+// clearInterval(interval); // jei is karto
+
+function printL() {
+    console.log('hello');
+}
+setTimeout(clearInterval, 5000, interval); // stop after 5s
+
+
+// clock - display the time every second (1000 milliseconds) -------------------
+const h2El = document.querySelector('h2');
+
+function getTime() {
+    const now = new Date();
+    const time = now.toLocaleTimeString('lt'); // 11:46:30
+    h2El.textContent = time;
+}
+// getTime(); // nesikeis
+setInterval(getTime, 1000); // live clock  
