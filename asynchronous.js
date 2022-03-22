@@ -7,6 +7,8 @@
 /* https://www.w3schools.com/js/js_callback.asp */
 /* https://www.w3schools.com/js/js_promise.asp */
 /* https://www.w3schools.com/js/js_async.asp */
+/* https://www.w3schools.com/jsreF/met_win_settimeout.asp */
+/* https://www.w3schools.com/jsreF/met_win_setinterval.asp */
 
 
 /* setTimeout ------------------------------------------------------------------------ */
@@ -103,10 +105,30 @@ getThings(drawThings);
     //     ulEl.innerHTML = stringEls;
     // }
     // getThings(() => drawThings(readyColors));
-// drawThings(things);
-// drawThings(readyColors); // Cannot read properties of undefined (reading 'map')
+    // drawThings(things);
+    // drawThings(readyColors); // Cannot read properties of undefined (reading 'map')
+
 
 /* ====================================================================================== */
+// State(result):
+// Pending(undefined), Fulfilled(a result value), Rejected(an error object)
+// resolve(value) -OR- reject(error)
+/*  "Producing code" is code that can take some time
+    "Consuming code" is code that must wait for the result
+    A Promise is a JavaScript object that links producing code and consuming code */
+
+let myPromise = new Promise(function (myResolve, myReject) {
+    // "Producing Code" (May take some time)
+    myResolve(); // when successful
+    myReject();  // when error
+});
+// "Consuming Code" (Must wait for a fulfilled Promise)
+myPromise.then(
+    function (value) { /* code if successful */ },
+    function (error) { /* code if some error */ }
+);
+
+
 /* async Promises (buyTickets) ---------------------------------------------------------- */
 
 function buyTickets() {
@@ -132,7 +154,7 @@ buyTickets()
 // console.log('promise ===', promise); // Promise {<pending>} tuo metu kai spausdina, nepraejo 3s
 
 
-/* async Promises ------------------------------------------------------------------- */
+/* async Promises ---------------------------------------------------------------------- */
 
 function fnPr1() {
     console.log('Async. Number One 1');
@@ -165,7 +187,7 @@ fnPr2().then(() => { // vykdo resolve
 });
 
 
-/* setInterval (clock) ===================================================================================== */
+/* setInterval (clock) ================================================================================ */
 /* https://www.w3schools.com/Jsref/met_win_setinterval.asp */
 
 
@@ -188,3 +210,69 @@ function getTime() {
 }
 // getTime(); // nesikeis
 setInterval(getTime, 1000); // live clock  
+
+
+/* CAO ================================================================================================ */
+
+/* 1. Parašykite pažadą, kuris visada resolve'insis po 5 sekundžių. Jam resolve - išoka alert "yes, veikia!". Pažado aprašyme teks naudoti setTimeOut. */
+
+const every5Sec1 = new Promise((resolve, reject) => {
+    setTimeout(() => resolve(), 1000);
+});
+every5Sec1.then(() => console.log('Yes, it works2'));
+console.log("Šitas kodas pasileis pirmas, nors ir yra paskutinis. Tai būtent mūsų asinchroniškumas")
+
+    // // same
+    // const every5Sec2 = new Promise((resolve) => {
+    //     setTimeout(() => resolve('Yes, it works'), 1000);
+    // });
+    // every5Sec2.then(alert);
+
+    
+/* 2. Pakoreguokite pirmą pratimą, kad būtų 4/5 tikimybė, jog resolve'ins po 5 sekundžių, ir 1/5 tikimybė, kad po 5 sekundžių bus reject. */
+
+const every5Sec = new Promise((resolve, reject) => {
+    const random = Math.floor(Math.random() * 5) + 1; // random number 1-5 
+    setTimeout(() => {
+        if (random === 1) {
+            reject(); // 1/5
+        } else {
+            resolve(); // 4/5
+        }
+    }, 5000)
+});
+every5Sec
+    .then(() => console.log('Yes, it works 1/5 of times'))
+    .catch(() => console.log('No, it doesnt work 4/5 of times'));
+
+
+/* 3. Then bendrauja su kitu then. Pakoreguokite antrą pratimą, kad jei resolve'inasi pirmas pažadas - pasileidžia then(), kuris paprasčiausiai grąžina žinutę "this is a message", šią žinutę pagauna antrasis then() ir ją alertina. Prisiminkime - ką then() returnina, tą pasigauna kitas then() kaip parametrą. Nelabai aišku? Pasižiūrėk čia apie teoriją - o jei ne, užmesk akį į atsakymus. */
+
+const every5Sec3 = new Promise((resolve, reject) => {
+    const random = Math.floor(Math.random() * 5) + 1; // random number 1-5 
+    setTimeout(() => {
+        if (random === 1) {
+            reject(); // 1/5
+        } else {
+            resolve(); // 4/5
+        }
+    }, 2000)
+});
+every5Sec3
+    .then(() => 'This is a message')
+    .then((message) => console.log(message))
+    .catch(() => console.log('No, it doesnt work 4/5 of times'));
+
+        // // same
+        // const every5Sec3 = new Promise((resolve, reject) => {
+        //     const random = Math.floor(Math.random() * 5) + 1; // random number 1-5 
+        //     setTimeout(() => {
+        //         if (random === 1) {
+        //             reject('No, it doesnt work 4/5 of times5'); // 1/5
+        //         } else {
+        //             resolve('This is a message5'); // 4/5
+        //         }
+        //     }, 3000)
+        // })
+        // .then((message) => console.log(message))
+        // .catch((error) => console.log(error));
