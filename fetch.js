@@ -275,3 +275,36 @@ fetch('https://boiling-reaches-93648.herokuapp.com/week-3/party')
     .catch((error) => console.warn(error.message));
 
 
+/* --------------------------------------------------------------------------------------------------- */
+/* 3. Organizuojate vestuves - pasiimkite informaciją iš "https://boiling-reaches-93648.herokuapp.com/week-3/wedding" ir atvaizduokite lentelėje: vardą, plusOne ir attending. Parašykite taip, kad plusOne ir attending būtų ne true/false, bet "+" arba "-". */
+
+fetch('https://boiling-reaches-93648.herokuapp.com/week-3/wedding')
+    .then(response => response.json())
+    .then(users => users.forEach((user) => toTable(user.name, replaceToSign(user.plusOne), replaceToSign(user.attending))))
+    .catch((error) => console.warn(error.message));
+
+
+// create a new line
+function toTable(name, plusone, attending) {
+    const tbody = document.querySelector('tbody')
+    const trEl = document.createElement('tr');
+    tbody.append(trEl);
+
+    const tdNameEl = document.createElement('td');
+    tdNameEl.textContent = name;
+    trEl.append(tdNameEl);
+
+    const tdPlusOneEl = document.createElement('td');
+    tdPlusOneEl.textContent = plusone;
+    trEl.append(tdPlusOneEl);
+
+    const tdAttendEl = document.createElement('td');
+    tdAttendEl.textContent = attending;
+    trEl.append(tdAttendEl);
+}
+
+function replaceToSign(text) {
+    const textStr = text.toString();
+    return textStr === 'true' ? textStr.replace('true', '+') : textStr.replace('false', '-');
+}
+
