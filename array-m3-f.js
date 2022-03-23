@@ -392,13 +392,13 @@ numberSplit(11) ➞ [5, 6]
 numberSplit(-9) ➞ [-5, -4]
 */
 function numberSpli2(n) {
-	return [Math.floor(n / 2), Math.ceil(n / 2)]; 
+    return [Math.floor(n / 2), Math.ceil(n / 2)];
 }
 
 function numberSplit(n) {
     const half = n / 2;  // 5.5
-    const result = [Math.floor(half), Math.ceil(half)];    
-	return console.log('Task 2. Two halves of the number:', result);
+    const result = [Math.floor(half), Math.ceil(half)];
+    return console.log('Task 2. Two halves of the number:', result);
 }
 // numberSplit(4);
 // numberSplit(10);
@@ -430,11 +430,11 @@ isAvgWhole([9, 2, 2, 5]) ➞ false
 function isAvgWhole(arr) {
     const average = Number.isInteger(arr.reduce((total, num) => total + num) / arr.length);
     // 2 way
-	const average2 = Number.isInteger(arr.reduce((total, num) => total + num / arr.length, 0));
+    const average2 = Number.isInteger(arr.reduce((total, num) => total + num / arr.length, 0));
     // 3 way
-	const average3 = arr.reduce((total, num) => total + num) % arr.length; // jei su liekana,tai true,!(2)===false
+    const average3 = arr.reduce((total, num) => total + num) % arr.length; // jei su liekana,tai true,!(2)===false
     // 4 way 
-    const average4 = !(arr.reduce(function(total,num){return total + num}) % arr.length);
+    const average4 = !(arr.reduce(function (total, num) { return total + num }) % arr.length);
 
     console.log('Task 4: Average ===', average3);
 }
@@ -454,14 +454,14 @@ grąžina: [1, 3, 5] */
 
 function withoutRepeatingNumbers(array) {
     console.log('1. array with repeating numbers ===', array);
-  
+
     const newArray = array.sort((a, b) => a - b)
-      .filter((sk, i) => sk !== array[i + 1]);
-  
+        .filter((sk, i) => sk !== array[i + 1]);
+
     console.log('2. array without repeating numbers ===', newArray);
-  }
-  withoutRepeatingNumbers([1, 3, 3, 5, 5, 5]);
-  withoutRepeatingNumbers([1, 6, 5, 6, 3, 5, 3]);
+}
+withoutRepeatingNumbers([1, 3, 3, 5, 5, 5]);
+withoutRepeatingNumbers([1, 6, 5, 6, 3, 5, 3]);
 
 
 /* ---------------------------------------------------------------------------------- */
@@ -469,10 +469,11 @@ function withoutRepeatingNumbers(array) {
 pvz: fn([1, 5, "a", "g", "z", 6]) => [1, 5, 6] */
 
 function onlyNumbers(array) {
-    const numArray = array.filter((item) => typeof(item) === 'number');
+    const numArray = array.filter((item) => typeof (item) === 'number');
     console.log('onlyNumbers ===', numArray);
 }
 onlyNumbers([1, 5, "a", "g", "z", 6]);
+
 
 /* ---------------------------------------------------------------------------------- */
 /* 3. Sukurk funkciją, kuri paims stringą kaip parametrą ir padvigubins kiekvieną raidę (bet ne simbolį ar skaičių).
@@ -481,41 +482,46 @@ pvz: fn("Petras 123 Slekys") => "PPeettrraass 123 SSlleekkyyss" */
 function doubledLetters(str) {
     // string to individual char array
     const doubled = str.split('')
-    // doubling strings in array
-    .map((char) => char.toLowerCase() != char.toUpperCase() ? char + char : char)
-    // array to string
-    .join('');
+        // doubling only strings in array
+        // .map((char) => char.toLowerCase() !== char.toUpperCase() ? char + char : char)
+        .map((char) => char.match(/[a-z]/i) ? char + char : char)
+        // array to string
+        .join('');
 
     return console.log('doubledLetters ===', doubled);
 }
 doubledLetters('Iveta 123 %$! Jac');
 
 
-    // same, longer
-    function doubledLetters2(str) {
-        console.log('str ===', str);
-        // string to individual char array
-        const stringsArray = str.split('');
-        console.log('stringsArray ===', stringsArray);
-        // doubling strings in array
-        const doubledLettersArray = stringsArray.map((char) => char.toLowerCase() != char.toUpperCase() ? char + char : char);
-        console.log('doubledLettersArray ===', doubledLettersArray);        
-        // array to string
-        const doubledLettersString = doubledLettersArray.join('');
-        console.log('doubledLetters ===', doubledLettersString);
-    }
-    doubledLetters2('Iveta 123 %$! Jac');
-    
-    
+    // // same, longer
+    // function doubledLetters2(str) {
+    //     console.log('str ===', str);
+    //     // string to individual char array
+    //     const stringsArray = str.split('');
+    //     console.log('stringsArray ===', stringsArray);
+    //     // doubling only strings in array
+    //     const doubledLettersArray = stringsArray.map((char) => char.match(/[a-z]/i) ? char + char : char);
+    //     console.log('doubledLettersArray ===', doubledLettersArray);
+    //     // array to string
+    //     const doubledLettersString = doubledLettersArray.join('');
+    //     console.log('doubledLetters ===', doubledLettersString);
+    // }
+    // doubledLetters2('Iveta 123 %$! Jac');
+
+    // function way {}
+    // const doubledLettersArray = stringsArray.map(function (char) {
+    //     return char.toLowerCase() != char.toUpperCase() ? char + char : char;
+    // });
+
     // for way
     function doubledLettersFor(str) {
         let newStr = '';
         for (let i = 0; i < str.length; i++) {
-            if (str[i].toLowerCase() != str[i].toUpperCase()) {
+            if (str[i].toLowerCase() !== str[i].toUpperCase()) {
                 newStr += str[i] + str[i];
             } else {
                 newStr += str[i];
-            }           
+            }
         }
         console.log('doubledLetters with for ===', newStr);
     }
@@ -525,6 +531,41 @@ doubledLetters('Iveta 123 %$! Jac');
 /* ---------------------------------------------------------------------------------- */
 /* 4. Parašykite funkciją, kuri tikrins ar paduotas post code - teisingas. Post code turi susidėti iš 5 skaičių, arba trijų skaičių ir dviejų raidžių. Jei yra tarpų - post code neteisingas.
 Pvz: fn("abc123") => false; fn("12345") => true; fn("123ab") => true. */
+// 5 sk   arba    3sk 2raid    be tarpu
+
+function validatePostCode(postcode) {
+    console.log('postcode', postcode);
+    // const regex3DigitsSequence = /\d{3}/g;
+    // const regex2LettersSequence = /[a-z]{2}/gi;
+
+    // regex
+    // 5 digits
+    const regex5DigitsSequence = /\d{5}/g;
+    // 3 digits, 2 letters sequence
+    const regex3Dig2LettersSequence = /\d{3}[a-z]{2}/gi;
+    // whitespace
+    const regexWhitespace = /\s/g;
+
+    let result = regex3Dig2LettersSequence.test(postcode) || regex5DigitsSequence.test(postcode);
+    console.log(result);
+}
+validatePostCode('abc123');
+validatePostCode('12345');
+validatePostCode('12345');
+validatePostCode('123ab');
+
+// let text2 = "hd654 545ag 4fs56";
+// // let pattern = /\d{3}\[a-z]{2}/gi;
+// let pattern = /(\d.*\d.*\d.*[a-z])/gi;
+// let result = text2.match(pattern);
+// console.log(result);
+
+// // at least three digits:
+// let num1 = /^(?:\D*\d){3}/
+// str.match(/\d/g).length >= 3
+// /\d.*\d.*\d/
+// //  exactly three digits:
+// let num2 = /^(?:\D*\d){3}\D*$/
 
 
 /* ---------------------------------------------------------------------------------- */
