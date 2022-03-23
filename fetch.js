@@ -129,3 +129,82 @@ fetch('fetch.txt')
     .catch((error) => console.warn(error)); // 404 (Not Found)
 
 
+/* fetch from REST API --------------------------------------------------------------------------------- */
+
+// parsiusti ir iskonsolinti 100 postu is https://jsonplaceholder.typicode.com/
+fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(response => response.json())
+    .then(data => console.log('API posts ===', data))
+
+// get 50 comments
+fetch('https://jsonplaceholder.typicode.com/comments/')
+    .then(response => response.json())
+    //.then(data => data.filter((entry, i) => i < 50))
+    //.then(data => console.log('API 50 comments ===', data.slice(0, 50)))
+    .then(data => data.slice(0, 50))
+    .then(print => console.log('API 50 comments ===', print))
+
+// get all users
+fetch('https://jsonplaceholder.typicode.com/users')
+    .then(response => response.json())
+    .then(data => console.log('API users ===', data))
+
+// get all comments of post 5
+fetch('https://jsonplaceholder.typicode.com/posts/5/comments')
+    .then(response => response.json())
+    .then(data => console.log('API comments of post 5 ===', data))
+
+// get all users usernames in an array
+fetch('https://jsonplaceholder.typicode.com/users/')
+    .then(response => response.json())
+    .then(data => data.map((entry) => entry.username))
+    .then(show => console.log('API usernames ===', show))
+
+// get all users cities in an array
+fetch('https://jsonplaceholder.typicode.com/users/')
+    .then(response => response.json())
+    .then(data => data.map((entry) => entry.address.city))
+    .then(show => console.log('API users cities ===', show))
+
+// get Random joke from https://api.chucknorris.io/ api
+fetch('https://api.chucknorris.io/jokes/random')
+    .then(response => response.json()) // object
+    .then(data => data.value)
+    .then(show => console.log('Chuck ===', show))
+
+// display joke as an html card
+fetch('https://api.chucknorris.io/jokes/random')
+    .then(response => response.json())
+    .then(data => data.value)
+    .then(card => {
+        createCard(card);
+    })
+    .catch((error) => console.warn(error.message));
+
+function createCard(text) {
+    const cardEl = document.createElement('div');
+    cardEl.textContent = text;
+    cardEl.style.backgroundColor = 'yellow';
+    cardEl.style.padding = '10px';
+    cardEl.style.textAlign = 'center';
+    document.body.append(cardEl);
+}
+
+// paspaudus ant mygtuko ivykdom funkcija kuri parsiuncia joke ir atvaizduoja ji h3 el
+// papildomai paspaudus parsiunciamas naujas joke uzrasomas ant virsaus
+/* <button id="btn1">Get a joke</button>
+   <h3 id="joke"></h3> */
+
+const btnEl = document.getElementById('btn1');
+const h3El = document.getElementById('joke');
+
+btnEl.addEventListener('click', () => {
+    fetch('https://api.chucknorris.io/jokes/random')
+    .then(response => response.json())
+    .then(data => data.value)
+    .then(card => {
+        h3El.textContent = card;
+        // h3El.innerHTML += card + '<br/><br/>';
+    })
+    .catch((error) => console.warn(error.message));      
+});
