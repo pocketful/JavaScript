@@ -21,3 +21,12 @@ console.log('sk2 ===', sk2); // 110, nes neperrasem priskyrimo su 'sk2 = sk2 + 1
 sk += 10; // 120 tas pats kaip 'sk2 = sk2 + 10'
 sk2 -= 5;  // 105
 sk2 /= 10;  // 12,5
+
+// x++, ++x
+// x++, increments and returns the value before incrementing.
+let x = 3;
+let y = x++; // y = 3, x = 4
+
+// ++x, increments and returns the value after incrementing.
+let a = 3;
+let b = ++a; // a = 4, b = 4

@@ -14,8 +14,8 @@ Math.max(...numbersArray);
 // random
 Math.random(); // returns random number between 0 (included) and 1 (excluded) >> 0.739537819723959
 Math.random() * 10; // 0 - 10 reikia padauginti is 10
-Math.floor(Math.random() * 10); // a random integer between 0 and 10 (10 excluded) >> 0, 1,...9
-Math.floor(Math.random() * 10) + 1; // returns a random integer between 1 and 10 (10 excluded) >> 1, 2,...9
+Math.floor(Math.random() * 10); // a random integer between 0 and 9 (9 included) >> 0, 1,...9
+Math.floor(Math.random() * 10) + 1; // a random integer between 1 and 10 (10 included) >> 1, 2,...10
 
 // positive 1. negative -1. zero 0
 Math.sign('-3'); // expected output: -1

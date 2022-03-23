@@ -18,8 +18,8 @@ console.log(allCookies); // username=John Doe; name=Iv Jac
 function setCookie(cname, cvalue, exdays) {
     const d = new Date(); // current time // Sun Mar 20 2022 18:30:14 GMT+0200 (Eastern European Standard Time)
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000)); // Tue Apr 19 2022 19:32:34 GMT+0300 (Eastern European Summer Time)
-    let expires = "expires=" + d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";";
+    let expires = `expires=${d.toUTCString()}`;
+    document.cookie = `${cname}=${cvalue};${expires};path=/;`;
 }
 setCookie('wizard', 'Hermione Granger', 30);
 
@@ -69,6 +69,18 @@ function checkCookie() {
     }
 }
 checkCookie();
+
+// GDPR (like 3 function)
+let agree;
+if (!getCookie('userAgree')) {
+    agree = confirm('Ar sutinkate su cookie policy'); // true false
+};
+console.log('agree ===', agree);
+
+if (agree === true) {
+    setCookie('userAgree', true, 2);
+}
+console.log(getCookie('userAgree'));
 
 
 /* Cookies, dates ======================================================================================== */
@@ -155,6 +167,8 @@ function createNameP(name) {
 // create delete button
 function createDeleteBtn() {
     const deleteEl = document.createElement('button');
+    // deleteEl.classList.add('remove-button');
+    // deleteEl.id = 'remove-button';
     deleteEl.textContent = 'Remove a cookie';
     cookieDivEl.append(deleteEl);
     // delete a cookie after clicking a button 'remove'
