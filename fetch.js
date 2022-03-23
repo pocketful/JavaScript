@@ -103,7 +103,7 @@ console.log('peoplefromJSON ===', peoplefromJSON);
 
 
 /* fetch ---------------------------------------------------------------------------------------------- */
-// fetch(address, {opciju obj})
+// fetch(url, [options])
 
 // json
 fetch('fetch.json')
@@ -190,21 +190,88 @@ function createCard(text) {
     document.body.append(cardEl);
 }
 
-// paspaudus ant mygtuko ivykdom funkcija kuri parsiuncia joke ir atvaizduoja ji h3 el
+// paspaudus ant mygtuko ivykdom funkcija kuri parsiuncia joke ir atvaizduoja ji h2 el
 // papildomai paspaudus parsiunciamas naujas joke uzrasomas ant virsaus
 /* <button id="btn1">Get a joke</button>
-   <h3 id="joke"></h3> */
+   <h2 id="joke"></h2> */
 
 const btnEl = document.getElementById('btn1');
-const h3El = document.getElementById('joke');
+const h2El = document.getElementById('joke');
 
 btnEl.addEventListener('click', () => {
     fetch('https://api.chucknorris.io/jokes/random')
     .then(response => response.json())
     .then(data => data.value)
     .then(card => {
-        h3El.textContent = card;
-        // h3El.innerHTML += card + '<br/><br/>';
+        h2El.textContent = card;
+        // h2El.innerHTML += card + '<br/><br/>';
     })
     .catch((error) => console.warn(error.message));      
 });
+
+
+/* CAO ================================================================================================== */
+
+/* 1. Jums paskambino pažinčių portalas – jiems reikia staigiai sukurti front-endą, kuris pasiimtų duomenis iš https://randomuser.me/api/ ir juos atvaizduotų panašioje kortelėje kaip čia (dizainas neturi atitikti, bet padarykit tvarkingai - jį galite pilnai su HTML/CSS pasirašyti, bet norintiems sunkumo - pabandykite ir su JS): */
+
+// const userDivEl = document.getElementById('user');
+
+fetch('https://randomuser.me/api/?seed=belekoks&inc=name,dob,email,picture&noinfo') // same user, less info
+    .then(response => response.json())
+    .then(user => {
+        user = user.results[0];
+        const nameF = user.name.first;
+        const nameL = user.name.last;
+        const age = user.dob.age;
+        const email = user.email;
+        const img = user.picture.large;
+        createProfile(nameF, nameL, age, email, img);
+    })
+
+function createProfile(firstname, lastname, age, email, pic) {
+    const divEl = document.createElement('div');
+    document.querySelector('h3').after(divEl);
+
+    const imgEl = document.createElement('img');
+    imgEl.src = pic;
+    imgEl.alt = 'user image';
+    divEl.append(imgEl);
+
+    const nameEl = document.createElement('p');
+    nameEl.textContent = `${firstname} ${lastname}`;
+    divEl.append(nameEl);
+
+    const ageEl = document.createElement('p');
+    ageEl.textContent = `${age} years old`;
+    divEl.append(ageEl);
+
+    const emailEl = document.createElement('p');
+    emailEl.textContent = email;
+    divEl.append(emailEl);
+
+    // style
+    document.body.style.backgroundColor = 'gainsboro';
+    document.body.style.fontFamily = 'Trebuchet MS';
+    document.body.style.fontSize = '20px';
+    divEl.style.width = 'fit-content';
+    divEl.style.backgroundColor = 'white';
+    divEl.style.borderRadius = '10px';
+    imgEl.style.borderRadius = '10px';
+    divEl.style.padding = '20px';
+    divEl.style.margin = 'auto';
+    divEl.style.textAlign = 'center';
+    ageEl.style.color = 'Sienna';
+    emailEl.style.color = 'Olive';
+}
+
+
+/* --------------------------------------------------------------------------------------------------- */
+/* 2. Naudojant "https://boiling-reaches-93648.herokuapp.com/week-3/party" - pasiimkite informaciją iš šito puslapio ir naudojant skirtingus array metodus, transformuokite duomenis bei išmeskite true/false ekrane - ar "Kristupas Lapeika" yra VIP, ar ne? */
+
+fetch('https://boiling-reaches-93648.herokuapp.com/week-3/party')
+    .then(response => response.json())
+    .then(data => data.find((user) => user.name === 'Kristupas Lapeika'))
+    .then(user => document.getElementById('vip').textContent = user.vip)
+    .catch((error) => console.warn(error.message));
+
+
