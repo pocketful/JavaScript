@@ -214,8 +214,6 @@ btnEl.addEventListener('click', () => {
 
 /* 1. Jums paskambino pažinčių portalas – jiems reikia staigiai sukurti front-endą, kuris pasiimtų duomenis iš https://randomuser.me/api/ ir juos atvaizduotų panašioje kortelėje kaip čia (dizainas neturi atitikti, bet padarykit tvarkingai - jį galite pilnai su HTML/CSS pasirašyti, bet norintiems sunkumo - pabandykite ir su JS): */
 
-// const userDivEl = document.getElementById('user');
-
 fetch('https://randomuser.me/api/?seed=belekoks&inc=name,dob,email,picture&noinfo') // same user, less info
     .then(response => response.json())
     .then(user => {
@@ -308,3 +306,4 @@ function replaceToSign(text) {
     return textStr === 'true' ? textStr.replace('true', '+') : textStr.replace('false', '-');
 }
 
+/* https://openweathermap.org/ */

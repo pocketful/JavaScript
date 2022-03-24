@@ -238,20 +238,22 @@ carFormEl.addEventListener('submit', (event) => {
   console.log(carsArray);
 });
 
-
 /* ------------------------------------------------------------------------------------------- */
-/* 3. Prisimename darbą su masyvais: sukurkite funkciją, kuri priims masyvą ir išfiltruos visus pasikartojančius skaičius bei šį masyvą grąžins atgal.
-Pvz:
-paduodu: [1, 3, 3, 5, 5, 5]
-grąžina: [1, 3, 5] */
+/* 1. Parašykite metodą klasėje, kuris pasakys ar žmogus yra pilnametis ar ne, pagal jo amžių.
+Pvz.:
 
-function withoutRepeatingNumbers(array) {
-  console.log('1. array with repeating numbers ===', array);
+const p1 = new Person("Petras", 16)
+p1.compareAge() => "Petras is old enough to drink";
+Nusikopijuokite apačioje esantį kodą ir jį papildykite:
 
-  const newArray = array.sort((a, b) => a - b)
-    .filter((sk, i) => sk !== array[i + 1]);
+class Person {
+	constructor(name, age) {
+		this.name = name;
+		this.age = age;
+	}
 
-  console.log('2. array without repeating numbers ===', newArray);
+	compareAge(other) {
+		// Rašyti kodą čia
+	}
 }
-withoutRepeatingNumbers([1, 3, 3, 5, 5, 5]);
-withoutRepeatingNumbers([1, 6, 5, 6, 3, 5, 3]);
+*/
