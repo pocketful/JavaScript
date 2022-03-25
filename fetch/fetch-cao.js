@@ -9,25 +9,36 @@
 
 const tableContainerEl = document.querySelector('.table-container');
 
-function getData() {
+function getData(search, searchValue) {
+
   fetch('https://magnetic-melon-yam.glitch.me')
     .then(response => response.json())
     .then(data => {
+
       // if chechbox checked filter only vip
-      data = checkbox.checked ? data.filter((element) => element.vip === true) : data;
+      data = filterVip(data);
+
+      // search by name or username if search btn was clicked
+      if (search === true) {
+        data = data.filter((element) => element.name.toLowerCase().includes(searchValue))
+      }
+
       // create a table
       const tbodyEl = createATable();
+
       // create rows for a tabele
       data.forEach((element) => {
         const fullname = element.name.split(' '); // split fullname to name and surname
         createRows(element.id, element.image, fullname[0], fullname[1], element.city, element.fav_color, tbodyEl);
       });
+      return data;
     })
+    .then(data => console.log('final ===', data))
     .catch((error) => console.warn(error.message));
 }
 getData();
 
-
+// -------------------------- 
 // create a table
 function createATable() {
   tableContainerEl.innerHTML = '';
@@ -40,7 +51,7 @@ function createATable() {
   const trEl = document.createElement('tr');
   theadEl.append(trEl);
   // create th titles
-  trEl.append(createTh('Id'), createTh('Image'), createTh('Name'), createTh('Surname'), createTh('City'), createTh('Favourite color'));
+  trEl.append(createTh('ID'), createTh('Image'), createTh('Name'), createTh('Surname'), createTh('City'), createTh('Favourite color'));
 
   // tbody:
   const tbodyEl = document.createElement('tbody');
@@ -49,7 +60,7 @@ function createATable() {
   return tbodyEl;
 }
 
-
+// -------------------------- 
 // create td rows from data
 function createRows(id, image, name, surname, city, color, tbodyEl) {
   const trEl = document.createElement('tr');
@@ -57,7 +68,7 @@ function createRows(id, image, name, surname, city, color, tbodyEl) {
   trEl.append(createTd(id), createImg(image, name), createTd(name), createTd(surname), createTd(city), createTd(color));
 }
 
-
+// -------------------------- 
 // create th title
 function createTh(title) {
   const thEl = document.createElement('th');
@@ -65,7 +76,7 @@ function createTh(title) {
   return thEl;
 }
 
-
+// -------------------------- 
 // create td element
 function createTd(key) {
   const tdEl = document.createElement('td');
@@ -73,7 +84,7 @@ function createTd(key) {
   return tdEl;
 }
 
-
+// -------------------------- 
 // create img element
 function createImg(img, name) {
   const tdEl = document.createElement('td');
@@ -84,8 +95,20 @@ function createImg(img, name) {
   return tdEl;
 }
 
-
-// const checkboxEl = document.querySelector('.checkbox');
+// -------------------------- 
 // checkbox to show only vip
 const checkbox = document.getElementById('showVip');
 checkbox.addEventListener('change', getData);
+
+function filterVip(array) {
+  return array = checkbox.checked ? array.filter((element) => element.vip === true) : array;
+}
+
+// -------------------------- 
+// search by name or surname
+const searchFormEl = document.forms.search;
+searchFormEl.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const searchValue = searchFormEl.elements.search.value.trim().toLowerCase();
+  getData(true, searchValue);
+});

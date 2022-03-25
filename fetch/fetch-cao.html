@@ -9,24 +9,44 @@
   <title>JS Fetch CAO</title>
   <script src="fetch-cao.js" defer></script>
   <style>
+    body {
+      margin: auto 20px;
+    }
     h3 {
       color: darkcyan;
     }
     .checkbox {
-      margin: 40px 0 20px 0;
+      display: flex;
+      align-items: flex-end;
+      padding-bottom: 10px;
     }
-    /* td, th {
-       text-align: center; 
-    } */
+    input,
+    select {
+      display: initial;
+    }
+    .top {
+      display: flex;
+      justify-content: space-between;
+      margin: 40px 0;
+    }
   </style>
 </head>
 
 <body>
 
-  <h3 id="task1">CAO Task 1</h3>
-  <div class="checkbox">
-    <input type="checkbox" id="showVip" name="showVip">
-    <label for="shwVip">Show only VIP</label>
+  <h3>CAO Task 1, fetch</h3>
+  <div class="top">
+
+    <form id="search">
+      <label for="search-name">Search by name or surname: </label><br />
+      <input type="search" id="search" name="search" value="  geNny ">
+      <button>Search</button>
+    </form>
+
+    <div class="checkbox">
+      <input type="checkbox" id="showVip" name="showVip">
+      <label for="shwVip">Show only VIP</label>
+    </div>
   </div>
 
   <div class="table-container">
