@@ -15,7 +15,8 @@ function getData() {
     .then(data => {
       const tbodyEl = createTable();
       data.forEach((element) => {
-        createRows(element.id, element.name, element.city, element.fav_color, tbodyEl);
+        const fullname = element.name.split(' '); // split fullname to name and surname
+        createRows(element.id, element.image, fullname[0], fullname[1], element.city, element.fav_color, tbodyEl);
       });
       
     })
@@ -36,7 +37,7 @@ function createTable() {
   const trEl = document.createElement('tr');
   theadEl.append(trEl);
   // create th titles
-  trEl.append(createTh('Id'), createTh('Name'), createTh('City'), createTh('Favourite color'));
+  trEl.append(createTh('Id'), createTh('Image'), createTh('Name'), createTh('Surname'), createTh('City'), createTh('Favourite color'));
 
   // tbody:
   const tbodyEl = document.createElement('tbody');
@@ -45,26 +46,37 @@ function createTable() {
   return tbodyEl;
 }
 
-// create th titles
+
+// create td rows from data
+function createRows(id, image, name, surname, city, color, tbodyEl) {
+  const trEl = document.createElement('tr');
+  tbodyEl.append(trEl);
+  trEl.append(createTd(id), createImg(image, name), createTd(name), createTd(surname), createTd(city), createTd(color));
+}
+
+
+// create th title
 function createTh(title) {
   const thEl = document.createElement('th');
   thEl.textContent = title;
   return thEl;
 }
 
-// create td rows from data
-function createRows(id, name, city, color, tbodyEl) {
-  const trEl = document.createElement('tr');
-  tbodyEl.append(trEl);
 
-  // createTh(id, trEl);
-  trEl.append(createTd(id), createTd(name), createTd(city), createTd(color));
-}
-
-// create td elements
+// create td element
 function createTd(key) {
   const tdEl = document.createElement('td');
   tdEl.textContent = key;
+  return tdEl;
+}
+
+// create img element
+function createImg(img, name) {
+  const tdEl = document.createElement('td');
+  const imgEl = document.createElement('img');
+  imgEl.src = img;
+  imgEl.alt = 'image of ' + name;
+  tdEl.append(imgEl);
   return tdEl;
 }
 
