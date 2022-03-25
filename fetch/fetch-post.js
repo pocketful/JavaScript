@@ -122,6 +122,7 @@ formStoreEl.addEventListener('submit', (event) => {
 
 /* -------------------------------------------------------------------------------------------------- */
 // gauti kategorijas is fakestoreapi.com ir is ju suformuoti select input lauka su options
+const h1Task3 = document.getElementById('task3');
 
 fetch('https://fakestoreapi.com/products/categories')
   .then(response => response.json())
@@ -129,11 +130,12 @@ fetch('https://fakestoreapi.com/products/categories')
   .catch((error) => console.log(error.message))
 
 
-// create categories element
+// create categories div
 function createCategories(array) {
   // create container
   const divEl = document.createElement('div');
-  document.body.append(divEl);
+  divEl.id = 'categories'; // divEl.setAttribute('id', 'categories');
+  h1Task3.after(divEl);
   // create label
   const labelEl = document.createElement('label');
   labelEl.htmlFor = 'category';
@@ -147,12 +149,100 @@ function createCategories(array) {
   array.forEach(element => {
     createSelectOption(element, selectEl)
   });
+
+  // create a button
+  const buttonEl = document.createElement('button');
+  buttonEl.textContent = 'Show';
+  divEl.append(buttonEl);
+
+  // generate selected category products to html
+  buttonEl.addEventListener('click', () => getProductsFromCategory(selectEl.value));
+
+  // // create submit
+  // const submitEl = document.createElement('input');
+  // submitEl.type = 'submit';
+  // submitEl.value = 'Show';
 }
+
 
 // create options for a select
 function createSelectOption(option, select) {
   const optionEl = document.createElement('option');
   optionEl.value = option;
-  optionEl.text = option;
+  optionEl.text = option.charAt(0).toUpperCase() + option.substring(1); // Capitalize first letter
   select.append(optionEl);
+}
+
+
+// get products in a specific category
+function getProductsFromCategory(category) {
+  fetch(`https://fakestoreapi.com/products/category/${category}`)
+    .then(response => response.json())
+    .then(data => showProductsToHtml(data))
+    .catch((error) => console.log(error.message))
+}
+
+
+// generate products to html
+function showProductsToHtml(array) {
+  const containerEl = document.querySelector('.container');
+  containerEl.innerHTML = '';
+
+  // create products container
+  // const containerEl = document.createElement('section');
+  // containerEl.classList = 'container';
+  // document.body.append(containerEl);
+
+  // create products cards container
+  const cardsEl = document.createElement('div');
+  cardsEl.classList = 'products-cards';
+  containerEl.append(cardsEl);
+
+  // create product cards
+  array.forEach((product) => cardsEl.innerHTML += createProduct(product.image, product.title, product.price, product.rating.rate));
+}
+
+
+// create one product card
+function createProduct(image, title, price, rate) {
+  return `<article class="products-card">
+      <div class="products-card__img">
+        <img src="${image}" alt="model" />
+      </div>
+      <div class="products-card__text">
+        <h3 class="card__text-top">${title}</h3>
+        <div class="card__text-bottom">
+          <p class="ct-price">$${price}</p>
+          <p class="ct-rating">${stars(rate)}</p>
+        </div>
+      </div>
+    </article>`
+}
+
+
+// generate stars from rating
+function stars(ratee) {
+  let rate = Math.floor(ratee);
+  const star = '<i class="rating rating-4 fa fa-star" aria-hidden="true"></i>';
+  const starO = '<i class="rating rating-4 fa fa-star-o" aria-hidden="true"></i>';
+  switch (rate) {
+    case 1:
+      rate = star + starO + starO + starO + starO;
+      break;
+    case 2:
+      rate = star + star + starO + starO + starO;
+      break;
+    case 3:
+      rate = star + star + star + starO + starO;
+      break;
+    case 4:
+      rate = star + star + star + star + starO;
+      break;
+    case 5:
+      rate = star + star + star + star + star;
+      break;
+    default:
+      rate = starO + starO + starO + starO + starO;
+  }
+  return rate;
 }

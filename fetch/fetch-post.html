@@ -8,8 +8,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
   <title>JavaScript</title>
   <script src="fetch-post.js" defer></script>
+  <link rel="stylesheet" href="store/reset.css" />
+  <link rel="stylesheet" href="store/store.css" />
   <style>
-
+    body { padding: 40px; }
   </style>
 </head>
 
@@ -22,6 +24,9 @@
     <input type="hidden" name="userId" value="5" />
     <button>Create</button>
   </form>
+
+  <br />
+  <hr /> 
 
   <h1>Create post in a store</h1>
   <form id="form2">
@@ -37,7 +42,10 @@
 
   <div id="feedback"></div>
 
-  <h1>Create categories</h1>
+  <br />
+  <hr /> 
+
+  <h1 id="task3">Create categories</h1>
   <!-- <div id="categories">
     <label for="category">Choose a category:</label>
     <select id="category" name="category">
@@ -47,6 +55,8 @@
       <option value="women's clothing">women's clothing</option>
     </select>
   </div> -->
+
+  <section class="container"></section>
 
 </body>
 
