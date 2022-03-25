@@ -17,11 +17,9 @@ function getData() {
     fetch(`${baseUrl}`)
         .then(response => response.json())
         .then(data => {
-
             // create rows for a table
             data.forEach((element) => {
                 tbodyEl.append(createRows(element.brand, element.model));
-                console.log(element.brand, element.model);
             });
             return data;
         })
