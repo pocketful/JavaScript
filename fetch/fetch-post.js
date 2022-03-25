@@ -121,20 +121,16 @@ formStoreEl.addEventListener('submit', (event) => {
 });
 
 /* -------------------------------------------------------------------------------------------------- */
+// gauti kategorijas is fakestoreapi.com ir is ju suformuoti select input lauka su options
 
 fetch('https://fakestoreapi.com/products/categories')
   .then(response => response.json())
-  .then(data => {
-    const selectEl = createCategories();
-    data.forEach(element => {
-      createSelectOption(element, selectEl)
-    });
-  })
+  .then(data => createCategories(data))
   .catch((error) => console.log(error.message))
 
 
 // create categories element
-function createCategories() {
+function createCategories(array) {
   // create container
   const divEl = document.createElement('div');
   document.body.append(divEl);
@@ -147,7 +143,10 @@ function createCategories() {
   const selectEl = document.createElement('select');
   divEl.append(selectEl);
 
-  return selectEl;
+  // create options for a select
+  array.forEach(element => {
+    createSelectOption(element, selectEl)
+  });
 }
 
 // create options for a select
