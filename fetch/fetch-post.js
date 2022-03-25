@@ -1,16 +1,9 @@
 'use strict';
 
-/* <form>
-     <input type="text" name="title" placeholder="Title" />
-     <textarea name="body" cols="30" rows="4" placeholder="Enter body text"></textarea>
-     <input type="hidden" name="userId" value="5" />
-     <button>Create</button>
-   </form> */
-
 // 1. nusitaikyti i forma
 // 2. uzdeti submit event listeneri
 // 3. sustabdyti formos siuntima su perkrovimu
-// 4. surinkit inputu reiksmes ir sudeti i objekta
+// 4. surinkti inputu reiksmes ir sudeti i objekta
 // 5. siusti naujo post duomenis su fetch
 
 const formEl = document.forms.form1;
@@ -78,14 +71,14 @@ function showAlert(result, id) {
 
 /* -------------------------------------------------------------------------------------------------- */
 
-// sukurti forma kurios pagal nusiusim naujo produkto sukurimo uzklausa
+// 0. sukurti forma pagal kuria nusiusim naujo produkto sukurimo uzklausa
 // 1. nusitaikyti i forma
 // 2. uzdeti submit event listeneri
 // 3. sustabdyti formos siuntima su perkrovimu
 // 4. surinkit inputu reiksmes ir sudeti i objekta
 // 5. siusti naujo post duomenis su fetch
-// 6 parodom sekmes pranesima kai sekmingai nusiusta forma
-// 7 klaidos kai ne 
+// 6. parodom sekmes pranesima kai sekmingai nusiusta forma
+// 7. klaidos kai ne 
 
 const formStoreEl = document.forms.form2;
 
@@ -103,7 +96,7 @@ formStoreEl.addEventListener('submit', (event) => {
   console.log('newPost ===', newPost);
 
   // post new product
-  fetch('https://fakestoreapi.com/product1s', {
+  fetch('https://fakestoreapi.com/products', {
     method: "POST",
     body: JSON.stringify(newPost),
     headers: {
@@ -128,3 +121,39 @@ formStoreEl.addEventListener('submit', (event) => {
 });
 
 /* -------------------------------------------------------------------------------------------------- */
+
+fetch('https://fakestoreapi.com/products/categories')
+  .then(response => response.json())
+  .then(data => {
+    const selectEl = createCategories();
+    data.forEach(element => {
+      createSelectOption(element, selectEl)
+    });
+  })
+  .catch((error) => console.log(error.message))
+
+
+// create categories element
+function createCategories() {
+  // create container
+  const divEl = document.createElement('div');
+  document.body.append(divEl);
+  // create label
+  const labelEl = document.createElement('label');
+  labelEl.htmlFor = 'category';
+  labelEl.textContent = 'Choose a category:';
+  divEl.append(labelEl);
+  // create select
+  const selectEl = document.createElement('select');
+  divEl.append(selectEl);
+
+  return selectEl;
+}
+
+// create options for a select
+function createSelectOption(option, select) {
+  const optionEl = document.createElement('option');
+  optionEl.value = option;
+  optionEl.text = option;
+  select.append(optionEl);
+}
