@@ -7,18 +7,21 @@
 /* 4. Sukurkite checkbox virš lentelės su JS. Jį paspaudus, rodys tik tuos žmones, kurie yra VIP. */
 /* 5. Sukurkite virš lentelės ir search laukelį (forma su input type search ir mygtukas). Suvedus duomenis, lentelėje turi prasifiltruoti pagal vardą arba pavardę (fullname contains search string). Capitalizacija turėtų būti nesvarbi. */
 
-const task1El = document.getElementById('task1');
+const tableContainerEl = document.querySelector('.table-container');
 
 function getData() {
   fetch('https://magnetic-melon-yam.glitch.me')
     .then(response => response.json())
     .then(data => {
-      const tbodyEl = createTable();
+      // if chechbox checked filter only vip
+      data = checkbox.checked ? data.filter((element) => element.vip === true) : data;
+      // create a table
+      const tbodyEl = createATable();
+      // create rows for a tabele
       data.forEach((element) => {
         const fullname = element.name.split(' '); // split fullname to name and surname
         createRows(element.id, element.image, fullname[0], fullname[1], element.city, element.fav_color, tbodyEl);
       });
-      
     })
     .catch((error) => console.warn(error.message));
 }
@@ -26,10 +29,10 @@ getData();
 
 
 // create a table
-function createTable() {
+function createATable() {
+  tableContainerEl.innerHTML = '';
   const tableEl = document.createElement('table');
-  tableEl.innerHTML = '';
-  task1El.after(tableEl);
+  tableContainerEl.append(tableEl);
 
   // thead:
   const theadEl = document.createElement('thead');
@@ -70,6 +73,7 @@ function createTd(key) {
   return tdEl;
 }
 
+
 // create img element
 function createImg(img, name) {
   const tdEl = document.createElement('td');
@@ -80,3 +84,8 @@ function createImg(img, name) {
   return tdEl;
 }
 
+
+// const checkboxEl = document.querySelector('.checkbox');
+// checkbox to show only vip
+const checkbox = document.getElementById('showVip');
+checkbox.addEventListener('change', getData);

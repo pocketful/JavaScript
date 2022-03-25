@@ -12,10 +12,9 @@
     h3 {
       color: darkcyan;
     }
-
-    /* table {
-      width: 100%;
-    } */
+    .checkbox {
+      margin: 40px 0 20px 0;
+    }
     /* td, th {
        text-align: center; 
     } */
@@ -25,7 +24,13 @@
 <body>
 
   <h3 id="task1">CAO Task 1</h3>
-  <!-- <table>
+  <div class="checkbox">
+    <input type="checkbox" id="showVip" name="showVip">
+    <label for="shwVip">Show only VIP</label>
+  </div>
+
+  <div class="table-container">
+    <!-- <table>
     <thead>
       <tr>
         <th>Id</th>
@@ -49,6 +54,7 @@
       </tr>
     </tbody>
   </table> -->
+  </div>
 </body>
 
 </html>
