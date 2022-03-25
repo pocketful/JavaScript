@@ -26,7 +26,7 @@ function getData(search, searchValue) {
       // create a table
       const tbodyEl = createATable();
 
-      // create rows for a tabele
+      // create rows for a table
       data.forEach((element) => {
         const fullname = element.name.split(' '); // split fullname to name and surname
         createRows(element.id, element.image, fullname[0], fullname[1], element.city, element.fav_color, tbodyEl);
@@ -77,7 +77,7 @@ function createTh(title) {
 }
 
 // -------------------------- 
-// create td element
+// create one td element
 function createTd(key) {
   const tdEl = document.createElement('td');
   tdEl.textContent = key;

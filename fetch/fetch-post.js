@@ -44,7 +44,7 @@ formEl.addEventListener('submit', (event) => {
     });
 });
 
-// show Alert
+// show alert
 function showAlert(result, id) {
   const feedbackEl = document.getElementById('feedback');
   feedbackEl.innerHTML = '';
