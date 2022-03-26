@@ -11,7 +11,8 @@ const tableContainerEl = document.querySelector('.table-container');
 
 function getData(search, searchValue) {
 
-  fetch('https://magnetic-melon-yam.glitch.me')
+  // fetch('https://magnetic-melon-yam.glitch.me')
+  fetch('fetch-cao.json')
     .then(response => response.json())
     .then(data => {
 
