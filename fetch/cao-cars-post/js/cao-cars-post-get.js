@@ -7,7 +7,7 @@
 /* 4. Sukurkite navigaciją, kad galėtumėte tarp puslapių vaikščioti ir patikrinkite ar įrašyti duomenys atsivaizduoja */
 
 // const baseUrl = 'https://olive-bead-glazer.glitch.me';
-const baseUrl = 'fetch-post-cao.json';
+const baseUrl = 'data/cao-cars-post-get.json';
 
 const tableContainerEl = document.querySelector('.table-container');
 const tbodyEl = document.querySelector('tbody');
