@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Houses CAO</title>
+    <script src="houses-cao-post.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Add your property for sale</h1>
+            <p class="header__text">Yes, you can sell where you live and get cash!</p>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main class="container">
+
+        <!-- title -->
+        <div class="post-title flex">
+            <h3 class="pt__title title">Add property</h3>
+            <div>
+                <a class="btn btn-link" href="houses-cao.html">Show properties</a>
+            </div>
+        </div>
+
+        <!-- form -->
+        <form id="formpost" autocomplete="off">
+            <label for="img">Img</label><br>
+            <input type="text" id="img" name="img" placeholder="https://google.com/logo.png"
+                value="https://google.com/logo.png"><br>
+
+            <label for="price">Price, EUR</label><br>
+            <input type="number" min="0" step="0.01" id="price" name="price" placeholder="50000" value="50000"><br>
+
+            <label for="description">Description</label><br>
+            <textarea name="description" cols="30" rows="6"
+                placeholder="anything you would like to say?">some text</textarea><br>
+
+            <label for="city">City</label><br>
+            <select id="city" name="city">
+                <!-- <option value="">Please select</option> -->
+                <option value="vilnius" selected>Vilnius</option>
+                <option value="kaunas">Kaunas</option>
+                <option value="klaipeda">Klaipėda</option>
+            </select><br>
+            <button type="submit" class="btn btn-link">Add property</button>
+        </form>
+
+        <!-- feedback -->
+        <div id="feedback">
+        </div>
+
+    </main>
+
+</body>
+
+</html>
