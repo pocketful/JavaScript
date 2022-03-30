@@ -391,7 +391,7 @@ numberSplit(10) ➞ [5, 5]
 numberSplit(11) ➞ [5, 6]
 numberSplit(-9) ➞ [-5, -4]
 */
-function numberSpli2(n) {
+function numberSplit2(n) {
     return [Math.floor(n / 2), Math.ceil(n / 2)];
 }
 
