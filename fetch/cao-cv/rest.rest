@@ -1,0 +1,47 @@
+
+GET https://zany-skitter-caper.glitch.me/experiences
+
+###
+
+POST https://zany-skitter-caper.glitch.me/experiences
+Content-Type: application/json; charset=utf-8
+
+{
+  "companyName": "Mozilla",
+  "position": "Senior Developer",
+  "description": "I did a lot of something.",
+  "startYear": 2019,
+  "finishYear": 2020
+}
+
+###
+GET https://zany-skitter-caper.glitch.me/skills
+
+###
+
+POST https://zany-skitter-caper.glitch.me/skills
+Content-Type: application/json; charset=utf-8
+
+{
+  "title": "PHP",
+  "level": 50
+}
+
+###
+
+GET  https://one-more-mca.herokuapp.com/api/posts/6243ec9e13e9b6637f4c703c
+
+### rest client
+GET  https://one-more-mca.herokuapp.com/api/posts/
+
+###
+
+POST https://one-more-mca.herokuapp.com/api/posts
+Content-Type: application/json
+
+{
+  "title": "Post about JS",
+  "author": "James",
+  "body": "Body of post About JS",
+  "year": 2005
+}
