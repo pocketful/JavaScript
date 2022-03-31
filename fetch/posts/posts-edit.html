@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post</title>
+    <script src="posts-edit.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <!-- header -->
+    <header class="header">
+        <div class="container">
+            <h1 class="header__title">Edit post</h1>
+            <p class="header__text">Edit post</p>
+        </div>
+    </header>
+
+    <!-- main -->
+    <main class="container">
+
+        <!-- links -->
+        <div class="links">
+            <a class="btn btn-link" href="posts.html">Get posts</a>
+        </div>
+
+        <!-- form -->
+        <form id="formpost" autocomplete="off">
+            <label for="title">Title</label><br>
+            <input type="text" id="title" name="title" minlength="5" placeholder="Title"><br>
+
+            <label for="author">Author</label><br>
+            <input type="text" id="author" name="author" minlength="5" placeholder="Author" required><br>
+
+            <label for="body">Description</label><br>
+            <textarea name="body" cols="30" rows="6" minlength="5" placeholder="Description" required></textarea><br>
+
+            <label for="year">Year</label><br>
+            <input type="number" step="1" min="1970" max="2022" id="year" name="year" placeholder="Year"><br>
+
+            <button type="submit" class="btn btn-link">Edit post</button>
+        </form>
+
+        <!-- feedback -->
+        <div id="feedback">
+        </div>
+
+</body>
+
+</html>
