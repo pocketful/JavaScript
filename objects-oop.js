@@ -64,7 +64,7 @@ console.log(' us1 ===', us1, us2);
 /* 1. Susikurkite konstruktorių car, kuris priims brand, model, engine ir turės metodą 'turnOn' - kuris alertins 'vrooom'. Sukurkite du objektus ir patikrinkite ar veikia. */
 /* 2. Pakoreguokite šį konstruktorių ir pridėkite papildomą property 'basePrice' ir metodą 'getPrice'. basePrice propertį įrašys sukuriant objektą, tačiau getPrice priklausimai nuo variklio išmes kokia yra galutinė kaina. Jei variklis 'electric' - kaina bus +10,000; jei 'diesel' +5,000; jei 'petrol' - kaina tokia kokia ir basePrice. */
 
-// old way, object constructor ----------------------------------
+// old way, object constructor, ES5 ----------------------------------
 function CarOld(brand, model, engine, basePrice) {
   this.brand = brand;
   this.model = model;
@@ -237,23 +237,3 @@ carFormEl.addEventListener('submit', (event) => {
   carsArray.push(newCar);
   console.log(carsArray);
 });
-
-/* ------------------------------------------------------------------------------------------- */
-/* 1. Parašykite metodą klasėje, kuris pasakys ar žmogus yra pilnametis ar ne, pagal jo amžių.
-Pvz.:
-
-const p1 = new Person("Petras", 16)
-p1.compareAge() => "Petras is old enough to drink";
-Nusikopijuokite apačioje esantį kodą ir jį papildykite:
-
-class Person {
-	constructor(name, age) {
-		this.name = name;
-		this.age = age;
-	}
-
-	compareAge(other) {
-		// Rašyti kodą čia
-	}
-}
-*/

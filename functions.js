@@ -100,13 +100,13 @@ console.log('vidurkiuSuma ===', vidurkiuSuma);
 
 /* theory - JavaScript Hoisting. JS nuskaitydamas faila visas functions perkelia i virsu */
 
-/* 1. function declaration */
+/* 1. function declaration - hoisting available */ 
 
 function sayHiDeclaration() {
   console.log('Hi declaration');
 }
 sayHiDeclaration(); // function invocation (after or before function)
-
+// console.log('sayHiDeclaration() ===', sayHiDeclaration()); // undefined
 
 /* ---------------- */
 
@@ -255,4 +255,7 @@ function h1ValueToP() {
 }
 h1ValueToP();
 
-
+/* Functions Differences  ------------------------------------------------------------------- */
+// const getData = async () => {
+// async function getData () {
+// const getData = async function() {

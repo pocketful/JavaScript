@@ -30,7 +30,6 @@ const vardas = prompt('Koks tavo vardas?');  // jeigu pasirinkt cancel, tai bus 
 console.log('Gavome varda =', vardas)
 
 // atsakymus du is karto, atspausdinti
-const vardas = prompt('Koks tavo vardas?');
 const amzius = prompt('Kiek tau metu?');
 console.log('as esu ' + vardas + ', man yra ' + amzius + ' metu');
 
@@ -58,16 +57,16 @@ const daugybaDvieju = sk1 * sk2;
 console.log(sk1 + ' * ' + sk2 + ' = ' + daugybaDvieju);
 
 // paimti 2 skaicius ir juos sudeti
-const sk1 = prompt('Iveskite pirmaji skaiciu:');
-const sk2 = prompt('Iveskite antraji skaiciu:');
-const sudetis = Number(sk1) + Number(sk2);  // hmm man nemete situo budu kad reikia butinai let daryti vietoj const viska
-console.log(sk1 + ' + ' + sk2 + ' = ' + sudetis);
+const ska1 = prompt('Iveskite pirmaji skaiciu:');
+const ska2 = prompt('Iveskite antraji skaiciu:');
+const sudetis = Number(ska1) + Number(ska2);  // hmm man nemete situo budu kad reikia butinai let daryti vietoj const viska
+console.log(ska1 + ' + ' + ska2 + ' = ' + sudetis);
     // arba
-    let sk1 = prompt('Iveskite pirmaji skaiciu:');
-    let sk2 = prompt('Iveskite antraji skaiciu:');
-    sk1 = Number(sk1);  //let, o ne const
-    sk2 = Number(sk2);
-    console.log(sk1 + sk2);
+    let sk1a = prompt('Iveskite pirmaji skaiciu:');
+    let sk2a = prompt('Iveskite antraji skaiciu:');
+    sk1a = Number(sk1a);  //let, o ne const
+    sk2a = Number(sk2a);
+    console.log(sk1a + sk2a);
 
 // suzinoti koks tipas
 // console.log(typeof 100); // number
@@ -80,4 +79,4 @@ let y = 5;
 let w = y ** 2;
 console.log(w);
     // pakelti y treciuoju
-    let w = y ** 3;
+    let z = y ** 3;
