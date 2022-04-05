@@ -11,23 +11,27 @@ Pastaba: Informacija apie user'į (jo kortelė) turi turėti bent minimalų stil
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'https://api.github.com/users';
+const outputEl = document.getElementById('output');
 
 document.getElementById('btn').addEventListener('click', getData);
 
 async function getData() {
     try {
         const response = await fetch(ENDPOINT);
-        console.log('response ==', response);
+        // console.log('response ===', response);
         const data = await response.json();
-        console.log('data ==', data);
+        // console.log('data ===', data);
+        if (!response.ok) {
+            throw new Error(`${data.message}`);
+        }
         generateCards(data);
     } catch (error) {
-        console.warn(error.message);
+        renderError(`${error}`);
+        console.log(error);
     }
 }
 
-function generateCards(array) {
-    const outputEl = document.getElementById('output');
+function generateCards(array) {    
     outputEl.innerHTML = '';
     array.forEach((user) => outputEl.innerHTML += createCard(user));
 }
@@ -39,4 +43,8 @@ function createCard(userObj) {
         <figcaption class="card-caption">${userObj.login}</figcaption>        
     </figure>
     `;
+}
+
+function renderError(msg) {
+    outputEl.innerHTML = `<p>${msg}</p>`;
 }
