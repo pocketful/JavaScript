@@ -10,15 +10,22 @@ bent minimalų stilių;
 -------------------------------------------------------------------------- */
 
 const ENDPOINT = 'cars.json';
+const outputEl = document.getElementById('output');
 
 fetch(ENDPOINT)
-    .then((response) => response.json())
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`${response.status}`);
+        }
+        return response.json();
+    })
     .then((data) => generateCards(data))
-    .catch((error) => console.warn(error));
+    .catch((error) => {
+        renderError(`Something went wrong: ${error.message}`);
+        console.log(error);
+    });
 
 function generateCards(array) {
-    const outputEl = document.getElementById('output');
-
     array.forEach((car) => {
         const cardEl = document.createElement('div');
         cardEl.classList = 'card__car';
@@ -44,4 +51,8 @@ function generateModels(modelsArr, modelsEl) {
         liEl.textContent = model;
         modelsEl.append(liEl);
     });
+}
+
+function renderError(msg) {
+    outputEl.innerHTML = `<p>'${msg}'</p>`;
 }
