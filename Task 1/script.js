@@ -17,7 +17,7 @@ formEl.addEventListener('submit', (event) => {
     output.innerHTML = '';
     
     const kg = formEl.elements.search.value;
-    if (Number.isNaN(Number(kg))) {
+    if (Number(kg) != kg) {
         return output.innerHTML = '<p class="output__error">Enter a number</p>';
     }
     const lb = kg * 2.2046;
