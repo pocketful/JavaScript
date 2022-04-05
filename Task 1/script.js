@@ -16,16 +16,16 @@ formEl.addEventListener('submit', (event) => {
     event.preventDefault();    
     output.innerHTML = '';
     
-    const kg = formEl.elements.search.value;
-    if (Number(kg) != kg) {
-        return output.innerHTML = '<p class="output__error">Enter a number</p>';
+    const kg = formEl.elements.search.value.trim();
+    if (Number(kg) != kg || kg === '') {
+        return output.innerHTML = '<p class="output__units red">Enter one valid number</p>';
     }
     const lb = kg * 2.2046;
     const g = kg / 0.0010000;
     const oz = kg * 35.274;
 
     output.innerHTML = `
-    <h2 class="output__units output__units-title">Convert <span class="units__input">${kg}</span> kg:</h2>
+    <h2 class="output__units output__units-title">Convert <span class="red">${kg}</span> kg:</h2>
     <p class="output__units">Pounds: ${lb} lb</p>
     <p class="output__units">Grams: ${g} g</p>
     <p class="output__units">Ounces: ${oz} oz</p>

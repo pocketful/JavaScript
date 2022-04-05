@@ -75,13 +75,8 @@ form {
   padding: 30px;
 }
 
-.units__input {
+.red {
   color: red;
-}
-
-.output__error {
-  color: red;
-  background-color: #fec631;
 }
 
 /* Tablet */
