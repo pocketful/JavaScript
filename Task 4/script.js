@@ -16,15 +16,32 @@ fetch(ENDPOINT)
     .then((data) => generateCards(data))
     .catch((error) => console.warn(error));
 
-
 function generateCards(array) {
     const outputEl = document.getElementById('output');
+
     array.forEach((car) => {
-        outputEl.innerHTML += `
-        <div class="card__car">
-            <h2 class="car__brand">${car.brand} models:</h2>
-            <p class="car__models">${car.models}</p>
-        </div>
-        `;
+        const cardEl = document.createElement('div');
+        cardEl.classList = 'card__car';
+        outputEl.append(cardEl);
+
+        const brandEl = document.createElement('h2');
+        brandEl.classList = 'car__brand';
+        brandEl.textContent = car.brand;
+        cardEl.append(brandEl);
+
+        const modelsEl = document.createElement('ul');
+        modelsEl.classList = 'car__models';
+        cardEl.append(modelsEl);
+
+        generateModels(car.models, modelsEl);
+    });
+}
+
+function generateModels(modelsArr, modelsEl) {
+    modelsArr.forEach((model) => {
+        const liEl = document.createElement('li');
+        liEl.classList = 'car__model';
+        liEl.textContent = model;
+        modelsEl.append(liEl);
     });
 }
