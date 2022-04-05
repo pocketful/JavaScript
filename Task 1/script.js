@@ -10,20 +10,25 @@ Pastaba: atvaizdavimas turi būti matomas pateikus formą ir pateikiamas
 ------------------------------------------------------------------- */
 
 const formEl = document.forms[0];
+const output = document.getElementById('output');
 
 formEl.addEventListener('submit', (event) => {
-    event.preventDefault();
+    event.preventDefault();    
+    output.innerHTML = '';
     
     const kg = formEl.elements.search.value;
+    if (Number.isNaN(Number(kg))) {
+        return output.innerHTML = '<p class="output__error">Enter a number</p>';
+    }
     const lb = kg * 2.2046;
     const g = kg / 0.0010000;
     const oz = kg * 35.274;
 
-    document.getElementById('output').innerHTML = `
+    output.innerHTML = `
     <h2 class="output__units output__units-title">Convert <span class="units__input">${kg}</span> kg:</h2>
-    <p class="output__units">${lb} lb</p>
-    <p class="output__units">${g} g</p>
-    <p class="output__units">${oz} oz</p>
+    <p class="output__units">Pounds: ${lb} lb</p>
+    <p class="output__units">Grams: ${g} g</p>
+    <p class="output__units">Ounces: ${oz} oz</p>
     `;
 
     formEl.reset();
