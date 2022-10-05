@@ -52,6 +52,33 @@ form {
   color: #fff;
 }
 
+#output {
+  background-color: #fff;
+  max-width: 80%;
+  margin: 50px auto;
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.output__units {
+  padding: 20px;
+}
+
+.output__units:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
+.output__units-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 30px;
+}
+
+.red {
+  color: red;
+}
+
 /* Tablet */
 @media screen and (min-width: 768px) {
   .headline {
@@ -59,7 +86,8 @@ form {
   }
 
   #search,
-  #submit-btn {
+  #submit-btn,
+  #output {
     font-size: 2em;
   }
 }

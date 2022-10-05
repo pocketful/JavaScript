@@ -59,3 +59,34 @@
   border-radius: 5px;
   background-color: #fff;
 }
+
+#output {
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-img {
+  width: 100%;
+}
+
+.card-caption {
+  padding: 15px 25px;
+  background-color: #474747;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Tablet */
+@media screen and (min-width: 768px) {
+  #output {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
