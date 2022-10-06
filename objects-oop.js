@@ -1,21 +1,21 @@
-'use strict';
+"use strict";
 
 const users = [
   {
-    name: 'James',
+    name: "James",
     age: 25,
     info: function () {
-      console.log(this.name + ' ' + this.age);
+      console.log(this.name + " " + this.age);
     },
     changeName: function (newName) {
       this.name = newName;
     },
   },
   {
-    name: 'Bob',
+    name: "Bob",
     age: 30,
     info: function () {
-      console.log(this.name + ' ' + this.age);
+      console.log(this.name + " " + this.age);
     },
     changeName: function (newName) {
       this.name = newName;
@@ -23,11 +23,11 @@ const users = [
   },
 ];
 users[0].info();
-users[0].changeName('Mr James');
+users[0].changeName("Mr James");
 console.table(users);
 
 function infoOutside(name, age) {
-  console.log(name + ' ' + age);
+  console.log(name + " " + age);
 }
 // infoOutside(users[0].name, users[0].age);
 function User2(argName, argAge) {
@@ -36,27 +36,26 @@ function User2(argName, argAge) {
 }
 class User {
   constructor(argName, argAge) {
-    console.log('user created');
+    console.log("user created");
     // pradines reiksmes
     this.name = argName;
     this.age = argAge;
   }
   // metodai
   info() {
-    console.log(this.name + ' ' + this.age);
+    console.log(this.name + " " + this.age);
   }
   changeName(newName) {
     this.name = newName;
   }
 }
 
-const us1 = new User('Bob', 25);
-const us2 = new User('James', 33);
-us2.changeName('Mr James');
+const us1 = new User("Bob", 25);
+const us2 = new User("James", 33);
+us2.changeName("Mr James");
 us2.info();
 
-console.log(' us1 ===', us1, us2);
-
+console.log(" us1 ===", us1, us2);
 
 /* CAO OOP ========================================================================================== */
 /* https://www.w3schools.com/js/js_classes.asp --- new way */
@@ -72,9 +71,9 @@ function CarOld(brand, model, engine, basePrice) {
   this.basePrice = basePrice;
   this.getPrice = function () {
     let newPrice;
-    if (this.engine === 'Electric') {
+    if (this.engine === "Electric") {
       newPrice = this.basePrice + 10000;
-    } else if (this.engine === 'Diesel') {
+    } else if (this.engine === "Diesel") {
       newPrice = this.basePrice + 5000;
     } else {
       newPrice = this.basePrice;
@@ -82,21 +81,20 @@ function CarOld(brand, model, engine, basePrice) {
     return newPrice;
   };
   this.turnOn = function () {
-    console.log('vroom');
+    console.log("vroom");
   };
 }
 
 // cao
 this.getPrice = function () {
   let additionalPrice = 0;
-  if (this.engine === 'Electric') {
+  if (this.engine === "Electric") {
     additionalPrice = 10000;
-  } else if (this.engine === 'Diesel') {
+  } else if (this.engine === "Diesel") {
     additionalPrice = 5000;
   }
   return this.basePrice + additionalPrice;
 };
-
 
 // new way, classes ---------------------------
 class CarNew {
@@ -108,28 +106,36 @@ class CarNew {
   }
   getPrice() {
     let newPrice;
-    if (this.engine === 'Electric') {
+    if (this.engine === "Electric") {
       newPrice = this.basePrice + 10000;
-    } else if (this.engine === 'Diesel') {
+    } else if (this.engine === "Diesel") {
       newPrice = this.basePrice + 5000;
     } else {
       newPrice = this.basePrice;
     }
     return newPrice;
-  };
+  }
   turnOn() {
-    console.log('vroom');
-  };
+    console.log("vroom");
+  }
 }
 
-const car1 = new CarNew('Pontiac ', 'Firebird', 'Petrol', 10000);
-const car2 = new CarNew('Chevrolet ', 'Lacetti', 'Diesel', 10000);
-const car3 = new CarNew('Mini', 'Rover', 'Electric', 10000);
+const car1 = new CarNew("Pontiac ", "Firebird", "Petrol", 10000);
+const car2 = new CarNew("Chevrolet ", "Lacetti", "Diesel", 10000);
+const car3 = new CarNew("Mini", "Rover", "Electric", 10000);
 
-console.log('car1', car1);
-console.log('car2', car2);
-console.log('car3', car3);
-console.log('getPrice === car1: ' + car1.getPrice() + '$; car2: ' + car2.getPrice() + '$; car3: ' + car3.getPrice() + '$');
+console.log("car1", car1);
+console.log("car2", car2);
+console.log("car3", car3);
+console.log(
+  "getPrice === car1: " +
+    car1.getPrice() +
+    "$; car2: " +
+    car2.getPrice() +
+    "$; car3: " +
+    car3.getPrice() +
+    "$"
+);
 
 /* ----------------------------------------------------------------------------------------------------- */
 /* 1. Sukurkite su HTML formą su vienu laukeliu - fullname, ir po apačia - lentelę su dviem stulpeliais - name ir surname. JavaScripte pasirašykite konstruktorių, kuris turės vardą, pavardę ir metodą - atsirasti lentelėje. Kai vartotojas įrašo savo pilną vardą - su JS metodais išskirkite jį į dvi dalis; pasirūpinkite, kad nebūtų tarpelių prieš ir po vardo; pirmą raidę vardo ir pavardės padidinkit, o kitas - sumažinkit (capitalization); sukurkite objektą naudojant konstruktorių; ir galiausiai iškvieskite metodą, kad pridėtų į lentelę. Taip, naudojant OOP pagrindus, vartotojui įrašius duomenis į formą, atsiras apačioje lentelėje išskirtas vardas ir pavardė, o ir leis tolimesniai projekto plėtrai (t.y. darbui su objektais). */
@@ -141,13 +147,13 @@ class Person {
     this.toTable();
   }
   toTable() {
-    const tbody = document.querySelector('tbody')
-    const trEl = document.createElement('tr');
+    const tbody = document.querySelector("tbody");
+    const trEl = document.createElement("tr");
     tbody.append(trEl);
-    const tdEl1 = document.createElement('td');
+    const tdEl1 = document.createElement("td");
     tdEl1.textContent = this.name;
     trEl.append(tdEl1);
-    const tdEl2 = document.createElement('td');
+    const tdEl2 = document.createElement("td");
     tdEl2.textContent = this.surname;
     trEl.append(tdEl2);
   }
@@ -158,13 +164,20 @@ const personsArray = [];
 
 // formEl
 const formEl = document.forms.fullnameForm;
-formEl.addEventListener('submit', (event) => {
+formEl.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // value from input
-  const fullnameValueArray = formEl.elements.fullname.value.trim().toLowerCase().split(' ');
-  const nameValue = fullnameValueArray[0].charAt(0).toUpperCase() + fullnameValueArray[0].slice(1);
-  const surnameValue = fullnameValueArray[1].charAt(0).toUpperCase() + fullnameValueArray[1].slice(1);
+  const fullnameValueArray = formEl.elements.fullname.value
+    .trim()
+    .toLowerCase()
+    .split(" ");
+  const nameValue =
+    fullnameValueArray[0].charAt(0).toUpperCase() +
+    fullnameValueArray[0].slice(1);
+  const surnameValue =
+    fullnameValueArray[1].charAt(0).toUpperCase() +
+    fullnameValueArray[1].slice(1);
 
   // new object
   const newPerson = new Person(nameValue, surnameValue);
@@ -188,29 +201,29 @@ class Car {
     this.toHtml();
   }
   toHtml() {
-    const containerEl = document.querySelector('.container');
+    const containerEl = document.querySelector(".container");
     // car card
-    const carCardEl = document.createElement('figure');
-    carCardEl.className = 'user-card';
+    const carCardEl = document.createElement("figure");
+    carCardEl.className = "user-card";
     // car card image
-    const imgEl = document.createElement('img');
+    const imgEl = document.createElement("img");
     imgEl.src = this.image;
-    imgEl.alt = 'a car';
-    imgEl.className = 'card-img';
+    imgEl.alt = "a car";
+    imgEl.className = "card-img";
     carCardEl.append(imgEl);
     // car card text
-    const figcaptionEl = document.createElement('figcaption');
-    figcaptionEl.textContent = this.carbrand + ' ' + this.model;
-    figcaptionEl.className = 'card-figcaption';
+    const figcaptionEl = document.createElement("figcaption");
+    figcaptionEl.textContent = this.carbrand + " " + this.model;
+    figcaptionEl.className = "card-figcaption";
     carCardEl.append(figcaptionEl);
     // append card to container
     containerEl.append(carCardEl);
 
     // show price
-    carCardEl.addEventListener('click', (e) => {
+    carCardEl.addEventListener("click", (e) => {
       // alert('Price: ' + this.price);
-      console.log('Price: ' + this.price);
-    });    
+      console.log("Price: " + this.price);
+    });
   }
 }
 
@@ -219,7 +232,7 @@ const carsArray = [];
 
 // formEl
 const carFormEl = document.forms.carForm;
-carFormEl.addEventListener('submit', (event) => {
+carFormEl.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // value from input
@@ -230,7 +243,13 @@ carFormEl.addEventListener('submit', (event) => {
   const imageValue = carFormEl.elements.image.value;
 
   // new object
-  const newCar = new Car(carbrandValue, modelValue, mileageValue, priceValue, imageValue);
+  const newCar = new Car(
+    carbrandValue,
+    modelValue,
+    mileageValue,
+    priceValue,
+    imageValue
+  );
   console.log(newCar);
 
   // new object to array

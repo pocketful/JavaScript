@@ -11,11 +11,11 @@
 // }
 
 export default function PersonEs5(name, age) {
-    this.name = name;
-    this.age = age;
-    this.sayHi = function () {
-        console.log(`ES5: Hello I am ${this.name} and I Am ${this.age} years old`);
-    }
+  this.name = name;
+  this.age = age;
+  this.sayHi = function () {
+    console.log(`ES5: Hello I am ${this.name} and I Am ${this.age} years old`);
+  };
 }
 
 // const personEs5a = new PersonEs5('Mike', '25');

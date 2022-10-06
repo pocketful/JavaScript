@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
 /* https://www.w3schools.com/jsref/prop_win_sessionstorage.asp */
 /* The sessionStorage object stores data for only one session.
 (The data is deleted when the browser is closed). */
-sessionStorage
+sessionStorage;
 // Save Data to Session Storage
 sessionStorage.setItem("key", "value");
 // Read Data from Session Storage

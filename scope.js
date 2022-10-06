@@ -1,6 +1,6 @@
 // globali erdve arba global scope -- kas yra deklaruota ne kitos strukturos viduje
-const resultEl = document.getElementById('result');
-const btn1El = document.getElementById('btn1');
+const resultEl = document.getElementById("result");
+const btn1El = document.getElementById("btn1");
 
 let globVar1 = 10;
 function globalFunction() {
@@ -12,11 +12,11 @@ function globalFunction() {
 }
 globalFunction();
 // globVar1 bus pasikeites jeigu globalu kintamaji keitem funkcijos viduje
-console.log('globVar1 ===', globVar1);
+console.log("globVar1 ===", globVar1);
 
 /* --------------------------------------------------------- */
 let counter = 0;
-btn1El.addEventListener('click', function () {
+btn1El.addEventListener("click", function () {
   counter++;
   resultEl.textContent = `Paspaudei ${counter} kartu mygtuka`;
 });

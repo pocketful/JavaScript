@@ -2,22 +2,30 @@
 
 // console.log('5, 2, 7, 9, 10 vidurkis ===', (5 + 2 + 7 + 9 + 10) / 5);
 
-const n1 = 5; const n2 = 2; const n3 = 7; const n4 = 9; const n5 = 10;
-console.log(`${n1}, ${n2}, ${n3}, ${n4}, ${n5} vidurkis yra ${(n1 + n2 + n3 + n4 + n5) / 5}`);
+const n1 = 5;
+const n2 = 2;
+const n3 = 7;
+const n4 = 9;
+const n5 = 10;
+console.log(
+  `${n1}, ${n2}, ${n3}, ${n4}, ${n5} vidurkis yra ${
+    (n1 + n2 + n3 + n4 + n5) / 5
+  }`
+);
 
 /* 2. Parasyt koda kad apskaiciuoti apskritimo plota, perimetra, diametra pagal duota spinduli. */
 
 const r = 5;
-console.log(`Apskritimo spindulys: ${r}`)
+console.log(`Apskritimo spindulys: ${r}`);
 
-const S = Math.PI * r ** 2;                 // S = pi * r_kvadratu
-console.log(`Apskritimo plotas: ${S}`)
+const S = Math.PI * r ** 2; // S = pi * r_kvadratu
+console.log(`Apskritimo plotas: ${S}`);
 
 const C = 2 * Math.PI * r;
-console.log(`Apskritimo perimetras: ${C}`)
+console.log(`Apskritimo perimetras: ${C}`);
 
 const D = 2 * r;
-console.log(`Apskritimo diametras: ${D}`)
+console.log(`Apskritimo diametras: ${D}`);
 
 /* 3. Jus turite kambario ilgi, ploti ir auksti.
 Reikia apskaiciuoti viso kambario plota.
@@ -57,22 +65,22 @@ console.log(`Kambario sienu plotas be 2 langu ir duru: ${sienuPlotasBe}`);
 
 /* Suskaičiuok su JS koks bus cos(0) (t.y. cos, kai kampas 0 radians). Hint, atsakymas: 1. */
 const x = 0; // angle in radians
-console.log('Math.cos(x) ===', Math.cos(x));
+console.log("Math.cos(x) ===", Math.cos(x));
 
 /* Sukurk random skaičių tarp 1 ir 5 (įskaitant abu). Pasitikrink su console.log(). */
-console.log('Math.random(1 - 5) ===', Math.floor(Math.random() * 5) + 1);
+console.log("Math.random(1 - 5) ===", Math.floor(Math.random() * 5) + 1);
 
 /* Sukurk random skaičių tarp 5 ir 12 (įskaitant abu). Pasitikrink su console.log(). */
-console.log('Math.random(5 - 12) ===', Math.floor(Math.random() * 12) + 5);
+console.log("Math.random(5 - 12) ===", Math.floor(Math.random() * 12) + 5);
 
 /* Sukurk programą, kur vartotojui atidarius puslapį, alert išmestų ar jis laimėjo bilietą ar ne. Tikimybė laimėti - viena iš penkių. (Hint: čia reikės if-else su math random). */
 
 let sk = Math.floor(Math.random() * 5) + 1;
 console.log(sk);
 if (sk === 1) {
-    console.log('Laimejote');
+  console.log("Laimejote");
 } else {
-    console.log('Nieko nelaimejote');
+  console.log("Nieko nelaimejote");
 }
 
 /* Patobulink programą, kad atsirastų daugiau prizų (naudok switch statement vietoj if-else).
@@ -85,22 +93,21 @@ let num = Math.floor(Math.random() * 15) + 1;
 console.log(num);
 
 switch (num) {
-    case 1:
-        console.log('Laimejote automobili');
-        break;
-    case 2:
-    case 3:
-    case 4:
-        console.log('Laimejote televizorių');
-        break;
-    case 5:
-    case 6:
-    case 7:
-    case 8:
-    case 9:
-        console.log('Laimejote 2 eurus');
-        break;
-    default:
-        console.log('Nieko nelaimejote');
+  case 1:
+    console.log("Laimejote automobili");
+    break;
+  case 2:
+  case 3:
+  case 4:
+    console.log("Laimejote televizorių");
+    break;
+  case 5:
+  case 6:
+  case 7:
+  case 8:
+  case 9:
+    console.log("Laimejote 2 eurus");
+    break;
+  default:
+    console.log("Nieko nelaimejote");
 }
-

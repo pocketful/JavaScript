@@ -16,7 +16,7 @@ if (age > 18) {
 } else {
   console.log(`Jums yra ${age}. Jus esate nepilnametis zmogus, sveikinimai`);
 }
-console.log('Po visko');
+console.log("Po visko");
 
 // paprastas if else
 if (true) {
@@ -35,15 +35,15 @@ let sal2 = false;
 console.log(`salyga1 === ${sal1}, salyga2 === ${sal2}`);
 if (sal1) {
   // vykdom jei sal1 true
-  console.log('1 salyga 1 yra true');
+  console.log("1 salyga 1 yra true");
 } else if (sal2) {
   // vykdom jei sal1 false ir sal2 true
-  console.log('2 sal1 false ir sal2 true');
+  console.log("2 sal1 false ir sal2 true");
 } else {
   // vykdom jei sal1 false ir sal2 false
-  console.log('3 sal1 false ir sal2 false');
+  console.log("3 sal1 false ir sal2 false");
 }
 
-console.log('po visko');
+console.log("po visko");
 
 // jei skliausteliuose false vykdom sita

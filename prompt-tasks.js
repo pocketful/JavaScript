@@ -4,11 +4,11 @@
 // Paprasyti ivesti gimimo menesio diena (jei 17)
 // Paprasyti ivesti megstamiausia skaiciu (jei 11)
 
-const vardas = prompt('Iveskite varda:');
-const pavarde = prompt('Iveskite pavarde:');
-const gimMen = prompt('Iveskite gimimo menesio skaiciu:');
-const gimDien = prompt('Iveskite gimimo menesio diena:');
-const megSk = prompt('Iveskite megstamiausia skaiciu:');
+const vardas = prompt("Iveskite varda:");
+const pavarde = prompt("Iveskite pavarde:");
+const gimMen = prompt("Iveskite gimimo menesio skaiciu:");
+const gimDien = prompt("Iveskite gimimo menesio diena:");
+const megSk = prompt("Iveskite megstamiausia skaiciu:");
 
 // 1. Isvesti: "Mano draugas Jonas Jonainaitis yra gimes 08 men 17 diena"
 console.log('Mano draugas ' + vardas + ' ' + pavarde + ' yra gimes ' + gimMen + ' men ' + gimDien + ' diena');
@@ -21,10 +21,6 @@ console.log('Vartotojas ivede skaicius ' + gimMen + ', ' + gimDien + ', ' + megS
 
 // 4. Isvesti: "Visu ivestu skaiciu vidurkis yra 496.66"
 console.log('Visu ivestu skaiciu vidurkis yra ' + (Number(gimMen) + Number(gimDien) + Number(megSk)) / 3);
-
-
-
-
 
 // render to HTML
 answer1 = 'Mano draugas ' + vardas + ' ' + pavarde + ' yra gimes ' + gimMen + ' men ' + gimDien + ' diena';

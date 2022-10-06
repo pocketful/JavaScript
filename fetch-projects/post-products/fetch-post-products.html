@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <title>JS POST Products</title>
+  <script src="fetch-post-products.js" defer></script>
+  <link rel="stylesheet" href="../store/reset.css" />
+  <link rel="stylesheet" href="../store/store.css" />
+  <style>
+    body {
+      padding: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Create a post</h1>
+  <form id="form1">
+    <input type="text" name="title" placeholder="Title" />
+    <textarea name="body" cols="30" rows="4" placeholder="Enter text"></textarea>
+    <input type="hidden" name="userId" value="5" />
+    <button>Create</button>
+  </form>
+
+  <br />
+  <hr />
+
+  <h1>Create a post in a store</h1>
+  <form id="form2">
+    <input type="text" name="title" placeholder="Title"
+      value="WD 4TB Gaming Drive Works with Playstation 4 Portable External Hard Drive" />
+    <input type="number" min="0" step="0.01" name="price" placeholder="Price" value="100" />
+    <input type="text" name="description" placeholder="Description" value="Expand your PS4 gaming experience" />
+    <input type="text" name="image" placeholder="Image url"
+      value="https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg" />
+    <input type="text" name="category" placeholder="Category" value="electronics" />
+    <button>Create</button>
+  </form>
+
+  <div id="feedback"></div>
+
+  <br />
+  <hr />
+
+  <h1 id="task3">Create categories</h1>
+  <!-- <div id="categories">
+    <label for="category">Choose a category:</label>
+    <select id="category" name="category">
+      <option value="electronics">electronics</option>
+      <option value="jewelery">jewelery</option>
+      <option value="men's clothing">men's clothing</option>
+      <option value="women's clothing">women's clothing</option>
+    </select>
+  </div> -->
+
+  <section class="container"></section>
+
+</body>
+
+</html>

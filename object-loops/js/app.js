@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 /* loop object ---------------------------------------------------------------------------------- */
 // https://javascript.info/keys-values-entries
@@ -12,14 +12,14 @@
 // for...of
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for...of
 
-import { user } from './modules/data.js';
+import { user } from "./modules/data.js";
 // console.log('user ===', user); // {name: 'Mike', age: 25, hasCar: true}
 
 /* for in -------------------------------------------------------------------------------------- */
 
 // iterate object keys
 for (let key in user) {
-  console.log('user key ===', key);
+  console.log("user key ===", key);
 }
 
 // object keys to array
@@ -27,11 +27,11 @@ const keysArr = [];
 for (let key in user) {
   keysArr.push(key);
 }
-console.log('keysArr ===', keysArr);
+console.log("keysArr ===", keysArr);
 
 // iterate object values
 for (let key in user) {
-  console.log('user value ===', user[key]);
+  console.log("user value ===", user[key]);
 }
 
 // object values to array
@@ -39,20 +39,20 @@ const valuesArr = [];
 for (let key in user) {
   valuesArr.push(user[key]);
 }
-console.log('valuesArr ===', valuesArr);
+console.log("valuesArr ===", valuesArr);
 
 /* -------------------------------------------------------------------------------------- */
 // object keys to array
 const objKeys = Object.keys(user);
-console.log('objKeys ===', objKeys); // ['name', 'age', 'hasCar']
+console.log("objKeys ===", objKeys); // ['name', 'age', 'hasCar']
 
 // object values to array
 const objValues = Object.values(user);
-console.log('objValues ===', objValues); // ['Mike', 25, true]
+console.log("objValues ===", objValues); // ['Mike', 25, true]
 
 // object properties to array
 const objEntries = Object.entries(user);
-console.log('objEntries ===', objEntries);
+console.log("objEntries ===", objEntries);
 /* [Array(2), Array(2), Array(2)] 
    0: (2) ['name', 'Mike']
    1: (2) ['age', 25]
@@ -60,13 +60,13 @@ console.log('objEntries ===', objEntries);
 
 /* -------------------------------------------------------------------------------------- */
 // from objEntries get age
-console.log('objEntries[1][1] age ===', objEntries[1][1]);
+console.log("objEntries[1][1] age ===", objEntries[1][1]);
 
 /* -------------------------------------------------------------------------------------- */
-import { errors1, newUserObj } from './modules/data.js';
-console.log('errors1 ===', errors1);
+import { errors1, newUserObj } from "./modules/data.js";
+console.log("errors1 ===", errors1);
 // errors1 === {name: '', password: '', town: 'cant be blank'}
-console.log('newUserObj ===', newUserObj);
+console.log("newUserObj ===", newUserObj);
 // newUserObj === {username: 'Mike545', password: '123456', gender: 'male', country: ''}
 
 import {
@@ -74,32 +74,32 @@ import {
   checkErrorsIncludes,
   checkErrorsSome,
   isInputOk,
-} from './modules/helper.js';
+} from "./modules/helper.js";
 const checkErrorsResult = checkErrors(errors1);
-console.log('checkErrorsResult', checkErrorsResult);
+console.log("checkErrorsResult", checkErrorsResult);
 const checkErrorsSomeResult = checkErrorsSome(errors1);
-console.log('checkErrorsSomeResult', checkErrorsSomeResult);
+console.log("checkErrorsSomeResult", checkErrorsSomeResult);
 const checkErrorsIncludesResult = checkErrorsIncludes(errors1);
-console.log('checkErrorsIncludesResult', checkErrorsIncludesResult);
+console.log("checkErrorsIncludesResult", checkErrorsIncludesResult);
 
-const res1 = isInputOk(''); // 'cant be blank'
-console.log('isInputOk()', res1);
-const res2 = isInputOk('ab'); // 'must be longer then 3'
-console.log('isInputOk()', res2);
-const res3 = isInputOk('123456'); // undefined'
-console.log('isInputOk()', res3);
-const res4 = isInputOk('1234567'); // 'cant be longer than 6'
-console.log('isInputOk()', res4);
+const res1 = isInputOk(""); // 'cant be blank'
+console.log("isInputOk()", res1);
+const res2 = isInputOk("ab"); // 'must be longer then 3'
+console.log("isInputOk()", res2);
+const res3 = isInputOk("123456"); // undefined'
+console.log("isInputOk()", res3);
+const res4 = isInputOk("1234567"); // 'cant be longer than 6'
+console.log("isInputOk()", res4);
 
-import PersonEs6 from './modules/personEs6.js';
-import PersonEs5 from './modules/personEs5.js';
-const person1 = new PersonEs6('Mike', 26);
-console.log('person1 ES6 ===', person1);
+import PersonEs6 from "./modules/personEs6.js";
+import PersonEs5 from "./modules/personEs5.js";
+const person1 = new PersonEs6("Mike", 26);
+console.log("person1 ES6 ===", person1);
 person1.sayHi();
 
-const person2 = new PersonEs5('Jane', 30);
+const person2 = new PersonEs5("Jane", 30);
 person2.sayHi();
-console.log('person2 ES5 ===', person2);
+console.log("person2 ES5 ===", person2);
 
 /* -------------------------------------------------------------------------------------- */
 // https://edabit.com/challenge/9KEKJG5PZTFmG3Zau
@@ -115,12 +115,12 @@ function addName(obj, name, value) {
   //return obj;
 }
 
-const results1 = addName({}, 'Brutus', 300);
-console.log('results1', results1);
-const results2 = addName({ piano: 500 }, 'Brutus', 400);
-console.log('results2', results2);
-const results3 = addName({ piano: 500, stereo: 300 }, 'Caligula', 440);
-console.log('results3', results3);
+const results1 = addName({}, "Brutus", 300);
+console.log("results1", results1);
+const results2 = addName({ piano: 500 }, "Brutus", 400);
+console.log("results2", results2);
+const results3 = addName({ piano: 500, stereo: 300 }, "Caligula", 440);
+console.log("results3", results3);
 
 // add new property to the object
 // user.hasCar = true;

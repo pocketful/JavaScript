@@ -1,124 +1,126 @@
-'use strict';
+"use strict";
 
 const users = [
-    {
-        id: 1,
-        username: 'Bob',
-        password: 'secret123',
-        department: 'A',
-        avatar: 'https://placeimg.com/500/300/nature',
-        online: false,
-    },
-    {
-        id: 2,
-        username: 'Jill',
-        password: 'secret456',
-        department: 'B',
-        avatar: 'https://placeimg.com/500/480/nature',
-        online: true,
-    },
-    {
-        id: 3,
-        username: 'James',
-        password: 'secret789',
-        department: 'B',
-        avatar: 'https://placeimg.com/800/480/nature',
-        online: true,
-    },
-    {
-        id: 4,
-        username: 'Mike',
-        password: 'secret111',
-        department: 'C',
-        avatar: 'https://placeimg.com/640/480/nature',
-        online: false,
-    },
+  {
+    id: 1,
+    username: "Bob",
+    password: "secret123",
+    department: "A",
+    avatar: "https://placeimg.com/500/300/nature",
+    online: false,
+  },
+  {
+    id: 2,
+    username: "Jill",
+    password: "secret456",
+    department: "B",
+    avatar: "https://placeimg.com/500/480/nature",
+    online: true,
+  },
+  {
+    id: 3,
+    username: "James",
+    password: "secret789",
+    department: "B",
+    avatar: "https://placeimg.com/800/480/nature",
+    online: true,
+  },
+  {
+    id: 4,
+    username: "Mike",
+    password: "secret111",
+    department: "C",
+    avatar: "https://placeimg.com/640/480/nature",
+    online: false,
+  },
 ];
-
 
 // 1. parasyti funkcija kuri atrenka visus online esancius vartotojus
 
 function isOnline(array) {
-    const onlineUsers = array.filter((user) => user.online === true);
-    console.group('isOnline ===');
-    console.table(onlineUsers);
-    console.groupEnd();
-    return onlineUsers;
+  const onlineUsers = array.filter((user) => user.online === true);
+  console.group("isOnline ===");
+  console.table(onlineUsers);
+  console.groupEnd();
+  return onlineUsers;
 }
 isOnline(users);
 
 /* ---------------------------------------------------------------- */
 // 2. su funkcija atrinkti B ir C departameto userius
 function fromDepartmentsBC(array) {
-    const departmentBC = array.filter((user) => user.department === 'B' || user.department === 'C');
-    console.group('fromDepartmentsBC ===');
-    console.table(departmentBC);
-    console.groupEnd();
-    return departmentBC;
+  const departmentBC = array.filter(
+    (user) => user.department === "B" || user.department === "C"
+  );
+  console.group("fromDepartmentsBC ===");
+  console.table(departmentBC);
+  console.groupEnd();
+  return departmentBC;
 }
 fromDepartmentsBC(users);
 
-
 // norint atrinkt kai argumentu paduodi raide
 function fromDepartments(array, letters) {
-    const departmentUsers = array.filter((user) => letters.includes(user.department));
+  const departmentUsers = array.filter((user) =>
+    letters.includes(user.department)
+  );
 
-    // 2 way, for
-    const departmentUsers2 = array.filter((user) => {
-        for (let i = 0; i < letters.length; i++) {
-            if (user.department === letters[i]) {  // same: if (user.department.includes(letters[i])) {
-                return true;
-            }
-        }
-        return false;
-    });
+  // 2 way, for
+  const departmentUsers2 = array.filter((user) => {
+    for (let i = 0; i < letters.length; i++) {
+      if (user.department === letters[i]) {
+        // same: if (user.department.includes(letters[i])) {
+        return true;
+      }
+    }
+    return false;
+  });
 
-    // su viena raide ok:
-    // const departmentUsers = array.filter((user) => user.department.includes(letters[1]));
-    // fromDepartments(users, ['A']);
-    //const departmentUsers = array.filter((user) => user.department.includes(letters));
+  // su viena raide ok:
+  // const departmentUsers = array.filter((user) => user.department.includes(letters[1]));
+  // fromDepartments(users, ['A']);
+  //const departmentUsers = array.filter((user) => user.department.includes(letters));
 
-    console.group('fromDepartments ===', letters);
-    console.table(departmentUsers);
-    console.groupEnd();
-    return departmentUsers;
+  console.group("fromDepartments ===", letters);
+  console.table(departmentUsers);
+  console.groupEnd();
+  return departmentUsers;
 }
-fromDepartments(users, ['A', 'C']);
+fromDepartments(users, ["A", "C"]);
 // fromDepartments(users, ['A']);
-
 
 /* ---------------------------------------------------------------- */
 // 3. parasyti funkcija kuri sugeneruoja htmle nuotrauku galerija is user paveiksleliu, su username pavadinimu
 
 function generateGallery(array) {
-    // container
-    const divEl = document.createElement('div');
-    divEl.className = 'container';
+  // container
+  const divEl = document.createElement("div");
+  divEl.className = "container";
 
-    array.forEach((user) => {
-        // user card
-        const userCardEl = document.createElement('figure');
-        userCardEl.className = 'user-card';
+  array.forEach((user) => {
+    // user card
+    const userCardEl = document.createElement("figure");
+    userCardEl.className = "user-card";
 
-        // user username
-        const figcaptionEl = document.createElement('figcaption');
-        figcaptionEl.textContent = user.username;
-        figcaptionEl.className = 'user-card-figcaption';
-        userCardEl.append(figcaptionEl);
+    // user username
+    const figcaptionEl = document.createElement("figcaption");
+    figcaptionEl.textContent = user.username;
+    figcaptionEl.className = "user-card-figcaption";
+    userCardEl.append(figcaptionEl);
 
-        // user img
-        const imgEl = document.createElement('img');
-        imgEl.src = user.avatar; //   `img/${user.avatar}` - if it's in folder
-        imgEl.alt = 'nature image of ' + user.username;
-        imgEl.className = 'user-card-img';
-        userCardEl.append(imgEl);
+    // user img
+    const imgEl = document.createElement("img");
+    imgEl.src = user.avatar; //   `img/${user.avatar}` - if it's in folder
+    imgEl.alt = "nature image of " + user.username;
+    imgEl.className = "user-card-img";
+    userCardEl.append(imgEl);
 
-        // append card to container
-        divEl.append(userCardEl);
-    });
+    // append card to container
+    divEl.append(userCardEl);
+  });
 
-    //append container
-    document.body.append(divEl);
+  //append container
+  document.body.append(divEl);
 }
 generateGallery(users);
 
@@ -126,24 +128,22 @@ generateGallery(users);
 // 4. parasyti funkcija kuriai paduodam id ir ji grazina objekta kurio id sutampa su duotu. jei toks nerandamas tai grazina { found: false, msg: 'user not found', }
 
 function objectFromId(id, array) {
-    const userWithId = array.find((user) => user.id === id) || { found: false, msg: 'user not found' };
+  const userWithId = array.find((user) => user.id === id) || {
+    found: false,
+    msg: "user not found",
+  };
 
-    console.group('userWithId ===');
-    console.table(userWithId);
-    console.groupEnd();
+  console.group("userWithId ===");
+  console.table(userWithId);
+  console.groupEnd();
 }
 objectFromId(8, users);
-
 
 /* ---------------------------------------------------------------- */
 // 5. Parasyti funkcija kuriai paduodam username ir password.
 // 5.1 jei pasword ir username sutampa tai iskonsolinam loggin success
 // 5.2 jei pasword ir username nesutampa tai iskonsolinam loggin fail
 // 5.3 jei pasword ir username sutampa tai padarom vartotoja kad jis butu online
-
-
-
-
 
 /* CAO objects array ================================================================================== */
 
@@ -162,34 +162,45 @@ const data = [{ id: 1, first_name: "Lief", gender: "Female", car_model: "Corolla
 /* -----------------------------------------------------------------------*/
 /* 1. Pasakykite skaičių kiek vyrų yra tarp šių duomenų (t.y. console'log skaičių).*/
 
-const howManyMan = data.reduce((total, obj) => obj.gender === "Male" ? total + 1 : total, 0);
-console.log('howManyMan ===', howManyMan);
+const howManyMan = data.reduce(
+  (total, obj) => (obj.gender === "Male" ? total + 1 : total),
+  0
+);
+console.log("howManyMan ===", howManyMan);
 
-    // cao 
-    console.log(data.filter((person) => person.gender === "Male").length);
-
+// cao
+console.log(data.filter((person) => person.gender === "Male").length);
 
 /* -----------------------------------------------------------------------*/
 /* 2. Sukurkite masyvą, kuriuose būtų id visų žmonių, kurie turi automobilius naujesnius nei 2000 metai. */
 
-const newerCars = data.filter((obj) => obj.car_year > 2000).map((obj) => obj.id);
-console.log('newerCars ===', newerCars);
-
+const newerCars = data
+  .filter((obj) => obj.car_year > 2000)
+  .map((obj) => obj.id);
+console.log("newerCars ===", newerCars);
 
 /* -----------------------------------------------------------------------*/
 /* 3. Sukurkite masyvą visų žmonių, kurių marškinių dydžiai XS arba S; ir surūšiuokite šį masyvą pagal vardus, A-Z tvarka (alfabetiškai). */
 /* 4. Pakoreguokite trečią pratimą, kad masyve matytųsi tik id, vardas bei marškinių dydis. */
 
-const smallShirts = data.filter((obj) => obj.shirt_size === 'XS' || obj.shirt_size === 'S')
-  .sort((objA, objB) => objA.first_name > objB.first_name ? 1 : -1)
+const smallShirts = data
+  .filter((obj) => obj.shirt_size === "XS" || obj.shirt_size === "S")
+  .sort((objA, objB) => (objA.first_name > objB.first_name ? 1 : -1))
   // .map((obj) => ({ id: obj.id, first_name: obj.first_name, shirt_size: obj.shirt_size, }));
   .map(({ id, first_name, shirt_size }) => ({ id, first_name, shirt_size }));
 
-console.group('smallShirts ===');
+console.group("smallShirts ===");
 console.table(smallShirts);
 console.groupEnd();
 
 // cao
-console.log(data.filter((person) => person.shirt_size === "XS" || person.shirt_size === "S")
-  .map((person) => ({ id: person.id, first_name: person.first_name, shirt_size: person.shirt_size, }))
-  .sort((a, b) => (a.first_name > b.first_name ? 1 : -1)));
+console.log(
+  data
+    .filter((person) => person.shirt_size === "XS" || person.shirt_size === "S")
+    .map((person) => ({
+      id: person.id,
+      first_name: person.first_name,
+      shirt_size: person.shirt_size,
+    }))
+    .sort((a, b) => (a.first_name > b.first_name ? 1 : -1))
+);
